@@ -8,9 +8,9 @@ export interface Props {
 const { href, title, body } = Astro.props as Props;
 ---
 
-<li class="link-card border border-gray-500">
+<li class="link-card border border-gray-500 hover:text-brand">
   <a href={href}>
-    <h2>
+    <h2 class="capitalize text-2xl">
       {title}
       <span>&rarr;</span>
     </h2>
