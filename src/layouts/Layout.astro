@@ -17,7 +17,24 @@ import { SEO } from 'astro-seo';
     <meta name="generator" content={Astro.generator} />
     <SEO title={title} description={description} />
   </head>
-  <body class="dark:bg-black dark:text-white p-10">
+
+  <body class="bg-white dark:bg-slate-800 dark:text-white p-10">
+    <nav class="flex justify-center font-mono font-bold">
+      <ul class="flex mx-auto gap-4 p-10 uppercase">
+        <li>
+          <a
+            class="border-b-2 transition-all border-b-transparent hover:border-brand-300"
+            href="/">home</a
+          >
+        </li>
+        <li>
+          <a
+            class="border-b-2 transition-all border-b-transparent hover:border-brand-300"
+            href="/appearances">appearances</a
+          >
+        </li>
+      </ul>
+    </nav>
     <slot />
   </body>
 </html>
