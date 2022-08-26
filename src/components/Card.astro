@@ -8,7 +8,7 @@ export interface Props {
 const { href, title, body } = Astro.props as Props;
 ---
 
-<li class="link-card">
+<li class="link-card border border-gray-500">
   <a href={href}>
     <h2>
       {title}
@@ -20,20 +20,10 @@ const { href, title, body } = Astro.props as Props;
   </a>
 </li>
 <style>
-  :root {
-    --link-gradient: linear-gradient(
-      45deg,
-      #4f39fa,
-      #da62c4 30%,
-      var(--color-border) 60%
-    );
-  }
-
   .link-card {
     list-style: none;
     display: flex;
     padding: 0.15rem;
-    background-image: var(--link-gradient);
     background-size: 400%;
     border-radius: 0.5rem;
     background-position: 100%;
@@ -46,8 +36,6 @@ const { href, title, body } = Astro.props as Props;
     line-height: 1.4;
     padding: 1em 1.3em;
     border-radius: 0.35rem;
-    color: var(--text-color);
-    background-color: white;
     opacity: 0.8;
   }
 
@@ -71,7 +59,7 @@ const { href, title, body } = Astro.props as Props;
   }
 
   .link-card:is(:hover, :focus-within) h2 {
-    color: #4f39fa;
+    color: #3cc612;
   }
 
   .link-card:is(:hover, :focus-within) h2 span {
