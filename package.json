@@ -5,9 +5,18 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "stylelint-check": "stylelint-config-prettier-check"
   },
   "devDependencies": {
-    "astro": "^1.0.0-rc.8"
+    "@astrojs/tailwind": "^1.0.0",
+    "astro": "^1.0.0-rc.8",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "2.7.1",
+    "prettier-plugin-astro": "^0.5.3",
+    "stylelint-config-prettier": "^9.0.3"
+  },
+  "dependencies": {
+    "astro-imagetools": "^0.6.10"
   }
 }
