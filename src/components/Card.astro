@@ -3,15 +3,20 @@ export interface Props {
   title: string;
   body: string;
   href: string;
+  isExternalLink?: boolean;
 }
 
-const { href, title, body } = Astro.props as Props;
+const { href, title, body, isExternalLink } = Astro.props as Props;
 ---
 
 <li
   class="link-card group transition-all border border-gray-500 hover:text-brand-500 hover:border-brand-500"
 >
-  <a href={href}>
+  <a
+    href={href}
+    target={isExternalLink ? '_blank' : undefined}
+    rel={isExternalLink ? 'noopener noreferrer' : undefined}
+  >
     <h2 class="capitalize text-2xl">
       {title}
       <span>&rarr;</span>
