@@ -1267,6 +1267,11 @@ astro-imagetools@^0.6.10:
   optionalDependencies:
     imagetools-core "3.0.2"
 
+astro-seo@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/astro-seo/-/astro-seo-0.6.0.tgz#d46f98baa929f2111dd702662806fa741a9ac02a"
+  integrity sha512-nR+dJlAyQhX6s0oAmbBqPq3KCZax/zVAerFsclGiJQ2znOkS/7L+RGjziS4M9Q3OQxm3FMfqIKHp9Ns73Q81ww==
+
 astro@^1.0.0-rc.8:
   version "1.0.0-rc.8"
   resolved "https://registry.yarnpkg.com/astro/-/astro-1.0.0-rc.8.tgz#93bc150ba131eaf6d5274ec922b512eafab35b15"
