@@ -1,3 +1,3 @@
-# hamatoyogi.dev
+# hamatoyogi dot dev
 
-The codebase for hamatoyogi.dev
+The codebase behind hamatoyogi.dev

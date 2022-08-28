@@ -5,6 +5,7 @@ export interface Props {
 }
 
 const { title, description } = Astro.props as Props;
+import Navigation from '~components/Navigation.astro';
 import { SEO } from 'astro-seo';
 ---
 
@@ -21,23 +22,8 @@ import { SEO } from 'astro-seo';
     <SEO title={title} description={description} />
   </head>
 
-  <body class="bg-white dark:bg-slate-800 dark:text-white p-10">
-    <nav class="flex justify-center font-mono font-bold">
-      <ul class="flex mx-auto gap-4 p-10 uppercase">
-        <li>
-          <a
-            class="border-b-2 transition-all border-b-transparent hover:border-brand-300"
-            href="/">home</a
-          >
-        </li>
-        <li>
-          <a
-            class="border-b-2 transition-all border-b-transparent hover:border-brand-300"
-            href="/appearances">appearances</a
-          >
-        </li>
-      </ul>
-    </nav>
+  <body class="bg-white dark:bg-slate-800 dark:text-white p-10 font-mono">
+    <Navigation />
     <slot />
   </body>
 </html>

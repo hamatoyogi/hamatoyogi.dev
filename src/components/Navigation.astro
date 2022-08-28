@@ -1,0 +1,50 @@
+---
+const links = [
+  {
+    href: '/',
+    text: 'Yoav Ganbar',
+    style: { color: '#42C966' },
+  },
+  {
+    href: '/about',
+    text: 'about',
+  },
+  {
+    href: '/blog',
+    text: 'blog',
+  },
+  {
+    href: '/work',
+    text: 'work',
+  },
+  {
+    href: '/appearances',
+    text: 'appearances',
+  },
+  {
+    href: 'https://anchor.fm/fedbites',
+    text: 'FedBites Podcast',
+    target: '_blank',
+    rel: 'noopener',
+  },
+];
+---
+
+<nav class="flex justify-center font-mono font-bold">
+  <ul class="flex mx-auto gap-6 p-10 uppercase">
+    {
+      links.map(({ href, text, ...rest }) => (
+        <li>
+          <a
+            class="hover:border-brand-300 border-b-2 border-b-transparent transition-all"
+            href={href}
+            {...rest}
+          >
+            {text}
+          </a>
+        </li>
+        <li class="last:hidden">|</li>
+      ))
+    }
+  </ul>
+</nav>
