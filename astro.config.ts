@@ -5,10 +5,11 @@ import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import svelte from '@astrojs/svelte';
 import solid from '@astrojs/solid-js';
-
 /** @type {import('astro').AstroUserConfig} */
 
 import lit from '@astrojs/lit';
+
+import partytown from '@astrojs/partytown';
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,5 +21,6 @@ export default defineConfig({
     svelte(),
     solid(),
     lit(),
+    partytown({ config: { debug: true } }),
   ],
 });
