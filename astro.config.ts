@@ -21,6 +21,6 @@ export default defineConfig({
     svelte(),
     solid(),
     lit(),
-    partytown({ config: { debug: true } }),
+    partytown({}),
   ],
 });
