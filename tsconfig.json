@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "types": ["astro/client"],
+    "types": ["@astrojs/image/client"],
     "baseUrl": ".",
     "paths": {
       "~components/*": ["src/components/*"],

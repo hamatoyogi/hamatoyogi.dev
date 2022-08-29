@@ -24,7 +24,9 @@ import { SEO } from 'astro-seo';
     <SEO title={title} description={description} />
   </head>
 
-  <body class="bg-white dark:bg-slate-800 dark:text-white p-10 font-mono">
+  <body
+    class="bg-white dark:bg-slate-800 dark:text-white p-2 md:p-10 font-mono"
+  >
     <Navigation />
     <slot />
   </body>
