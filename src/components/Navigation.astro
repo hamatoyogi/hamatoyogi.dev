@@ -38,7 +38,7 @@ const links = [
   </button>
 </div>
 
-<nav class="opacity-0 md:mt-0 md:opacity-100 transition-opacity duration-500 flex md:justify-center font-mono font-bold absolute md:static bg-white dark:bg-black z-10 md:bg-transparent w-screen left-0 top-0 md:w-full h-screen md:h-fit">
+<nav class="opacity-0 md:mt-0 md:opacity-100 transition-opacity duration-500 flex md:justify-center font-mono font-bold absolute md:static bg-white dark:bg-black md:bg-transparent w-screen left-0 top-0 md:w-full h-screen md:h-fit">
    <ul class="flex md:flex-wrap flex-col md:justify-center md:flex-row mt-[15vh] md:mt-0 mx-auto gap-6 md:p-10 uppercase">
      {
        links.map(({ href, text, ...rest }) => (
@@ -151,6 +151,7 @@ const links = [
     transition-delay: 0.075s; }
 nav.is-open {
   opacity: 1;
+  z-index: 10;
 }
 
 </style>
