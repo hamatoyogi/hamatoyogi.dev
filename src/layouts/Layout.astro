@@ -7,6 +7,7 @@ export interface Props {
 const { title, description } = Astro.props as Props;
 import Navigation from '~components/Navigation.astro';
 import { SEO } from 'astro-seo';
+import Footer from '~components/Footer.astro';
 ---
 
 <!DOCTYPE html>
@@ -27,13 +28,6 @@ import { SEO } from 'astro-seo';
   <body class="bg-white dark:bg-slate-800 dark:text-white font-mono">
     <Navigation />
     <slot class="p-2 md:p-10 pb-20" />
-    <footer
-      class="mt-14 p-4 border-t border-brand-800 flex items-center w-full gap-4 justify-center"
-    >
-      <p>© 2022 HamatoYogi</p>
-      <a href="https://twitter.com/hamatoyogi">
-        <img src="/images/twitter-circle.svg" class="w-8 h-8 object-contain" />
-      </a>
-    </footer>
+    <Footer />
   </body>
 </html>
