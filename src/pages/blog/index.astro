@@ -1,18 +1,22 @@
 ---
+import { formatDate } from 'src/utils/date-formatter';
+import Card from '~components/Card.astro';
 import ExternalLink from '~components/ExternalLink.astro';
 import Layout from '~layouts/Layout.astro';
 
 interface PostItem {
   link: string;
+  title: string;
   description: string;
   publishDate: string;
 }
 
 const posts: PostItem[] = [
   {
-    link: '',
-    description: '',
-    publishDate: ''
+    link: 'blog/why-astro',
+    title: 'Why Astro',
+    description: 'The first post on this site about why I chose Astro.',
+    publishDate: formatDate({ date: '9/3/2022', dateStyle: 'short' }),
   },
 ];
 ---
@@ -20,13 +24,17 @@ const posts: PostItem[] = [
 <Layout title="Blog | hamatoyogi.dev" description="Blog posts by Yoav Ganbar">
   <main class="px-4 md:px-0 md:mx-[20vw]">
     <h1 class="text-3xl mt-10 md:mt-32">Blog</h1>
-    <p class="mt-10">Coming soon...</p>
-    <p class="mt-10">
-      Need to organize my scattered publications... You can find them on the <a
-        href="/"
-        class="underline">hompage</a
-      >.
-    </p>
+    <div class="mt-10 md:mt-20">
+      {
+        posts.map(({ title, link, description, publishDate }) => (
+          <Card
+            body={description}
+            href={link}
+            title={`${title} | ${publishDate}`}
+          />
+        ))
+      }
+    </div>
   </main>
 </Layout>
 
