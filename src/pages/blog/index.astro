@@ -1,0 +1,45 @@
+---
+import { formatDate } from 'src/utils/date-formatter';
+import Card from '~components/Card.astro';
+import ExternalLink from '~components/ExternalLink.astro';
+import Layout from '~layouts/Layout.astro';
+
+interface PostItem {
+  link: string;
+  title: string;
+  description: string;
+  publishDate: string;
+}
+
+const posts: PostItem[] = [
+  {
+    link: 'blog/why-astro',
+    title: 'Why Astro',
+    description: 'The first post on this site about why I chose Astro.',
+    publishDate: formatDate({ date: '9/3/2022', dateStyle: 'short' }),
+  },
+];
+---
+
+<Layout title="Blog | hamatoyogi.dev" description="Blog posts by Yoav Ganbar">
+  <main class="px-4 md:px-0 md:mx-[20vw]">
+    <h1 class="text-3xl mt-10 md:mt-32">Blog</h1>
+    <div class="mt-10 md:mt-20">
+      {
+        posts.map(({ title, link, description, publishDate }) => (
+          <Card
+            body={description}
+            href={link}
+            title={`${title} | ${publishDate}`}
+          />
+        ))
+      }
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .link-card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+  }
+</style>

@@ -8,8 +8,9 @@ import solid from '@astrojs/solid-js';
 
 import lit from '@astrojs/lit';
 import partytown from '@astrojs/partytown';
-
 import image from '@astrojs/image';
+
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,5 +23,7 @@ export default defineConfig({
     lit(),
     partytown({}),
     image(),
+    sitemap(),
   ],
+  site: 'https://hamatoyogi.dev',
 });

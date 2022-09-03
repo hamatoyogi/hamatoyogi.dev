@@ -1,0 +1,9 @@
+user-agent: *
+
+Allow: /
+
+# Host
+Host: https://hamtoyogi.dev
+
+# Sitemaps
+Sitemap: https://hamtoyogi.dev/sitemap.xml

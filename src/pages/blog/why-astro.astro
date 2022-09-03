@@ -1,0 +1,265 @@
+---
+import Layout from '~layouts/Layout.astro';
+import { Image } from '@astrojs/image/components';
+import { Tweet } from '@astro-community/astro-embed-twitter';
+
+/* Images */
+import componentFolderImage from '~assets/blog/why-astro/folders.png';
+import astroQwikImage from '~assets/blog/why-astro/astro-qwik.png';
+import rootFolderImage from '~assets/blog/why-astro/root-folder.png';
+
+/* ######## */
+
+import { formatDate } from 'src/utils/date-formatter';
+
+const publishDate = formatDate({ date: '9/3/2022' });
+---
+
+<Layout
+  title="Why I Decided To Build My Site With Astro"
+  description="The reason behind my choice of Astro as my sites meta framework."
+>
+  <main
+    class="px-4 mx-auto md:px-0 mt-10 md:mt-32 prose dark:prose-invert xl:prose-xl"
+  >
+    <article>
+      <header>
+        <h1 class="page-title">Why I Decided To Build My Site With Astro</h1>
+        <h2>Published: {publishDate}</h2>
+      </header>
+      <p>
+        It’s been a long time coming… I’ve procrastinated. Started and stopped,
+        changed frameworks and tools - but I’ve finally got my site up!
+      </p>
+      <p></p>
+      <p>
+        My thoughts and trials with
+        <a href="https://astro.build/">Astro</a> date back a year, when I originally
+        started writing this post, which was at the time just titled “Astro”. However,
+        now that I’ve made the plunge I am happy I can take you through time and
+        bring you this post.
+      </p>
+      <p></p>
+      <p>
+        It all started on <strong>August 30th 2021…</strong>
+      </p>
+      <p></p>
+      <p>Ok, so I just somehow ended up on Astro&#x27;s website...</p>
+      <p>Then I got to a repo by Chris Coyer that looks like this:</p>
+      <figure class="flex justify-center">
+        <Image
+          src={rootFolderImage}
+          alt="Astro root component folder screenshot"
+          format="webp"
+        />
+      </figure>
+      <p>
+        What is this? A <code>.vue</code> file? a <code>.jsx</code> file, a
+        <code>.scss</code> file and <code>.astro</code> file...
+      </p>
+      <p>I am super intrigued...</p>
+      <p>
+        The geek dive continues, and I end up on <a
+          href="https://github.com/snowpackjs/astro/tree/main/examples/framework-multiple/"
+          >this repo</a
+        >.
+      </p>
+      <p>
+        Specifically, the <code>/src/components</code> directory:
+      </p>
+      <figure class="flex justify-center">
+        <Image
+          src={componentFolderImage}
+          format="webp"
+          alt="Astro compoonents folder"
+        />
+      </figure>
+      <figure class="flex flex-col items-center">
+        <Image
+          width={480}
+          height={270}
+          src="https://media.giphy.com/media/l0HlIF6tmHuhmztL2/giphy.gif?cid=790b7611a0505cfebb064aba8684302bad89e202feb52d0c&rid=giphy.gif&ct=g"
+          format={undefined}
+        />
+        <figcaption>
+          source: <a
+            href="https://media.giphy.com/media/l0HlIF6tmHuhmztL2/giphy.gif?cid=790b7611a0505cfebb064aba8684302bad89e202feb52d0c&rid=giphy.gif&ct=g"
+            >giphy</a
+          >
+        </figcaption>
+      </figure>
+      <p>
+        I get a little giddy... A framework that can render any framework?! A
+        META FRAMEWORK?!?!
+      </p>
+      <p>It has partial hydration and does SSG?!</p>
+      <p>
+        They comically repeat this paragraph in their (old, now broken link -
+        this is
+        <a href="https://docs.astro.build/en/comparing-astro-vs-other-tools/"
+          >the new link</a
+        >, which is also unmaintained) comparison page:
+      </p>
+      <blockquote>
+        &quot;In most cases, Astro websites will load significantly faster than
+        [INSERT FRAMEWORK / LIB / TOOL NAME] websites. This is because Astro
+        automatically strips unnecessary JavaScript from the page, hydrating
+        only the individual components that need it. This feature is called
+        partial hydration.&quot;
+      </blockquote>
+      <p>
+        More geek diving into the documentation... It&#x27;s late, but I
+        can&#x27;t stop... Until, my wife pulls my by the ear to come to bed.
+      </p>
+      <p>
+        Due to my day job, end of summer vacation and the beginning of the
+        school year, I have not come back to continue writing this post in a
+        week or so... Luckily, my personal computer still has all my browser
+        tabs open and Notion open on this post.
+      </p>
+      <h3>August 31st 2022...</h3>
+      <p>
+        Dang it takes me way too long to write… But that’s not what this post is
+        about 😅 - back to it!
+      </p>
+      <p>
+        So, seeing as a year past by since I last started writing this post, 2
+        incredible things happened:
+      </p>
+      <ol>
+        <li>Astro hit V1.0</li>
+        <li>
+          I launched my website (yes this one!) which I’ve built with Astro
+        </li>
+      </ol>
+      <p>
+        As I’ve said, the experience building and shipping the site was pure
+        delight!
+      </p>
+      <Tweet id="https://twitter.com/HamatoYogi/status/1563103570266042368" />
+      <p>
+        What was really cool was how easy it was to feel at home writing Astro
+        components. It was like getting back to my webmaster roots. Simply type
+        out your HTML, need style? Write a <code>&lt;style&gt;</code> tag beneath
+        it. Need some JS? Add a <code>&lt;script&gt;</code> tag. I know the word
+        “simple” has bad connotations when used in technical contexts, but seriously
+        - it’s dead on 1-1 mapping of authoring websites circa 1998 with a lot of
+        extra nifty features.
+      </p>
+      <p>
+        When I started off with the website, as I usually do, I went on a
+        configuration frenzy… I wanted all the things inside my Astro project.
+        That’s why I installed:
+      </p>
+      <ul>
+        <li>@astrojs/image</li>
+        <li>@astrojs/lit</li>
+        <li>@astrojs/mdx</li>
+        <li>@astrojs/partytown</li>
+        <li>@astrojs/react</li>
+        <li>@astrojs/solid-js</li>
+        <li>@astrojs/svelte</li>
+        <li>@astrojs/tailwind</li>
+        <li>prettier-plugin-astro</li>
+        <li>@astrojs/vercel</li>
+        <li>astro-seo</li>
+      </ul>
+      <p>
+        The beauty is - this has no effect on bundle size, as in the end I ended
+        up using only Astro components. However, even if I do use a different
+        framework component - it will still have minimal effect, unless I add
+        interactivity to said component.
+      </p>
+      <p>
+        If you are unfamiliar with what Astro offers, the main thing that makes
+        what I’ve described possible is the
+        <a href="https://docs.astro.build/en/concepts/islands/"
+          >“island architecture”</a
+        >
+        and their
+        <a href="https://docs.astro.build/en/concepts/why-astro/#server-first"
+          >“server first”</a
+        >
+        approach.
+      </p>
+      <p>
+        The gist of it is that Astro leverages server side rendering over client
+        side rendering, and in thus, avoiding most of the problems of hydration.
+        And as we know, and Misko Hevery said
+        <a href="https://www.builder.io/blog/hydration-is-pure-overhead"
+          >“hydration is pure overhead”</a
+        >.
+      </p>
+      <p>
+        Secondly, Astro Islands allow you to decide which part of a page (or
+        which component) is interactive. This gives you as a developer granular
+        control over what hydrates, and when your JS should be executed. This is
+        all achieved via
+        <a
+          href="https://docs.astro.build/en/reference/directives-reference/#client-directives"
+          >“client directives”.</a
+        >
+      </p>
+      <p>
+        Not to be confused with directives from Angular or Vue, these directives
+        control how a component hydrates, no matter in which framework.
+      </p>
+      <blockquote>
+        Hydration TLDR: in most UI frameworks when you server render a
+        component, JS is executed on the server to render the markup. Then when
+        the page loads on the browser, the framework runs all that JS code once
+        again to add listeners and whatnot to the page to make it interactive.
+      </blockquote>
+      <p>
+        Side note: A few new frameworks are tackling this exact problem and try
+        to avoid hydration all together. Check out
+        <a href="https://qwik.builder.io/"><code>QwikJS</code></a> and
+        <a href="https://markojs.com/"><code>MarkoJS</code></a> if that floats your
+        boat. I for one am excited about a potential integration between QwikJS and
+        Astro:
+      </p>
+      <figure class="flex justify-center">
+        <Image src={astroQwikImage} format="webp" alt="Astro + Qwik tweet" />
+      </figure>
+      <p>
+        The reason I’ve (finally) chosen Astro to be the framework I build my
+        site with was to be able to experiment with all the UI frameworks and
+        have a front end playground if you will. Seeing as most of the time in
+        my day job I use React, I wanted a chance to see how writing in Vue or
+        Svelte feels like. However, I’ve found myself writing mostly Astro
+        components since I started working on my site 😅.
+      </p>
+      <p>
+        I hope to dig deeper into this framework and try all it has to offer.
+        These are exciting times in the web dev world, and I can’t wait to try
+        and integrate all kinds of tools and patterns I’ve came across.
+      </p>
+      <p>A few things I’m planing to try, integrate and experiment with are:</p>
+      <ul>
+        <li>Module Federation with Astro.</li>
+
+        <li>
+          <a href="https://Builder.IO">Builder.IO</a> for managing some data.
+        </li>
+        <li>Give a go at trying to make Astro work with Qwik.js.</li>
+        <li>
+          The new <code>:has</code> CSS selector + CSS subgrid.
+        </li>
+        <li>
+          Using <a href="https://Bit.dev">Bit.dev</a> within this site.
+        </li>
+      </ul>
+      <p>
+        I’m thrilled that I’ve finally have a place to call my own and stop
+        publishing content on platforms that don’t exactly let you own your
+        content.
+      </p>
+      <p>
+        My work has just begun with this pet project, and I hope this will lead
+        to me being more consistent with my writing, but I’ve got a bag of
+        excuses to last me a lifetime 😂….
+      </p>
+      <p>That’s it for now.</p>
+    </article>
+  </main>
+</Layout>

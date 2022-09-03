@@ -1,4 +1,8 @@
 ---
+import { Image } from '@astrojs/image/components';
+
+import myImage from '~assets/yoav.png';
+
 import Layout from '~layouts/Layout.astro';
 import Card from '~components/Card.astro';
 ---
@@ -11,11 +15,18 @@ import Card from '~components/Card.astro';
     <figure
       class="w-20 h-20 mt-10 overflow-hidden rounded-full border border-brand-400"
     >
-      <img src="/images/yoav.png" />
+      <Image
+        src={myImage}
+        format="webp"
+        width={80}
+        height={80}
+        alt="a picture of Yoav  Ganbar"
+      />
     </figure>
     <h1 class="text-4xl font-bold mt-10">Yoav Ganbar</h1>
     <h2 class="text-lg mt-4">Web Craftsman</h2>
     <ul role="list" class="link-card-grid grid gap-4 mt-10 md:mt-20">
+      <Card href="/blog" title="blog" body="Read the latest from my blog" />
       <Card
         href="/appearances"
         title="appearances"
