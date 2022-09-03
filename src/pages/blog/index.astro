@@ -1,12 +1,23 @@
 ---
 import ExternalLink from '~components/ExternalLink.astro';
 import Layout from '~layouts/Layout.astro';
+
+interface PostItem {
+  link: string;
+  description: string;
+  publishDate: string;
+}
+
+const posts: PostItem[] = [
+  {
+    link: '',
+    description: '',
+    publishDate: ''
+  },
+];
 ---
 
-<Layout
-  title="Appearences | hamatoyogi.dev"
-  description="Apperences, podcasts, interviews, and talks by Yoav Ganbar"
->
+<Layout title="Blog | hamatoyogi.dev" description="Blog posts by Yoav Ganbar">
   <main class="px-4 md:px-0 md:mx-[20vw]">
     <h1 class="text-3xl mt-10 md:mt-32">Blog</h1>
     <p class="mt-10">Coming soon...</p>

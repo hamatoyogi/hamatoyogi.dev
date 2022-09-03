@@ -10,6 +10,18 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
+"@astro-community/astro-embed-twitter@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@astro-community/astro-embed-twitter/-/astro-embed-twitter-0.1.3.tgz#8d7959b88400697c8f792db97c4184b993e7cef1"
+  integrity sha512-lcOBnzhczNrngkafzD+8BGKiK8oJvahg3/QUuWgueNwHRU8C+18brdxKc1i4ttZWgAt1A5u+jx21Tc4bquMUzg==
+  dependencies:
+    "@astro-community/astro-embed-utils" "^0.0.3"
+
+"@astro-community/astro-embed-utils@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@astro-community/astro-embed-utils/-/astro-embed-utils-0.0.3.tgz#b799ea8725e3a897e7bf65e2f48a66374a7f34ee"
+  integrity sha512-hXwSMtSAL3V9fnFHps+/CoDIJst26U/qSdI7srIQ8GPmFqdbcqJd/qOqYzGezAR/qTM8gmTjDCGOuVI0Z+xT3Q==
+
 "@astrojs/compiler@^0.23.3", "@astrojs/compiler@^0.23.4":
   version "0.23.4"
   resolved "https://registry.npmjs.org/@astrojs/compiler/-/compiler-0.23.4.tgz"
