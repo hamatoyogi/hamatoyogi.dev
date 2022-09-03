@@ -50,6 +50,7 @@ const publishDate = formatDate({ date: '9/3/2022' });
         <Image
           src={rootFolderImage}
           alt="Astro root component folder screenshot"
+          format="webp"
         />
       </figure>
       <p>
@@ -67,7 +68,11 @@ const publishDate = formatDate({ date: '9/3/2022' });
         Specifically, the <code>/src/components</code> directory:
       </p>
       <figure class="flex justify-center">
-        <Image src={componentFolderImage} alt="Astro compoonents folder" />
+        <Image
+          src={componentFolderImage}
+          format="webp"
+          alt="Astro compoonents folder"
+        />
       </figure>
       <figure class="flex flex-col items-center">
         <Image
@@ -214,7 +219,7 @@ const publishDate = formatDate({ date: '9/3/2022' });
         Astro:
       </p>
       <figure class="flex justify-center">
-        <Image src={astroQwikImage} alt="Astro + Qwik tweet" />
+        <Image src={astroQwikImage} format="webp" alt="Astro + Qwik tweet" />
       </figure>
       <p>
         The reason I’ve (finally) chosen Astro to be the framework I build my
