@@ -1,9 +1,10 @@
 ---
+import ThemeToggle from './ThemeToggle.astro';
+
 const links = [
   {
     href: '/',
     text: 'Home',
-    style: { color: '#42C966' },
   },
   {
     href: '/about',
@@ -29,43 +30,48 @@ const links = [
   },
 ];
 ---
-<div class="flex justify-end md:hidden">
-  <button class="hamburger hamburger--elastic z-20 relative" type="button" role="navigation" aria-label="navigation menu">
-    <span class="hamburger-box">
-      <span class="hamburger-inner">
-      </span>
-    </span>
-  </button>
-</div>
 
-<nav class="opacity-0 md:mt-0 md:opacity-100 pointer-events-none md:pointer-events-auto transition-opacity duration-500 flex md:justify-center font-mono font-bold absolute md:static bg-white dark:bg-black md:bg-transparent w-screen left-0 top-0 md:w-full h-screen md:h-fit">
-   <ul class="flex md:flex-wrap flex-col md:justify-center md:flex-row mt-[15vh] md:mt-0 mx-auto gap-6 md:p-10 uppercase">
-     {
-       links.map(({ href, text, ...rest }) => (
-         <li>
-           <a
-             class="hover:border-brand-300 border-b-2 border-b-transparent transition-all"
-             href={href}
-             {...rest}
-           >
-             {text}
-           </a>
-         </li>
-         <li class="hidden md:flex md:last:hidden">|</li>
-       ))
-     }
-   </ul>
+<nav class="flex items-center justify-between flex-wrap bg-slate-900 p-6">
+  <div class="flex items-center flex-shrink-0 text-white mr-6">
+    <span class="font-semibold text-xl tracking-tight">HamatoYogi</span>
+  </div>
+  <div class="block lg:hidden">
+    <button
+      class="hamburger hamburger--elastic z-20 relative"
+      type="button"
+      role="navigation"
+      aria-label="navigation menu"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"> </span>
+      </span>
+    </button>
+  </div>
+  <menu class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+    <ul class="text-sm lg:flex-grow">
+      {
+        links.map(({ href, text, ...rest }) => (
+          <li class="mt-4 mr-4 block capitalize text-teal-200 transition-all hover:text-white lg:mt-0 lg:inline-block">
+            <a href={href} {...rest}>
+              {text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <ThemeToggle />
+  </menu>
 </nav>
 
 <script>
   // Look for .hamburger
-  var hamburger = document.querySelector(".hamburger");
-  var nav = document.querySelector("nav");
+  var hamburger = document.querySelector('.hamburger');
+  var nav = document.querySelector('nav');
   // On click
-  hamburger.addEventListener("click", () => {
+  hamburger.addEventListener('click', () => {
     // Toggle class "is-active"
-    hamburger.classList.toggle("is-active");
-    nav.classList.toggle("is-open");
+    hamburger.classList.toggle('is-active');
+    nav.classList.toggle('is-open');
     // Do something else, like open/close menu
   });
 </script>
@@ -75,41 +81,48 @@ const links = [
     --hamburger-color: white;
   }
 
- .hamburger {
-  padding: 15px 15px;
-  display: inline-block;
-  cursor: pointer;
-  transition-property: opacity, filter;
-  transition-duration: 0.15s;
-  transition-timing-function: linear;
-  font: inherit;
-  color: inherit;
-  text-transform: none;
-  background-color: transparent;
-  border: 0;
-  margin: 0;
-  overflow: visible; }
+  .hamburger {
+    padding: 15px 15px;
+    display: inline-block;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+  }
   .hamburger:hover {
-    opacity: 0.7; }
+    opacity: 0.7;
+  }
   .hamburger.is-active:hover {
-    opacity: 0.7; }
+    opacity: 0.7;
+  }
   .hamburger.is-active .hamburger-inner,
   .hamburger.is-active .hamburger-inner::before,
   .hamburger.is-active .hamburger-inner::after {
-    background-color: var(--hamburger-color); 
+    background-color: var(--hamburger-color);
   }
 
-.hamburger-box {
-  width: 40px;
-  height: 24px;
-  display: inline-block;
-  position: relative; }
+  .hamburger-box {
+    width: 40px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+  }
 
-.hamburger-inner {
-  display: block;
-  top: 50%;
-  margin-top: -2px; }
-  .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  .hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+  }
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
     width: 40px;
     height: 4px;
     background-color: var(--hamburger-color);
@@ -117,42 +130,51 @@ const links = [
     position: absolute;
     transition-property: transform;
     transition-duration: 0.15s;
-    transition-timing-function: ease; }
-  .hamburger-inner::before, .hamburger-inner::after {
-    content: "";
-    display: block; }
-  .hamburger-inner::before {
-    top: -10px; }
+    transition-timing-function: ease;
+  }
+  .hamburger-inner::before,
   .hamburger-inner::after {
-    bottom: -10px; }
-    /*
+    content: '';
+    display: block;
+  }
+  .hamburger-inner::before {
+    top: -10px;
+  }
+  .hamburger-inner::after {
+    bottom: -10px;
+  }
+  /*
    * Elastic
    */
-.hamburger--elastic .hamburger-inner {
-  top: 2px;
-  transition-duration: 0.275s;
-  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55); 
-}
+  .hamburger--elastic .hamburger-inner {
+    top: 2px;
+    transition-duration: 0.275s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
   .hamburger--elastic .hamburger-inner::before {
     top: 10px;
-    transition: opacity 0.125s 0.275s ease; }
+    transition: opacity 0.125s 0.275s ease;
+  }
   .hamburger--elastic .hamburger-inner::after {
     top: 20px;
-    transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+    transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
 
-.hamburger--elastic.is-active .hamburger-inner {
-  transform: translate3d(0, 10px, 0) rotate(135deg);
-  transition-delay: 0.075s; }
+  .hamburger--elastic.is-active .hamburger-inner {
+    transform: translate3d(0, 10px, 0) rotate(135deg);
+    transition-delay: 0.075s;
+  }
   .hamburger--elastic.is-active .hamburger-inner::before {
     transition-delay: 0s;
-    opacity: 0; }
+    opacity: 0;
+  }
   .hamburger--elastic.is-active .hamburger-inner::after {
     transform: translate3d(0, -20px, 0) rotate(-270deg);
-    transition-delay: 0.075s; }
-nav.is-open {
-  opacity: 1;
-  z-index: 10;
-  pointer-events: visible;
-}
-
+    transition-delay: 0.075s;
+  }
+  nav.is-open {
+    opacity: 1;
+    z-index: 10;
+    pointer-events: visible;
+  }
 </style>
