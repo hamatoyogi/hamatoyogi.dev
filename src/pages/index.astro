@@ -13,7 +13,7 @@ import Card from '~components/Card.astro';
 >
   <main class="px-4 md:px-0 md:mx-[20vw]">
     <figure
-      class="w-20 h-20 mt-10 overflow-hidden rounded-full border border-brand-400"
+      class="w-20 h-20 mt-10 overflow-hidden rounded-full border border-zinc-400"
     >
       <Image
         src={myImage}
@@ -26,6 +26,7 @@ import Card from '~components/Card.astro';
     <h1 class="text-4xl font-bold mt-10">Yoav Ganbar</h1>
     <h2 class="text-lg mt-4">Web Craftsman</h2>
     <ul role="list" class="link-card-grid grid gap-4 my-10 md:my-20">
+      <Card href="/about" title="about" body="Get to know me a bit..." />
       <Card href="/blog" title="blog" body="Read the latest from my blog" />
       <Card
         href="/appearances"
