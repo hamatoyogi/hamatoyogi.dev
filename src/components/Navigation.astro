@@ -31,13 +31,15 @@ const links = [
 ];
 ---
 
-<nav class="flex items-center justify-between flex-wrap bg-slate-900 p-6">
-  <div class="flex items-center flex-shrink-0 text-white mr-6">
+<header
+  class="p-4 md:p-6 sticky top-0 flex items-center justify-between flex-wrap bg-slate-400 dark:bg-slate-900"
+>
+  <h2 class="flex items-center flex-shrink-0 text-white lg:mr-8">
     <span class="font-semibold text-xl tracking-tight">HamatoYogi</span>
-  </div>
+  </h2>
   <div class="block lg:hidden">
     <button
-      class="hamburger hamburger--elastic z-20 relative"
+      class="hamburger hamburger--elastic z-20 flex items-center relative"
       type="button"
       role="navigation"
       aria-label="navigation menu"
@@ -47,43 +49,52 @@ const links = [
       </span>
     </button>
   </div>
-  <menu class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-    <ul class="text-sm lg:flex-grow">
+  <nav
+    data-state="closed"
+    class="w-full h-full z-10 flex-grow p-10 transition-all lg:p-0 lg:flex lg:items-center lg:w-auto absolute md:static md:top-0 left-0 top-[-100vh] duration-300 data-open:top-0 dark:data-open:bg-black data-open:bg-white data-open:h-screen"
+  >
+    <ul
+      class="w-full h-full flex flex-col lg:flex-row lg:items-center gap-8 lg:flex-grow"
+    >
       {
         links.map(({ href, text, ...rest }) => (
-          <li class="mt-4 mr-4 block capitalize text-teal-200 transition-all hover:text-white lg:mt-0 lg:inline-block">
+          <li class="text-brand-900 dark:text-brand-400 hover:text-brand-600 mt-4 block capitalize transition-all dark:hover:text-white lg:mt-0 lg:inline-block">
             <a href={href} {...rest}>
               {text}
             </a>
           </li>
         ))
       }
+      <li class="inline-block lg:ml-auto"><ThemeToggle /></li>
     </ul>
-    <ThemeToggle />
-  </menu>
-</nav>
+  </nav>
+</header>
 
 <script>
-  // Look for .hamburger
-  var hamburger = document.querySelector('.hamburger');
-  var nav = document.querySelector('nav');
-  // On click
+  const hamburger = document.querySelector('.hamburger');
+  const nav = document.querySelector('nav');
+
   hamburger.addEventListener('click', () => {
-    // Toggle class "is-active"
     hamburger.classList.toggle('is-active');
-    nav.classList.toggle('is-open');
-    // Do something else, like open/close menu
+    const navOpenState = nav.getAttribute('data-state');
+
+    if (navOpenState === 'closed') {
+      return nav.setAttribute('data-state', 'open');
+    }
+    return nav.setAttribute('data-state', 'closed');
   });
 </script>
 
 <style>
   :root {
+    --hamburger-color: black;
+  }
+
+  .dark {
     --hamburger-color: white;
   }
 
   .hamburger {
-    padding: 15px 15px;
-    display: inline-block;
     cursor: pointer;
     transition-property: opacity, filter;
     transition-duration: 0.15s;
@@ -172,9 +183,8 @@ const links = [
     transform: translate3d(0, -20px, 0) rotate(-270deg);
     transition-delay: 0.075s;
   }
-  nav.is-open {
-    opacity: 1;
-    z-index: 10;
-    pointer-events: visible;
+
+  nav[data-state='open'] ul {
+    top: 0;
   }
 </style>

@@ -1,8 +1,13 @@
 ---
+export interface Props {
+  extraClass: string;
+}
+
+const { extraClass } = Astro.props as Props;
 ---
 
 <footer
-  class="mt-14 p-4 border-t border-brand-800 flex items-center w-full gap-4 justify-center"
+  class={`${extraClass} mt-14 p-4 border-t border-brand-800 flex items-center w-full gap-4 justify-center`}
 >
   <p>© 2022 HamatoYogi</p>
   <a href="https://twitter.com/hamatoyogi">
