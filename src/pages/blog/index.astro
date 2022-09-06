@@ -18,23 +18,50 @@ const posts: PostItem[] = [
     description: 'The first post on this site about why I chose Astro.',
     publishDate: formatDate({ date: '9/3/2022', dateStyle: 'short' }),
   },
+  {
+    link: 'https://medium.com/the-hamato-yogi-chronichels/a-tale-of-an-elder-millennial-how-i-started-my-tech-journey-part-1-b07a339957d1',
+    title:
+      'A Tale of An Elder Millennial: How I Started My Tech Journey — Part 1',
+    description: 'A lookback at where I started with computers and tech.',
+    publishDate: formatDate({ date: '20/11/2020', dateStyle: 'short' }),
+  },
+  {
+    link: 'https://medium.com/fedbites/getting-started-with-css-grid-part-2-what-can-you-do-with-css-grid-41d02d1b2979',
+    title: 'Getting Started With CSS Grid — Part 2',
+    description:
+      'Part 2 of how to get started with CSS grid: What can you do with CSS Grid? Learn by example — Grid Garden',
+    publishDate: formatDate({ date: '25/1/2019', dateStyle: 'short' }),
+  },
+  {
+    link: 'https://medium.com/the-hamato-yogi-chronichels/how-we-moved-from-wordpress-to-react-and-raised-80-million-6e80b88be28f',
+    title: 'How We Moved From Wordpress to React and Raised $80 Million',
+    description: 'The story behind how I chose the tech stack for Culture Trip',
+    publishDate: formatDate({ date: '25/1/2019', dateStyle: 'short' }),
+  },
+  {
+    link: 'https://medium.com/fedbites/getting-started-with-css-grid-82fe7530dacf',
+    title: 'Getting Started With CSS Grid — Part 1',
+    description: 'How to get started with CSS grid - Part 1',
+    publishDate: formatDate({ date: '11/1/2019', dateStyle: 'short' }),
+  },
 ];
 ---
 
 <Layout title="Blog | hamatoyogi.dev" description="Blog posts by Yoav Ganbar">
   <main class="px-4 md:px-0 md:mx-[20vw]">
     <h1 class="text-3xl mt-10 md:mt-32">Blog</h1>
-    <div class="mt-10 md:mt-20">
+    <ul role="list" class="flex flex-col gap-4 my-10 md:my-20">
       {
         posts.map(({ title, link, description, publishDate }) => (
           <Card
             body={description}
             href={link}
             title={`${title} | ${publishDate}`}
+            isExternalLink={link.includes('http')}
           />
         ))
       }
-    </div>
+    </ul>
   </main>
 </Layout>
 
