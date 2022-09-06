@@ -7,7 +7,11 @@ export function formatDate({
   dateStyle?;
   date: string;
 }) {
-  return new Intl.DateTimeFormat(local, {
-    dateStyle: dateStyle,
-  }).format(new Date(date));
+  try {
+    return new Intl.DateTimeFormat(local, {
+      dateStyle: dateStyle,
+    })?.format(new Date(date));
+  } catch (e) {
+    return 'invalid date';
+  }
 }
