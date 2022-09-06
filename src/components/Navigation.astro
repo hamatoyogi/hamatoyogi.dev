@@ -105,7 +105,7 @@ const links = [
   });
 </script>
 
-<style>
+<style is:global>
   :root {
     --hamburger-color: black;
   }
@@ -113,7 +113,9 @@ const links = [
   .dark {
     --hamburger-color: white;
   }
+</style>
 
+<style>
   .hamburger {
     cursor: pointer;
     transition-property: opacity, filter;
