@@ -21,7 +21,7 @@ import Footer from '~components/Footer.astro';
     <link rel="manifest" href="/site.webmanifest" />
     <script type="text/partytown" async src="https://cdn.splitbee.io/sb.js"
     ></script>
-    <script>
+    <script is:inline>
       // It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
       if (
         localStorage.getItem('color-theme') === 'dark' ||

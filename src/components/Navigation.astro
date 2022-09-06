@@ -3,10 +3,6 @@ import ThemeToggle from './ThemeToggle.astro';
 
 const links = [
   {
-    href: '/',
-    text: 'Home',
-  },
-  {
     href: '/about',
     text: 'about',
   },
@@ -34,9 +30,11 @@ const links = [
 <header
   class="p-4 md:p-6 sticky top-0 flex items-center justify-between flex-wrap bg-slate-400 dark:bg-slate-900"
 >
-  <h2 class="flex items-center flex-shrink-0 text-white lg:mr-8">
-    <span class="font-semibold text-xl tracking-tight">HamatoYogi</span>
-  </h2>
+  <a href="/">
+    <h2 class="flex items-center flex-shrink-0 text-white lg:mr-8">
+      <span class="font-semibold text-xl tracking-tight">HamatoYogi.dev</span>
+    </h2>
+  </a>
   <div class="block lg:hidden">
     <button
       class="hamburger hamburger--elastic z-20 flex items-center relative"
@@ -54,7 +52,7 @@ const links = [
     class="w-full h-full z-10 flex-grow p-10 transition-all lg:p-0 lg:flex lg:items-center lg:w-auto absolute md:static md:top-0 left-0 top-[-100vh] duration-300 data-open:top-0 dark:data-open:bg-black data-open:bg-white data-open:h-screen"
   >
     <ul
-      class="w-full h-full flex flex-col lg:flex-row lg:items-center gap-8 lg:flex-grow"
+      class="w-full h-full flex flex-col gap-8 lg:flex-row lg:items-center lg:flex-grow lg:gap-12"
     >
       {
         links.map(({ href, text, ...rest }) => (
