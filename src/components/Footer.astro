@@ -7,7 +7,10 @@ const { extraClass } = Astro.props as Props;
 ---
 
 <footer
-  class={`${extraClass} mt-14 p-4 border-t border-brand-800 flex items-center w-full gap-4 justify-center`}
+  class:list={[
+    `mt-14 p-4 border-t border-brand-800 flex items-center w-full gap-4 justify-center`,
+    extraClass,
+  ]}
 >
   <p>© 2022 HamatoYogi</p>
   <a href="https://twitter.com/hamatoyogi">
@@ -15,6 +18,15 @@ const { extraClass } = Astro.props as Props;
       src="/images/twitter-circle.svg"
       class="w-8 h-8 object-contain"
       alt="Twitter Icon"
+      loading="lazy"
+    />
+  </a>
+  <a href="https://github.com/hamatoyogi">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+      class="w-8 h-8 object-contain"
+      alt="Github Icon"
+      loading="lazy"
     />
   </a>
 </footer>
