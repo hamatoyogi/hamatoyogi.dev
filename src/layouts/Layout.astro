@@ -11,7 +11,7 @@ import Footer from '~components/Footer.astro';
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full antialiased">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -40,8 +40,11 @@ import Footer from '~components/Footer.astro';
       openGraph={{
         basic: {
           image: '/images/hy-graffiti.jpeg',
-          title,
+          title: 'site image',
           type: 'Personal website',
+        },
+        image: {
+          alt: 'site image',
         },
       }}
     />
