@@ -34,7 +34,17 @@ import Footer from '~components/Footer.astro';
       }
     </script>
     <meta name="generator" content={Astro.generator} />
-    <SEO title={title} description={description} />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          image: '/images/hy-graffiti.jpeg',
+          title,
+          type: 'Personal website',
+        },
+      }}
+    />
   </head>
 
   <body
