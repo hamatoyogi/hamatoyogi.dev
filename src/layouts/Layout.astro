@@ -11,7 +11,7 @@ import Footer from '~components/Footer.astro';
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="h-full antialiased">
+<html lang="en" class="antialiased">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -48,10 +48,11 @@ import Footer from '~components/Footer.astro';
         },
       }}
     />
+    <link rel="stylesheet" href="/styles/global.css" />
   </head>
 
   <body
-    class="min-h-screen flex flex-col bg-gradient-to-b from-white to-zinc-500 dark:from-zinc-900 dark:to-zinc-500 dark:text-white font-mono"
+    class="min-h-screen flex flex-col bg-gradient-to-b from-white to-zinc-300 dark:from-zinc-900 dark:to-zinc-600 dark:text-white font-mono"
   >
     <Navigation />
     <slot class="p-2 md:p-10 pb-20" />
