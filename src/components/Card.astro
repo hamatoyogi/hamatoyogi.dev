@@ -19,7 +19,7 @@ const { href, title, body, isExternalLink } = Astro.props as Props;
   >
     <h2 class="capitalize text-2xl">
       {title}
-      <span>&rarr;</span>
+      <span>{isExternalLink ? '↗' : '→'}</span>
     </h2>
     <p>
       {body}
