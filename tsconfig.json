@@ -5,7 +5,8 @@
     "paths": {
       "~components/*": ["src/components/*"],
       "~assets/*": ["src/assets/*"],
-      "~layouts/*": ["src/layouts/*"]
+      "~style/*": ["src/style/*"],
+      "~layouts/*": ["src/components/layouts/*"]
     }
   }
 }
