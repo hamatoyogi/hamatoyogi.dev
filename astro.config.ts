@@ -6,11 +6,11 @@ import svelte from '@astrojs/svelte';
 import solid from '@astrojs/solid-js';
 /** @type {import('astro').AstroUserConfig} */
 
-import lit from '@astrojs/lit';
 import partytown from '@astrojs/partytown';
 import image from '@astrojs/image';
-
 import sitemap from '@astrojs/sitemap';
+
+import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,10 +20,11 @@ export default defineConfig({
     react(),
     svelte(),
     solid(),
-    lit(),
     partytown({}),
     image(),
     sitemap(),
   ],
   site: 'https://hamatoyogi.dev',
+  output: 'server',
+  adapter: vercel(),
 });
