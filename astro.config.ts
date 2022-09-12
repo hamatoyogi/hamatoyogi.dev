@@ -6,7 +6,6 @@ import svelte from '@astrojs/svelte';
 import solid from '@astrojs/solid-js';
 /** @type {import('astro').AstroUserConfig} */
 
-import lit from '@astrojs/lit';
 import partytown from '@astrojs/partytown';
 import image from '@astrojs/image';
 import sitemap from '@astrojs/sitemap';
@@ -21,7 +20,6 @@ export default defineConfig({
     react(),
     svelte(),
     solid(),
-    lit(),
     partytown({}),
     image(),
     sitemap(),
