@@ -1,24 +1,83 @@
 ---
+import { SEO } from 'astro-seo';
+
+import { seoConfig } from 'src/utils/seo-config';
+
+import Navigation from '~components/Navigation.astro';
+import Footer from '~components/Footer.astro';
+
 export interface Props {
+  /** Title of the page. */
   title: string;
-  description: string;
+
+  /** Specific OpenGraph page title. */
+  ogTitle?: string;
+
+  /** Description of the page. */
+  description?: string;
+
+  /** Image thumbnail for the page. */
+  image?: {
+    url: string;
+    alt: string;
+  };
+
+  /** Whether or not to disable indexing */
+  disableIndexing?: boolean;
 }
 
-const { title, description } = Astro.props as Props;
-import Navigation from '~components/Navigation.astro';
-import { SEO } from 'astro-seo';
-import Footer from '~components/Footer.astro';
+const {
+  title,
+  ogTitle,
+  description,
+  image,
+  disableIndexing = false,
+} = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
 <html lang="en" class="antialiased">
   <head>
+    <!-- SEO -->
+    <SEO
+      title={title}
+      description={seoConfig.description || description}
+      noindex={disableIndexing}
+      nofollow={disableIndexing}
+      openGraph={{
+        basic: {
+          title: ogTitle || title,
+          type: seoConfig.type,
+          image: seoConfig.image.url || image.url,
+        },
+        image: {
+          width: seoConfig.image.width,
+          height: seoConfig.image.height,
+          alt: seoConfig.image.alt || image.alt,
+        },
+        optional: {
+          siteName: seoConfig.siteName,
+          description: seoConfig.description || description,
+        },
+      }}
+      twitter={{
+        card: seoConfig.twitter.card,
+        creator: 'hamatoYogi',
+      }}
+    />
+
+    <!-- Global meta tags. -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Favicons. -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- scripts -->
     <script type="text/partytown" async src="https://cdn.splitbee.io/sb.js"
     ></script>
     <script is:inline>
@@ -33,22 +92,6 @@ import Footer from '~components/Footer.astro';
         document.documentElement.classList.remove('dark');
       }
     </script>
-    <meta name="generator" content={Astro.generator} />
-    <SEO
-      title={title}
-      description={description}
-      openGraph={{
-        basic: {
-          image: '/images/hy-graffiti.jpeg',
-          title: 'site image',
-          type: 'Personal website',
-        },
-        image: {
-          alt: 'site image',
-        },
-      }}
-    />
-    <link rel="stylesheet" href="/styles/global.css" />
   </head>
 
   <body
