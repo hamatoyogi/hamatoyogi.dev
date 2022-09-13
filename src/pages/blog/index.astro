@@ -88,21 +88,19 @@ const posts: PostItem[] = [
 ---
 
 <Layout title="Blog | hamatoyogi.dev" description="Blog posts by Yoav Ganbar">
-  <main class="px-4 md:px-0 md:mx-[20vw]">
-    <h1 class="text-3xl mt-10 md:mt-32">Blog</h1>
-    <ul role="list" class="flex flex-col gap-4 my-10 md:my-20">
-      {
-        posts.map(({ title, link, description, publishDate }) => (
-          <Card
-            body={description}
-            href={link}
-            title={`${title} | ${publishDate}`}
-            isExternalLink={link.includes('http')}
-          />
-        ))
-      }
-    </ul>
-  </main>
+  <h1 class="text-3xl mt-10 md:mt-32">Blog</h1>
+  <ul role="list" class="flex flex-col gap-4 my-10 md:my-20">
+    {
+      posts.map(({ title, link, description, publishDate }) => (
+        <Card
+          body={description}
+          href={link}
+          title={`${title} | ${publishDate}`}
+          isExternalLink={link.includes('http')}
+        />
+      ))
+    }
+  </ul>
 </Layout>
 
 <style>
