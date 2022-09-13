@@ -1,4 +1,5 @@
 const plugin = require('tailwindcss/plugin');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -25,6 +26,10 @@ module.exports = {
           600: '$A5C9CA',
           800: '#2C3333',
         },
+      },
+      fontFamily: {
+        inter: ['Inter', ...defaultTheme.fontFamily.mono],
+        space: ['Space Grotesk', ...defaultTheme.fontFamily.serif],
       },
     },
   },

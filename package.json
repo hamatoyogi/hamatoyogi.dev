@@ -34,6 +34,8 @@
   "dependencies": {
     "@astro-community/astro-embed-twitter": "^0.1.3",
     "@astrojs/vercel": "^1.0.2",
+    "@fontsource/inter": "^4.5.12",
+    "@fontsource/space-grotesk": "^4.5.10",
     "astro-seo": "^0.6.0"
   }
 }
