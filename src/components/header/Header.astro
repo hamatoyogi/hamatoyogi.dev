@@ -28,12 +28,15 @@ const links = [
 ---
 
 <header
-  class="p-4 md:p-6 sticky top-0 shadow-xl flex items-center justify-between flex-wrap bg-white dark:bg-zinc-900 dark:text-white"
+  class:list={[
+    'p-4 md:p-6 sticky top-0 shadow-xl flex items-center justify-between flex-wrap bg-white',
+    'dark:bg-mirage dark:text-lavender-gray dark:text-lavender-gray',
+  ]}
 >
   <a href="/">
     <h2 class="flex items-center flex-shrink-0 text-white lg:mr-8">
       <span
-        class="font-semibold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-700 to-red-300 dark:from-red-300 dark:to-slate-400"
+        class="font-semibold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-dodger-blue to-ebony-clay dark:from-lavender-gray dark:to-melrose"
         >HamatoYogi.dev</span
       >
     </h2>
@@ -109,6 +112,8 @@ const links = [
 <style is:global>
   :root {
     --hamburger-color: black;
+    --hamburger-width: 32px;
+    --hamburger-line-height: 2px;
   }
 
   .dark {
@@ -143,7 +148,7 @@ const links = [
   }
 
   .hamburger-box {
-    width: 40px;
+    width: var(--hamburger-width);
     height: 24px;
     display: inline-block;
     position: relative;
@@ -157,10 +162,10 @@ const links = [
   .hamburger-inner,
   .hamburger-inner::before,
   .hamburger-inner::after {
-    width: 40px;
-    height: 4px;
+    width: var(--hamburger-width);
+    height: var(--hamburger-line-height);
     background-color: var(--hamburger-color);
-    border-radius: 4px;
+    border-radius: var(--hamburger-line-height);
     position: absolute;
     transition-property: transform;
     transition-duration: 0.15s;
