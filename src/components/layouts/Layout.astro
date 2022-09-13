@@ -3,6 +3,10 @@ import { SEO } from 'astro-seo';
 
 import '~style/tailwind.css';
 
+/* FONTS */
+import '@fontsource/inter';
+import '@fontsource/space-grotesk';
+
 import { seoConfig } from 'src/utils/seo-config';
 
 import { Header } from '~components/header';
@@ -97,7 +101,7 @@ const {
   </head>
 
   <body
-    class="min-h-screen flex flex-col w-full overflow-x-hidden bg-gradient-to-b from-white to-zinc-300 dark:from-zinc-900 dark:to-zinc-600 dark:text-white font-mono"
+    class="min-h-screen flex flex-col w-full overflow-x-hidden bg-gradient-to-b from-white to-zinc-300 dark:from-zinc-900 dark:to-zinc-600 dark:text-white font-inter"
   >
     <Header />
     <slot class="p-2 md:p-10 pb-20" />
