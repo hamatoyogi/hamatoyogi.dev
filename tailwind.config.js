@@ -8,24 +8,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          50: '#EBF9EF',
-          100: '#D7F4DF',
-          200: '#B4E9C2',
-          300: '#8CDEA2',
-          400: '#68D485',
-          500: '#42C966',
-          600: '#30A74F',
-          700: '#237B3B',
-          800: '#185328',
-          900: '#0B2813',
-        },
-        palette: {
-          200: '#E7F6F2',
-          400: '#A5C9CA',
-          600: '$A5C9CA',
-          800: '#2C3333',
-        },
+        // Light Theme
+        'dodger-blue': '#4253FF',
+        'shuttle-gray': '#596373',
+        'white-lilac': '#F4F5FB',
+        'mine-shaft': '#333333',
+
+        // Dark Theme
+        mirage: '#151724',
+        melrose: '#99A2FF',
+        'lavender-gray': '#B8B4D3',
+        'ebony-clay': '#262940',
       },
       fontFamily: {
         inter: ['Inter', ...defaultTheme.fontFamily.mono],
