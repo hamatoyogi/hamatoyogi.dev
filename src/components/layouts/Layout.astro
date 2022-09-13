@@ -3,6 +3,10 @@ import { SEO } from 'astro-seo';
 
 import '~style/tailwind.css';
 
+/* FONTS */
+import '@fontsource/inter';
+import '@fontsource/space-grotesk';
+
 import { seoConfig } from 'src/utils/seo-config';
 
 import { Header } from '~components/header';
@@ -40,6 +44,11 @@ const {
 <!DOCTYPE html>
 <html lang="en" class="antialiased">
   <head>
+    <!-- Global meta tags. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
     <!-- SEO -->
     <SEO
       title={title}
@@ -68,11 +77,6 @@ const {
       }}
     />
 
-    <!-- Global meta tags. -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-
     <!-- Favicons. -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -97,7 +101,7 @@ const {
   </head>
 
   <body
-    class="min-h-screen flex flex-col w-full overflow-x-hidden bg-gradient-to-b from-white to-zinc-300 dark:from-zinc-900 dark:to-zinc-600 dark:text-white font-mono"
+    class="min-h-screen flex flex-col w-full overflow-x-hidden bg-gradient-to-b from-white to-zinc-300 dark:from-zinc-900 dark:to-zinc-600 dark:text-white font-inter"
   >
     <Header />
     <slot class="p-2 md:p-10 pb-20" />
