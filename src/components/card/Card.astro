@@ -10,18 +10,20 @@ const { href, title, body, isExternalLink } = Astro.props as Props;
 ---
 
 <li
-  class="link-card group transition-all border border-zinc-800 hover:text-zinc-500 hover:border-zinc-500 dark:border-zinc-300 dark:hover:border-red-100 dark:hover:text-red-200"
+  class="link-card group transition-all bg-white-lilac dark:bg-ebony-clay hover:scale-105 hover:shadow-lg"
 >
   <a
     href={href}
     target={isExternalLink ? '_blank' : undefined}
     rel={isExternalLink ? 'noopener noreferrer' : undefined}
   >
-    <h2 class="capitalize text-2xl">
-      {title}
+    <h2
+      class="capitalize text-2xl flex justify-between items-start text-dodger-blue dark:text-melrose"
+    >
+      <sapn>{title}</sapn>
       <span>{isExternalLink ? '↗' : '→'}</span>
     </h2>
-    <p>
+    <p class="text-shuttle-gray dark:text-lavender-gray">
       {body}
     </p>
   </a>
