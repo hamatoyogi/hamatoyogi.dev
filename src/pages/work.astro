@@ -1,13 +1,14 @@
 ---
 import { ExternalLink } from '~components/external-link';
-import { Layout } from '~layouts/index';
+import { BaseLayout } from '~layouts/BaseLayout';
+import { H1 } from '~typography/H1';
 ---
 
-<Layout
+<BaseLayout
   title="Appearences | hamatoyogi.dev"
   description="Apperences, podcasts, interviews, and talks by Yoav Ganbar"
 >
-  <h1 class="text-3xl mt-10 md:mt-32">Work</h1>
+  <H1 extraClasses="mt-10 md:mt-32">Work</H1>
   <p class="mt-10">
     I'm currently working @ <a
       href="https://togetherr.com"
@@ -25,7 +26,7 @@ import { Layout } from '~layouts/index';
       class="underline">LinkendIn</a
     >.
   </p>
-</Layout>
+</BaseLayout>
 
 <style>
   .link-card-grid {

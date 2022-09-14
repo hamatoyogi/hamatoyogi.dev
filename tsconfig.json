@@ -6,7 +6,8 @@
       "~components/*": ["src/components/*"],
       "~assets/*": ["src/assets/*"],
       "~style/*": ["src/style/*"],
-      "~layouts/*": ["src/components/layouts/*"]
+      "~layouts/*": ["src/components/layouts/"],
+      "~typography/*": ["src/components/typography/"]
     }
   }
 }

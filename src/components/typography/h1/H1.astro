@@ -1,0 +1,16 @@
+---
+export interface Props {
+  extraClasses?: string;
+}
+
+const { extraClasses } = Astro.props as Props;
+---
+
+<h1
+  class:list={[
+    'text-4xl font-bold text-dodger-blue dark:text-melrose',
+    extraClasses,
+  ]}
+>
+  <slot />
+</h1>

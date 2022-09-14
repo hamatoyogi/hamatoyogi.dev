@@ -3,11 +3,12 @@ import { Image } from '@astrojs/image/components';
 
 import myImage from '~assets/yoav.png';
 
-import { Layout } from '~layouts/index';
+import { BaseLayout } from '~layouts/BaseLayout';
 import { Card } from '~components/card';
+import { H1 } from '~typography/H1';
 ---
 
-<Layout
+<BaseLayout
   title="hamatoyogi's site"
   description="Yoav Ganbar AKA HamatoYogi · Web Developer, FedBites podcasr co-host, community orginizer. I love building products, shipping code, talking about it, and writing about it."
 >
@@ -22,9 +23,7 @@ import { Card } from '~components/card';
       alt="a picture of Yoav  Ganbar"
     />
   </figure>
-  <h1 class="text-4xl font-bold mt-10 text-dodger-blue dark:text-melrose">
-    Yoav Ganbar
-  </h1>
+  <H1 extraClasses="mt-10">Yoav Ganbar</H1>
   <h2 class="text-2xl md:text-4xl mt-4">
     Full Stack Web Developer & Front end Architect. <br />Product builder,
     creator of value, top notch UX, performant & useable UI.
@@ -72,7 +71,7 @@ import { Card } from '~components/card';
       isExternalLink
     />
   </ul>
-</Layout>
+</BaseLayout>
 
 <style>
   .link-card-grid {
