@@ -1,6 +1,6 @@
 ---
 import { BaseLayout } from '~layouts/BaseLayout';
-import { H1 } from '~typography/H1';
+import { Heading1 } from '~typography/Heading1';
 import { Image } from '@astrojs/image/components';
 import { Tweet } from '@astro-community/astro-embed-twitter';
 
@@ -22,7 +22,7 @@ const publishDate = formatDate({ date: '9/3/2022' });
 >
   <article class="mt-10 md:mt-32 prose dark:prose-invert xl:prose-xl">
     <header>
-      <H1>Why I Decided To Build My Site With Astro</H1>
+      <Heading1>Why I Decided To Build My Site With Astro</Heading1>
       <h2>Published: {publishDate}</h2>
     </header>
     <p>

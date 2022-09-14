@@ -3,7 +3,7 @@ import { formatDate } from 'src/utils/date-formatter';
 import { Card } from '~components/card';
 
 import { BaseLayout } from '~layouts/BaseLayout';
-import { H1 } from '~typography/H1';
+import { Heading1 } from '~typography/Heading1';
 
 interface PostItem {
   link: string;
@@ -92,7 +92,7 @@ const posts: PostItem[] = [
   title="Blog | hamatoyogi.dev"
   description="Blog posts by Yoav Ganbar"
 >
-  <H1 extraClasses="mt-10 md:mt-32">Blog</H1>
+  <Heading1 extraClasses="mt-10 md:mt-32">Blog</Heading1>
   <ul role="list" class="flex flex-col gap-4 my-10 md:my-20">
     {
       posts.map(({ title, link, description, publishDate }) => (
