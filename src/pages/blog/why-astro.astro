@@ -1,5 +1,6 @@
 ---
-import { Layout } from '~layouts/index';
+import { BaseLayout } from '~layouts/BaseLayout';
+import { H1 } from '~typography/H1';
 import { Image } from '@astrojs/image/components';
 import { Tweet } from '@astro-community/astro-embed-twitter';
 
@@ -15,13 +16,13 @@ import { formatDate } from 'src/utils/date-formatter';
 const publishDate = formatDate({ date: '9/3/2022' });
 ---
 
-<Layout
+<BaseLayout
   title="Why I Decided To Build My Site With Astro"
   description="The reason behind my choice of Astro as my sites meta framework."
 >
   <article class="mt-10 md:mt-32 prose dark:prose-invert xl:prose-xl">
     <header>
-      <h1 class="page-title">Why I Decided To Build My Site With Astro</h1>
+      <H1>Why I Decided To Build My Site With Astro</H1>
       <h2>Published: {publishDate}</h2>
     </header>
     <p>
@@ -257,4 +258,4 @@ const publishDate = formatDate({ date: '9/3/2022' });
     </p>
     <p>That’s it for now.</p>
   </article>
-</Layout>
+</BaseLayout>

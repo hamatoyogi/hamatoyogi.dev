@@ -1,19 +1,20 @@
 ---
 import { ExternalLink } from '~components/external-link';
-import { Layout } from '~layouts/index';
+import { BaseLayout } from '~layouts/BaseLayout';
+import { H1 } from '~typography/H1';
 ---
 
-<Layout title="About | hamatoyogi.dev" description="About Yoav Ganbar">
-  <h1 class="text-3xl mt-10 md:mt-32">About</h1>
+<BaseLayout title="About | hamatoyogi.dev" description="About Yoav Ganbar">
+  <H1 extraClasses="mt-10 md:mt-32">About</H1>
   <p class="mt-10">Hey there, I'm Yoav.</p>
   <p class="mt-10">You can find me all over the web as HamatoYogi.</p>
   <p class="mt-10">
     I've been a computer geek and a techie my entire life. However, my
     professional Internet and startup journey started somewhere in late 2009
-    when during my University studies I was the webmaster for the Israeli
-    Museam for Comics. Not long after that, I found myself doing SEO,
-    Marketing, Ecommerce, consultancy, and oddjob dev work, sometimes as a
-    freelancer others as an employee.
+    when during my University studies I was the webmaster for the Israeli Museam
+    for Comics. Not long after that, I found myself doing SEO, Marketing,
+    Ecommerce, consultancy, and oddjob dev work, sometimes as a freelancer
+    others as an employee.
   </p>
   <p class="mt-10">
     For more about my tech origin story, check out my post:
@@ -33,7 +34,7 @@ import { Layout } from '~layouts/index';
     Later on I went to work at some startups... More on that soon when I finish
     up <a href="/work">Work</a> section 😅...
   </p>
-</Layout>
+</BaseLayout>
 
 <style>
   .link-card-grid {
