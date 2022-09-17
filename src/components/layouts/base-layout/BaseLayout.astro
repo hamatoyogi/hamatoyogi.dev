@@ -40,11 +40,6 @@ const {
   image,
   disableIndexing = false,
 } = Astro.props as Props;
-
-Astro.response.headers.set(
-  'Cache-Control',
-  'max-age=604800, stale-while-revalidate=86400',
-);
 ---
 
 <!DOCTYPE html>

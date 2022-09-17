@@ -6,6 +6,11 @@ import myImage from '~assets/yoav.png';
 import { BaseLayout } from '~layouts/BaseLayout';
 import { Card } from '~components/card';
 import { Heading1 } from '~typography/Heading1';
+
+Astro.response.headers.set(
+  'Cache-Control',
+  'max-age=604800, stale-while-revalidate=86400',
+);
 ---
 
 <BaseLayout
