@@ -1,4 +1,5 @@
 ---
+import { Sprite } from 'astro-icon';
 export interface Props {
   title: string;
   body: string;
@@ -9,25 +10,36 @@ export interface Props {
 const { href, title, body, isExternalLink } = Astro.props as Props;
 ---
 
-<li
-  class="link-card group transition-all bg-white-lilac dark:bg-ebony-clay hover:scale-105 hover:shadow-lg"
->
-  <a
-    href={href}
-    target={isExternalLink ? '_blank' : undefined}
-    rel={isExternalLink ? 'noopener noreferrer' : undefined}
+<Sprite.Provider>
+  <li
+    class="link-card group transition-all bg-white-lilac dark:bg-ebony-clay hover:scale-105 hover:shadow-lg"
   >
-    <h2
-      class="capitalize text-2xl flex justify-between items-start text-dodger-blue dark:text-melrose"
+    <a
+      href={href}
+      target={isExternalLink ? '_blank' : undefined}
+      rel={isExternalLink ? 'noopener noreferrer' : undefined}
     >
-      <sapn>{title}</sapn>
-      <span>{isExternalLink ? '↗' : '→'}</span>
-    </h2>
-    <p class="text-shuttle-gray dark:text-lavender-gray">
-      {body}
-    </p>
-  </a>
-</li>
+      <h2
+        class="capitalize text-2xl flex justify-between items-start text-dodger-blue dark:text-melrose"
+      >
+        <sapn>{title}</sapn>
+        <span
+          >{
+            isExternalLink ? (
+              <Sprite name="export" class="h-3 w-3" />
+            ) : (
+              <Sprite name="arrow-right" class="h-3 w-3" />
+            )
+          }
+        </span>
+      </h2>
+      <p class="text-shuttle-gray dark:text-lavender-gray">
+        {body}
+      </p>
+    </a>
+  </li>
+</Sprite.Provider>
+
 <style>
   .link-card {
     list-style: none;

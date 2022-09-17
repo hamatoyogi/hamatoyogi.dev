@@ -1,4 +1,6 @@
 ---
+import { Sprite } from 'astro-icon';
+
 export interface Props {
   href: string;
 }
@@ -6,14 +8,16 @@ export interface Props {
 const { href } = Astro.props as Props;
 ---
 
-<a
-  href={href}
-  target="_blank"
-  rel="noopener noreferrer"
-  class="group underline transition-all font-medium underline-offset-4 hover:text-dodger-blue dark:hover:text-melrose decoration-dodger-blue dark:decoration-melrose"
->
-  <slot />
-  <span class="text-lg inline-block group-hover:translate-x-1 transition-all"
-    >↗</span
+<Sprite.Provider>
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="group underline transition-all font-medium underline-offset-4 hover:text-dodger-blue dark:hover:text-melrose decoration-dodger-blue dark:decoration-melrose"
   >
-</a>
+    <slot />
+    <span class="inline-block group-hover:translate-x-1 transition-all"
+      ><Sprite name="export" class="h-3 w-3" />
+    </span>
+  </a>
+</Sprite.Provider>

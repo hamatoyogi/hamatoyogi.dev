@@ -1,4 +1,6 @@
 ---
+import { Sprite } from 'astro-icon';
+
 export interface Props {
   extraClass: string;
 }
@@ -6,27 +8,19 @@ export interface Props {
 const { extraClass } = Astro.props as Props;
 ---
 
-<footer
-  class:list={[
-    `mt-14 p-4 shadow-inner flex items-center w-full gap-4 justify-center`,
-    extraClass,
-  ]}
->
-  <p>© 2022 HamatoYogi</p>
-  <a href="https://twitter.com/hamatoyogi">
-    <img
-      src="/images/twitter-circle.svg"
-      class="w-8 h-8 object-contain"
-      alt="Twitter Icon"
-      loading="lazy"
-    />
-  </a>
-  <a href="https://github.com/hamatoyogi">
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
-      class="w-8 h-8 object-contain"
-      alt="Github Icon"
-      loading="lazy"
-    />
-  </a>
-</footer>
+<Sprite.Provider>
+  <footer
+    class:list={[
+      `mt-14 p-4 shadow-inner flex items-center w-full gap-4 justify-center`,
+      extraClass,
+    ]}
+  >
+    <p>© 2022 Yoav Ganbar</p>
+    <a href="https://twitter.com/hamatoyogi" target="_blank" rel="noopener">
+      <Sprite name="logo-twitter" class="w-6 h-6 text-[#1DA1F2]" />
+    </a>
+    <a href="https://github.com/hamatoyogi" target="_blank" rel="noopener">
+      <Sprite name="logo-github" class="w-6 h-6" />
+    </a>
+  </footer>
+</Sprite.Provider>
