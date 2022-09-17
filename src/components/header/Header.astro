@@ -1,4 +1,6 @@
 ---
+import { Sprite } from 'astro-icon';
+
 import ThemeToggle from './ThemeToggle.astro';
 
 const links = [
@@ -27,72 +29,72 @@ const links = [
 ];
 ---
 
-<header
-  class:list={[
-    'p-6 sticky top-0 flex items-center justify-between flex-wrap bg-white',
-    'dark:bg-mirage dark:text-lavender-gray dark:text-lavender-gray',
-  ]}
->
-  <a href="/">
-    <h2 class="flex items-center flex-shrink-0 text-white lg:mr-8">
-      <span
-        class="font-semibold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-dodger-blue to-ebony-clay dark:from-lavender-gray dark:to-melrose"
-        >HamatoYogi.dev</span
-      >
-    </h2>
-  </a>
-  <div class="block lg:hidden">
-    <button
-      class="hamburger hamburger--elastic z-20 flex items-center relative"
-      type="button"
-      role="navigation"
-      aria-label="navigation menu"
-    >
-      <span class="hamburger-box">
-        <span class="hamburger-inner"> </span>
-      </span>
-    </button>
-  </div>
-  <nav
-    data-state="closed"
-    class="w-full h-full z-10 flex-grow p-10 transition-all lg:p-0 lg:flex lg:items-center lg:w-auto absolute lg:static lg:top-0 left-0 top-[-100vh] duration-300 data-open:top-0 dark:data-open:bg-black data-open:bg-white data-open:h-screen"
+<Sprite.Provider>
+  <header
+    class:list={[
+      'p-6 sticky top-0 flex items-center justify-between flex-wrap bg-white',
+      'dark:bg-mirage dark:text-lavender-gray dark:text-lavender-gray',
+    ]}
   >
-    <ul
-      class="w-full h-full flex flex-col gap-8 lg:flex-row lg:items-center lg:flex-grow lg:gap-12"
+    <a href="/">
+      <h2 class="flex items-center flex-shrink-0 text-white lg:mr-8">
+        <span
+          class="font-semibold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-dodger-blue to-ebony-clay dark:from-lavender-gray dark:to-melrose"
+          >HamatoYogi.dev</span
+        >
+      </h2>
+    </a>
+    <div class="block lg:hidden">
+      <button
+        class="hamburger hamburger--elastic z-20 flex items-center relative"
+        type="button"
+        role="navigation"
+        aria-label="navigation menu"
+      >
+        <span class="hamburger-box">
+          <span class="hamburger-inner"> </span>
+        </span>
+      </button>
+    </div>
+    <nav
+      data-state="closed"
+      class="w-full h-full z-10 flex-grow p-10 transition-all lg:p-0 lg:flex lg:items-center lg:w-auto absolute lg:static lg:top-0 left-0 top-[-100vh] duration-300 data-open:top-0 dark:data-open:bg-black data-open:bg-white data-open:h-screen"
     >
-      {
-        links.map(({ href, text, ...rest }) => (
-          <li class="mt-4 block capitalize text-slate-500 transition-all hover:text-slate-600 dark:text-slate-300 dark:hover:text-white lg:mt-0 lg:inline-block">
-            <a href={href} {...rest}>
-              {text}
-            </a>
-          </li>
-        ))
-      }
-      <li class="md:hidden">
-        <a href="https://twitter.com/hamatoyogi" target="_blank" rel="noopener">
-          <img
-            src="/images/twitter-circle.svg"
-            class="w-8 h-8 object-contain"
-            alt="Twitter Icon"
-            loading="lazy"
-          />
-        </a>
-      </li>
-      <li class="md:hidden">
-        <a href="https://github.com/hamatoyogi" target="_blank" rel="noopener">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
-            class="w-8 h-8 object-contain"
-            alt="Github Icon"
-            loading="lazy"
-          />
-        </a>
-      </li>
-      <li class="inline-block lg:ml-auto"><ThemeToggle /></li>
-    </ul>
-  </nav>
-</header>
+      <ul
+        class="w-full h-full flex flex-col gap-8 lg:flex-row lg:items-center lg:flex-grow lg:gap-12"
+      >
+        {
+          links.map(({ href, text, ...rest }) => (
+            <li class="mt-4 block capitalize text-slate-500 transition-all hover:text-slate-600 dark:text-slate-300 dark:hover:text-white lg:mt-0 lg:inline-block">
+              <a href={href} {...rest}>
+                {text}
+              </a>
+            </li>
+          ))
+        }
+        <li class="md:hidden">
+          <a
+            href="https://twitter.com/hamatoyogi"
+            target="_blank"
+            rel="noopener"
+          >
+            <Sprite name="logo-twitter" class="w-6 h-6 text-[#1DA1F2]" />
+          </a>
+        </li>
+        <li class="md:hidden">
+          <a
+            href="https://github.com/hamatoyogi"
+            target="_blank"
+            rel="noopener"
+          >
+            <Sprite name="logo-github" class="w-6 h-6" />
+          </a>
+        </li>
+        <li class="inline-block lg:ml-auto"><ThemeToggle /></li>
+      </ul>
+    </nav>
+  </header>
+</Sprite.Provider>
 
 <script>
   const hamburger = document.querySelector('.hamburger');
