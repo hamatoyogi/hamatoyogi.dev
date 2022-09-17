@@ -206,10 +206,10 @@
     node-fetch "^3.2.5"
     which-pm-runs "^1.1.0"
 
-"@astrojs/vercel@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@astrojs/vercel/-/vercel-1.0.2.tgz#b05b9ce7c98b113b7461e4e7588318e88801e0f2"
-  integrity sha512-IdEkJQVZ9iBVCrojVHbwoFWJ4uF4SBo0GuC4vMDL+wuZPnjV6TnZZDJwl77HwylFqbqujjmm4pvqhHJAQ8GTFA==
+"@astrojs/vercel@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/vercel/-/vercel-2.0.0.tgz#4a9d750bd0784858a0acd073a8794df3d1a40fc9"
+  integrity sha512-KUg2PAJO/hNXx3DYPwORrzSiTgFucQwaNePjTXly58xlbYkZIppspgKuCPA2+vpmMyoRg4+YuRNEjacJk5bVAQ==
   dependencies:
     "@astrojs/webapi" "^1.0.0"
     "@vercel/nft" "^0.18.2"
@@ -1122,6 +1122,15 @@ astro-compress@^1.0.8:
     sharp "0.31.0"
     svgo "2.8.0"
     terser "5.15.0"
+
+astro-icon@^0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/astro-icon/-/astro-icon-0.7.3.tgz#bc0923d7468d3d9f3da5dc8caf7a6bc558e2fa68"
+  integrity sha512-choatz5A5pKFMzmGJucvtliOxYJLUQ94bjgoGJHYLQnX7FRG+YhnONoyyapno6iVFavCIytSREOy4Vcg2wMYUA==
+  dependencies:
+    node-fetch "^3.1.0"
+    resolve-pkg "^2.0.0"
+    svgo "^2.8.0"
 
 astro-seo@^0.6.0:
   version "0.6.0"
@@ -4031,7 +4040,7 @@ node-fetch@^2.6.7:
   dependencies:
     whatwg-url "^5.0.0"
 
-node-fetch@^3.2.5:
+node-fetch@^3.1.0, node-fetch@^3.2.5:
   version "3.2.10"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-3.2.10.tgz#e8347f94b54ae18b57c9c049ef641cef398a85c8"
   integrity sha512-MhuzNwdURnZ1Cp4XTazr69K0BTizsBroX7Zx3UgDSVcZYKF/6p0CBe4EUb/hLqmzVhl0UpYfgRljQ4yxE+iCxA==
@@ -4809,6 +4818,13 @@ resolve-from@^5.0.0:
   resolved "https://registry.npmjs.org/resolve-from/-/resolve-from-5.0.0.tgz"
   integrity sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==
 
+resolve-pkg@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/resolve-pkg/-/resolve-pkg-2.0.0.tgz#ac06991418a7623edc119084edc98b0e6bf05a41"
+  integrity sha512-+1lzwXehGCXSeryaISr6WujZzowloigEofRB+dj75y9RRa/obVcYgbHJd53tdYw8pvZj8GojXaaENws8Ktw/hQ==
+  dependencies:
+    resolve-from "^5.0.0"
+
 resolve@^1.1.7, resolve@^1.10.0, resolve@^1.17.0, resolve@^1.22.0, resolve@^1.22.1:
   version "1.22.1"
   resolved "https://registry.npmjs.org/resolve/-/resolve-1.22.1.tgz"
@@ -5441,7 +5457,7 @@ svg-tags@^1.0.0:
   resolved "https://registry.npmjs.org/svg-tags/-/svg-tags-1.0.0.tgz"
   integrity sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==
 
-svgo@2.8.0:
+svgo@2.8.0, svgo@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/svgo/-/svgo-2.8.0.tgz#4ff80cce6710dc2795f0c7c74101e6764cfccd24"
   integrity sha512-+N/Q9kV1+F+UeWYoSiULYo4xYSDQlTgb+ayMobAXPwMnLvop7oxKMo9OzIrX5x3eS4L4f2UHhc9axXwY8DpChg==
