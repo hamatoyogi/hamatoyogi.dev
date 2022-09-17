@@ -4,7 +4,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "vercel dev",
     "astro": "astro",
     "prettier": "prettier --write .",
     "stylelint-check": "stylelint-config-prettier-check"
@@ -36,6 +36,7 @@
     "@astrojs/vercel": "^1.0.2",
     "@fontsource/inter": "^4.5.12",
     "@fontsource/space-grotesk": "^4.5.10",
+    "astro-compress": "^1.0.8",
     "astro-seo": "^0.6.0"
   }
 }
