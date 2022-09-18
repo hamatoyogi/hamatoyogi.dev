@@ -16,10 +16,20 @@ const { extraClass } = Astro.props as Props;
     ]}
   >
     <p>© 2022 Yoav Ganbar</p>
-    <a href="https://twitter.com/hamatoyogi" target="_blank" rel="noopener">
+    <a
+      href="https://twitter.com/hamatoyogi"
+      target="_blank"
+      rel="noopener"
+      aria-label="twitter logo"
+    >
       <Sprite name="logo-twitter" class="w-6 h-6 text-[#1DA1F2]" />
     </a>
-    <a href="https://github.com/hamatoyogi" target="_blank" rel="noopener">
+    <a
+      href="https://github.com/hamatoyogi"
+      target="_blank"
+      rel="noopener"
+      aria-label="github logo"
+    >
       <Sprite name="logo-github" class="w-6 h-6" />
     </a>
   </footer>
