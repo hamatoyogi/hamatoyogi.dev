@@ -9,7 +9,6 @@ import { formatDate } from 'src/utils/date-formatter';
 import { BlogLink } from '~components/external-link';
 
 /* Images */
-import zeroNFrameworkImage from '~assets/blog/qwik/0-n-framework.png';
 import ssrCakeImage from '~assets/blog/qwik/ssr-cake.png';
 import oneKImage from '~assets/blog/qwik/qwik-1k.png';
 import resumeableImage from '~assets/blog/qwik/vm-resumability.png';
@@ -97,18 +96,16 @@ const description =
       Qwik's approach is to load almost 0 JavaScript. They do this by having one
       single function which is under 1kb, and is in charge of resuming the app
       on the frontend, right where the server stopped it. This allows the
-      framework to achieve <code>O(1)</code> time complexity.
+      framework to achieve <code>O(1)</code> time complexity, while minimizing TTI
+      (Time To interactive).
     </p>
     <figure class="flex flex-col justify-center items-center">
-      <Image
-        src={zeroNFrameworkImage}
-        alt="what if frameworks were o(1)"
-        format="webp"
-      />
+      <Image src={oneKImage} alt="Diagram of TTI for Qwik" format="webp" />
       <figcaption>
         <a
           href="https://docs.google.com/presentation/d/1Jj1iw0lmaecxtUpqyNdF1aBzbCVnSlbPGLbOpN2xydc/edit#slide=id.g15ace38205f_0_1"
-          target="_blank">Qwik - Infobib shift slide deck</a
+          target="_blank"
+          >Current frameworks have high TTI due to their bootstrap phase</a
         >
       </figcaption>
     </figure>
@@ -125,6 +122,19 @@ const description =
       inside the HTML and that tiny JS file can resume the excution where the
       server left.
     </p>
+    <figure class="flex flex-col justify-center items-center">
+      <Image
+        src={resumeableImage}
+        alt="Resumability - just like VMs"
+        format="webp"
+      />
+      <figcaption>
+        <a
+          href="https://docs.google.com/presentation/d/1Jj1iw0lmaecxtUpqyNdF1aBzbCVnSlbPGLbOpN2xydc/edit#slide=id.g15ace38205f_0_1"
+          target="_blank">Resumability - just like VMs</a
+        >
+      </figcaption>
+    </figure>
     <p>
       The problem with most frameworks like Angular, React, Vue, etc. is that
       SSR (Server Side Rendeting) was an after thought. The initial bootup is
@@ -134,6 +144,15 @@ const description =
       hydration actually is, the client needs to "hydrate" with the framework
       bindings.
     </p>
+    <figure class="flex flex-col justify-center items-center">
+      <Image src={ssrCakeImage} alt="SSR Cake analogy" format="webp" />
+      <figcaption>
+        <a
+          href="https://docs.google.com/presentation/d/1Jj1iw0lmaecxtUpqyNdF1aBzbCVnSlbPGLbOpN2xydc/edit#slide=id.g15ace38205f_0_1"
+          target="_blank">It's like baking a cake twice...</a
+        >
+      </figcaption>
+    </figure>
     <p>
       One way to reduce some of this hydration overhead is the "lazy loading"
       strategy. It can also be found natively in the browser on <code>img</code>
