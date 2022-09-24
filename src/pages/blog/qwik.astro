@@ -13,6 +13,7 @@ import { BlogLink } from '~components/external-link';
 import ssrCakeImage from '~assets/blog/qwik/ssr-cake.png';
 import oneKImage from '~assets/blog/qwik/qwik-1k.png';
 import resumeableImage from '~assets/blog/qwik/vm-resumability.png';
+import astroQwikImage from '~assets/blog/qwik/astro-qwik.png';
 
 const publishDate = formatDate({ date: '9/21/22' });
 const title = 'QwikJS: The Next Big Thing in the Frontend Ecosystem?';
@@ -220,7 +221,63 @@ const description =
         know React or Solid, you are going to feel right at home. On top of
         that, reactivity and state managment are baked in.
       </p>
+      <blockquote>
+        So, if you're fed up with moving around code, adding lazy load
+        boundries, and knowing that each feature you write is degragading the
+        user experiece of your app - QwikJS is definitly something to look into.
+      </blockquote>
     </section>
-    <h2>Excitment and wizardary</h2>
+    <section>
+      <h2 class="capitalize">The Buzz, Excitment and wizardary</h2>
+      <p>
+        These are early days for Qwik, but it sure seems that a lot of folks are
+        excited and hyped about it, myself included. The frontend scene has only
+        started playing around with the framework, and the Builder team are
+        doing some excellent work promoting, explaining, and getting the word
+        out.
+      </p>
+      <blockquote>
+        They have an aspirational mission: <Tweet
+          id="https://twitter.com/manucorporat/status/1571865760816939015?s=20&t=jkmPRotkN22HJOzaqneHeg"
+        />
+      </blockquote>
+      <blockquote>
+        The magic of resumability: <Tweet
+          id="https://twitter.com/mhevery/status/1573341440876285952?t=7G00YBmR9dPiNKyiWmOf8A&s=08"
+        />
+      </blockquote>
+      <blockquote>
+        Even Alex Russel is excited: <Tweet
+          id="https://twitter.com/slightlylate/status/1573054873947480064?s=20&t=6RJyXNETnziM-qJYxG7Ojw"
+        />
+      </blockquote>
+      <p>
+        Something I got really pumped about is that with this new paradigm shift
+        things like micro-frontends (on the edge! ⚡️) might be easier to
+        acheive. I highly recommend watching this conversation <BlogLink
+          href="https://twitter.com/Steve8708">Steve Sewell</BlogLink
+        > (Builder.IO CEO) and Miško had with Pete BD from <BlogLink
+          href="https://www.cloudflare.com/">Cloudflare</BlogLink
+        > about running SSR on the edge:
+      </p>
+      <YouTube id="https://www.youtube.com/watch?v=VR9vyOtMtnI" />
+      <blockquote>
+        Being a <BlogLink href="/blog/why-astro">new Astro user</BlogLink>, I
+        got really gitty when I saw this tweet:
+        <figure class="flex flex-col justify-center items-center">
+          <Image
+            src={astroQwikImage}
+            alt="Astro / Qwik shared tweet"
+            format="webp"
+          />
+          <figcaption>
+            <a
+              href="https://twitter.com/astrodotbuild/status/1564665043954069504?s=20&t=6RJyXNETnziM-qJYxG7Ojw"
+              target="_blank">(Original tweet)</a
+            >
+          </figcaption>
+        </figure>
+      </blockquote>
+    </section>
   </article>
 </BaseLayout>
