@@ -27,6 +27,7 @@ export default defineConfig({
         'https://hamatoyogi.dev',
         'https://hamatoyogi.dev/blog',
         'https://hamatoyogi.dev/blog/why-astro',
+        'https://hamatoyogi.dev/blog/qwik-next-big-thing',
         'https://hamatoyogi.dev/about',
         'https://hamatoyogi.dev/appearances',
         'https://hamatoyogi.dev/work',
