@@ -14,6 +14,7 @@ import ssrCakeImage from '~assets/blog/qwik/ssr-cake.png';
 import oneKImage from '~assets/blog/qwik/qwik-1k.png';
 import resumeableImage from '~assets/blog/qwik/vm-resumability.png';
 import astroQwikImage from '~assets/blog/qwik/astro-qwik.png';
+import pastFutureImage from '~assets/blog/qwik/past-future.png';
 
 const publishDate = formatDate({ date: '9/21/22' });
 const title = 'QwikJS: The Next Big Thing in the Frontend Ecosystem?';
@@ -278,6 +279,44 @@ const description =
           </figcaption>
         </figure>
       </blockquote>
+    </section>
+    <section>
+      <h2>Final Words</h2>
+      <p>
+        I'm pretty stoked about QwikJS, and I hope I was able to convey why you
+        should be as well. It seems like the team behind this awesome tehcnology
+        has set to fix a lot of the performance problems the web has nowadays.
+        Even if you aren't sure or ready to take on learning yet another
+        frontend framework, at least know that this sort of endevour is what
+        pushes the web forward.
+      </p>
+      <p>
+        It's at least important to remember where we came from and where things
+        are going, so I'll end with one more slide from Miško's deck:
+      </p>
+      <figure class="flex flex-col justify-center items-center">
+        <Image src={pastFutureImage} alt="Framework in time" format="webp" />
+        <figcaption>
+          <a
+            href="https://docs.google.com/presentation/d/1Jj1iw0lmaecxtUpqyNdF1aBzbCVnSlbPGLbOpN2xydc/edit#slide=id.g15ace38205f_0_1"
+            target="_blank">Miško's Infobib deck</a
+          >
+        </figcaption>
+      </figure>
+      <section>
+        <h2>Resources:</h2>
+        <ul>
+          <li>
+            <BlogLink href="https://qwik.builder.io/">QwikJS Website</BlogLink>
+          </li>
+          <li>
+            <BlogLink
+              href="https://docs.google.com/presentation/d/1Jj1iw0lmaecxtUpqyNdF1aBzbCVnSlbPGLbOpN2xydc/edit#slide=id.g138190850c7_0_385"
+              >Qwik - Infobib shift slide deck</BlogLink
+            >
+          </li>
+        </ul>
+      </section>
     </section>
   </article>
 </BaseLayout>
