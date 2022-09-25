@@ -172,21 +172,21 @@ const description =
         to tinker with and think about. Other frameworks have lazy loading but:
       </p><ul>
         <li>
-          They can only lazy load components not currently in the tender tree so
+          They can only lazy load components not currently in the render tree so
           they have to do it eagerly.
         </li>
         <li>
           Their lazy loading can happen only after the framework is loaded where
-          as Qwik can do it with just 1kb
+          as Qwik can do it with just 1kb.
         </li>
         <li>They can only lazy load functions not closures.</li>
       </ul>
       <p>
-        Qwik aims to do it automatically, as it is at it's core. Code is
-        splitted by default and only loaded on interaction. Qwik lazy loads
-        closures but only when they are needed for execution. Other frameworks
-        lazy load functions to register listeners even if no one will ever
-        trigger the listener.
+        Qwik aims to do most of the work automatically, as lazy loading is at
+        it's core. Code is splitted by default and only loaded on interaction.
+        Qwik lazy loads closures but only when they are needed for execution.
+        Other frameworks lazy load functions to register listeners even if no
+        one will ever trigger the listener.
       </p>
 
       <p>
@@ -215,13 +215,13 @@ const description =
           </BlogLink>.
         </li>
       </ul>
-      <p>
+      <blockquote>
         Let me try and re-emphasise this point... Let's say you use React Lazy
         for every component, when you build the whole app, these components
         still have to load. Meaning, these components aren't bundled with the
         main app code, and they need to load and hydrate. This actually
         degragades performance.
-      </p>
+      </blockquote>
     </section>
     <section>
       <h2>Moar Fetures...</h2>
