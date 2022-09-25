@@ -1,0 +1,357 @@
+---
+import { Image } from '@astrojs/image/components';
+import { Tweet } from '@astro-community/astro-embed-twitter';
+import { YouTube } from '@astro-community/astro-embed-youtube';
+
+import { BaseLayout } from '~layouts/BaseLayout';
+import { Heading1 } from '~typography/Heading1';
+
+import { formatDate } from 'src/utils/date-formatter';
+import { BlogLink } from '~components/external-link';
+
+/* Images */
+import ssrCakeImage from '~assets/blog/qwik/ssr-cake.png';
+import oneKImage from '~assets/blog/qwik/qwik-1k.png';
+import resumeableImage from '~assets/blog/qwik/vm-resumability.png';
+import astroQwikImage from '~assets/blog/qwik/astro-qwik.png';
+import pastFutureImage from '~assets/blog/qwik/past-future.png';
+
+const publishDate = formatDate({ date: '9/25/22' });
+const title = 'Qwik: The Next Big Thing in the Frontend Ecosystem?';
+const description =
+  'A first look at Qwik, what is it, why you should care, and why I am excited about it.';
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="mt-10 md:mt-32 prose dark:prose-invert xl:prose-xl">
+    <Heading1>{title}</Heading1>
+    <h4>Published: {publishDate}</h4>
+    <p>
+      Once again I find myself starting to write about something a little bit
+      after the fact... I guess that's just the way I am. However, this time, it
+      was a good thing, as I've' had to let some things settle in my head and
+      around the the framework state (and not the kind of state that popped into
+      your head 😜).
+    </p>
+    <p>
+      The framework I'm talking about (as you can tell by the headline) is <BlogLink
+        href="https://qwik.builder.io/">Qwik</BlogLink
+      > which has just released it's <BlogLink
+        href="https://www.builder.io/blog/qwik-and-qwik-city-have-reached-beta"
+        >initial beta</BlogLink
+      > along with "Qwik City", their own meta framework for building Qwik sites/apps.
+      It's basically what Next.js is to React.
+    </p>
+    <section>
+      <h2>What is Qwik?</h2>
+      <YouTube id="https://www.youtube.com/watch?v=x2eF3YLiNhY" />
+      <p>
+        Qwik is the new buzz worthy framework in town, and rightfully so IMO.
+        The 2 key features it brings to the table are:
+      </p>
+      <ol>
+        <li>Resumability</li>
+        <li>Progressiveness</li>
+      </ol>
+      <p>
+        It is built by the team at <BlogLink href="https://builder.io/"
+          >Buider.io</BlogLink
+        >, by an A-team of very well known and respected individuals of the dev
+        community: <BlogLink href="https://twitter.com/mhevery"
+          >Miško Hevery</BlogLink
+        >, <BlogLink href="https://twitter.com/manucorporat"
+          >Manu Almeida</BlogLink
+        >, and
+        <BlogLink href="https://twitter.com/adamdbradley">Adam Bradley</BlogLink
+        >.
+      </p>
+      <p>
+        Miško used to work at Google for 16 years, and is the man behing
+        AngularJS and <BlogLink href="https://angular.io/">Angular</BlogLink>.
+        Adam and Manu are both behind projects such as <BlogLink
+          href="https://ionic.io/">Ionic</BlogLink
+        >, <BlogLink href="https://stenciljs.com/">Stencil</BlogLink>. Adam has
+        also recently released <BlogLink href="https://partytown.builder.io/"
+          >Party Town 🎉</BlogLink
+        > (also under the Builder umbrella) which helps contain 3rd party scripts
+        on your websites.
+      </p>
+      <p>
+        The gist of what Qwik is trying to solve mostly, is the problem of SSR
+        hydration. To better understand why this is one of the frameworks golas,
+        I encourage you to read Miško's fantastic post: <BlogLink
+          href="https://www.builder.io/blog/hydration-is-pure-overhead"
+          >"Hydration is Pure Overhead"</BlogLink
+        >.
+      </p>
+    </section>
+    <section>
+      <h2 class="capitalize">Why Should you care about qwik?</h2>
+      <p>
+        I was lucky enough to be a part of a small workshop that was held in Tel
+        Aviv (curtosy of <BlogLink href="https://twitter.com/shai_reznik"
+          >Shai Reznik</BlogLink
+        > 🙏🏽) with Miško. In this workshop, Miško dove deep into the motivations
+        and implementations behing the framework. It was mind blowing. I was so enthralled
+        by it, that I didn't take many notes, but I will try to share some inner
+        insights he gave.
+      </p>
+      <Tweet
+        id="https://twitter.com/HamatoYogi/status/1538882200627724290?s=20&t=foL2aV-vyqXBDsYMY3H20w"
+      />
+      <p>
+        Qwik's approach is to load almost 0 JavaScript. They do this by having
+        one single function which is under 1kb, and is in charge of resuming the
+        app on the frontend, right where the server stopped it. This allows the
+        framework to achieve <code>O(1)</code> time complexity, while minimizing
+        TTI (Time To interactive).
+      </p>
+      <figure class="flex flex-col justify-center items-center">
+        <Image src={oneKImage} alt="Diagram of TTI for Qwik" format="webp" />
+        <figcaption>
+          <a
+            href="https://docs.google.com/presentation/d/1Jj1iw0lmaecxtUpqyNdF1aBzbCVnSlbPGLbOpN2xydc/edit#slide=id.g15ace38205f_0_1"
+            target="_blank"
+            >Current frameworks have high TTI due to their bootstrap phase</a
+          >
+        </figcaption>
+      </figure>
+      <p>
+        The way to think about it, is like VM's (Virtual Machines). For example,
+        you can start a VM that runs windows, open up a Word doc, and then close
+        the VM. When you restart said VM - you resume from the same place - the
+        open doc.
+      </p>
+      <p>
+        Qwik starts on the server, does the work, seralizes the app state and
+        framework state into HTML (in earlier versions with the help of <code
+          >data-attributes</code
+        >, now it's all seralized JSON at the bottom of the HTML). Then when the
+        response goes down the wire to the browser, all the data is inside the
+        HTML and that tiny JS file can resume the excution where the server
+        left.
+      </p>
+      <figure class="flex flex-col justify-center items-center">
+        <Image
+          src={resumeableImage}
+          alt="Resumability - just like VMs"
+          format="webp"
+        />
+        <figcaption>
+          <a
+            href="https://docs.google.com/presentation/d/1Jj1iw0lmaecxtUpqyNdF1aBzbCVnSlbPGLbOpN2xydc/edit#slide=id.g15ace38205f_0_1"
+            target="_blank">Resumability - just like VMs</a
+          >
+        </figcaption>
+      </figure>
+      <p>
+        The problem with most frameworks like Angular, React, Vue, etc. is that
+        SSR (Server Side Rendeting) was an after thought. The initial bootup is
+        the main issue. In a nutshell, all current frameworks do the same work
+        twice - once on the server and then on the client to attach all the
+        listeners and stuff it needs to actually be interactive. This is what
+        hydration actually is, the client needs to "hydrate" with the framework
+        bindings.
+      </p>
+      <figure class="flex flex-col justify-center items-center">
+        <Image src={ssrCakeImage} alt="SSR Cake analogy" format="webp" />
+        <figcaption>
+          <a
+            href="https://docs.google.com/presentation/d/1Jj1iw0lmaecxtUpqyNdF1aBzbCVnSlbPGLbOpN2xydc/edit#slide=id.g15ace38205f_0_1"
+            target="_blank">It's like baking a cake twice...</a
+          >
+        </figcaption>
+      </figure>
+      <p>
+        One key way Qwik circumvents this hydration overhead is the "lazy
+        loading" strategy. It can also be found natively in the browser on <code
+          >img</code
+        >
+        tags (request the image only when it's close to the viewport). The basic
+        idea is not to load something until you need it. However, it's something
+        to tinker with and think about. Other frameworks have lazy loading but:
+      </p><ul>
+        <li>
+          They can only lazy load components not currently in the render tree so
+          they have to do it eagerly.
+        </li>
+        <li>
+          Their lazy loading can happen only after the framework is loaded where
+          as Qwik can do it with just 1kb.
+        </li>
+        <li>
+          They can only lazy load functions not <BlogLink
+            href="https://discord.com/channels/@me/1023158263098916925/1023521645769539584"
+            >closures</BlogLink
+          >.
+        </li>
+      </ul>
+      <p>
+        Qwik aims to do most of the work automatically, as lazy loading is at
+        it's core. Code is splitted by default and only loaded on interaction.
+        Qwik lazy loads closures but only when they are needed for execution.
+        Other frameworks lazy load functions to register listeners even if no
+        one will ever trigger the listener.
+      </p>
+
+      <p>
+        In the React ecosystem, to achive code splitting you'd have to do it
+        intentionaly by dynamically importing, and need to use something like:
+      </p>
+      <ul>
+        <li>
+          In the past -
+          <BlogLink
+            href="https://reactjs.org/docs/code-splitting.html#code-splitting"
+            ><code>react-loadable</code>
+          </BlogLink>.
+        </li>
+        <li>
+          Nowadays -
+          <BlogLink href="https://github.com/jamiebuilds/react-loadable"
+            ><code>React Lazy</code>
+          </BlogLink> does the trick.
+        </li>
+        <li>
+          In Next.js -
+          <BlogLink
+            href="https://nextjs.org/docs/advanced-features/dynamic-import"
+            ><code>Dynamic Import</code>
+          </BlogLink>.
+        </li>
+      </ul>
+      <blockquote>
+        Let me try and re-emphasise this point... Let's say you use React Lazy
+        for every component, when you build the whole app, these components
+        still have to load. Meaning, these components aren't bundled with the
+        main app code, and they need to load and hydrate. This actually
+        degragades performance.
+      </blockquote>
+    </section>
+    <section>
+      <h2>Moar Fetures...</h2>
+      <ul>
+        <li>
+          <p>
+            <b>Reduced Rendering:</b>
+            reactivity baked in, minimized rendering and code dowload, starts at
+            server - restored in client.
+          </p>
+        </li>
+        <li>
+          <p>
+            <b>Scalability:</b> the only downloaded code is code the user uses.
+          </p>
+        </li>
+        <li>
+          <b>Code once:</b> No need to separate server logic from client logic on
+          the component level. DOM listeners are setup on server render, and are
+          ready on client interactive.
+        </li>
+      </ul>
+      <p>
+        What's the biggest kick though? Qwik uses <code>JSX</code>, so if you
+        know React or Solid, you are going to feel right at home. On top of
+        that, reactivity and state managment are baked in.
+      </p>
+      <blockquote>
+        So, if you're fed up with moving around code, adding lazy load
+        boundries, and knowing that each feature you write is degragading the
+        user experiece of your app - Qwik is definitly something to look into.
+      </blockquote>
+    </section>
+    <section>
+      <h2 class="capitalize">The Buzz, Excitment and wizardary</h2>
+      <p>
+        These are early days for Qwik, but it sure seems that a lot of folks are
+        excited and hyped about it, myself included. The frontend scene has only
+        started playing around with the framework, and the Builder team are
+        doing some excellent work promoting, explaining, and getting the word
+        out.
+      </p>
+      <blockquote>
+        They have an aspirational mission: <Tweet
+          id="https://twitter.com/manucorporat/status/1571865760816939015?s=20&t=jkmPRotkN22HJOzaqneHeg"
+        />
+      </blockquote>
+      <blockquote>
+        The magic of resumability: <Tweet
+          id="https://twitter.com/mhevery/status/1573341440876285952?t=7G00YBmR9dPiNKyiWmOf8A&s=08"
+        />
+      </blockquote>
+      <blockquote>
+        Even Alex Russel is excited: <Tweet
+          id="https://twitter.com/slightlylate/status/1573054873947480064?s=20&t=6RJyXNETnziM-qJYxG7Ojw"
+        />
+      </blockquote>
+      <p>
+        Something I got really pumped about is that with this new paradigm shift
+        things like micro-frontends (on the edge! ⚡️) might be easier to
+        acheive. I highly recommend watching this conversation <BlogLink
+          href="https://twitter.com/Steve8708">Steve Sewell</BlogLink
+        > (Builder.IO CEO) and Miško had with Pete BD from <BlogLink
+          href="https://www.cloudflare.com/">Cloudflare</BlogLink
+        > about running SSR on the edge:
+      </p>
+      <YouTube
+        id="https://www.youtube.com/watch?v=VR9vyOtMtnI"
+        class="mx-auto"
+      />
+      <blockquote>
+        Being a <BlogLink href="/blog/why-astro">new Astro user</BlogLink>, I
+        got really gitty when I saw this tweet:
+        <figure class="flex flex-col justify-center items-center">
+          <Image
+            src={astroQwikImage}
+            alt="Astro / Qwik shared tweet"
+            format="webp"
+          />
+          <figcaption>
+            <a
+              href="https://twitter.com/astrodotbuild/status/1564665043954069504?s=20&t=6RJyXNETnziM-qJYxG7Ojw"
+              target="_blank">(Original tweet)</a
+            >
+          </figcaption>
+        </figure>
+      </blockquote>
+    </section>
+    <section>
+      <h2>Final Words</h2>
+      <p>
+        I'm pretty stoked about Qwik, and I hope I was able to convey why you
+        should be as well. It seems like the team behind this awesome tehcnology
+        has set to fix a lot of the performance problems the web has nowadays.
+        Even if you aren't sure or ready to take on learning yet another
+        frontend framework, at least know that this sort of endevour is what
+        pushes the web forward.
+      </p>
+      <p>
+        It's at least important to remember where we came from and where things
+        are going, so I'll end with one more slide from Miško's deck:
+      </p>
+      <figure class="flex flex-col justify-center items-center">
+        <Image src={pastFutureImage} alt="Framework in time" format="webp" />
+        <figcaption>
+          <a
+            href="https://docs.google.com/presentation/d/1Jj1iw0lmaecxtUpqyNdF1aBzbCVnSlbPGLbOpN2xydc/edit#slide=id.g15ace38205f_0_1"
+            target="_blank">Miško's Infobib deck</a
+          >
+        </figcaption>
+      </figure>
+      <section>
+        <h2>Resources:</h2>
+        <ul>
+          <li>
+            <BlogLink href="https://qwik.builder.io/">Qwik Website</BlogLink>
+          </li>
+          <li>
+            <BlogLink
+              href="https://docs.google.com/presentation/d/1Jj1iw0lmaecxtUpqyNdF1aBzbCVnSlbPGLbOpN2xydc/edit#slide=id.g138190850c7_0_385"
+              >Qwik - Infobib shift slide deck</BlogLink
+            >
+          </li>
+        </ul>
+      </section>
+    </section>
+  </article>
+</BaseLayout>
