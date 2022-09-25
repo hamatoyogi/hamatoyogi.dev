@@ -16,7 +16,7 @@ import resumeableImage from '~assets/blog/qwik/vm-resumability.png';
 import astroQwikImage from '~assets/blog/qwik/astro-qwik.png';
 import pastFutureImage from '~assets/blog/qwik/past-future.png';
 
-const publishDate = formatDate({ date: '9/24/22' });
+const publishDate = formatDate({ date: '9/25/22' });
 const title = 'Qwik: The Next Big Thing in the Frontend Ecosystem?';
 const description =
   'A first look at Qwik, what is it, why you should care, and why I am excited about it.';
@@ -73,8 +73,8 @@ const description =
         >, <BlogLink href="https://stenciljs.com/">Stencil</BlogLink>. Adam has
         also recently released <BlogLink href="https://partytown.builder.io/"
           >Party Town 🎉</BlogLink
-        > (which is also under the Builder umbrella) which helps contain 3rd party
-        scripts on your websites.
+        > (also under the Builder umbrella) which helps contain 3rd party scripts
+        on your websites.
       </p>
       <p>
         The gist of what Qwik is trying to solve mostly, is the problem of SSR
@@ -124,10 +124,12 @@ const description =
       </p>
       <p>
         Qwik starts on the server, does the work, seralizes the app state and
-        framework state into HTML (with the help of <code>data-attributes</code
-        >). Then when the response goes down the wire to the browser, all the
-        data is inside the HTML and that tiny JS file can resume the excution
-        where the server left.
+        framework state into HTML (in earlier versions with the help of <code
+          >data-attributes</code
+        >, now it's all seralized JSON at the bottom of the HTML). Then when the
+        response goes down the wire to the browser, all the data is inside the
+        HTML and that tiny JS file can resume the excution where the server
+        left.
       </p>
       <figure class="flex flex-col justify-center items-center">
         <Image
@@ -161,15 +163,32 @@ const description =
         </figcaption>
       </figure>
       <p>
-        One way to reduce some of this hydration overhead is the "lazy loading"
-        strategy. It can also be found natively in the browser on <code
+        One key way Qwik circumvents this hydration overhead is the "lazy
+        loading" strategy. It can also be found natively in the browser on <code
           >img</code
         >
-        tags (get the image source only when it's close to the viewport). The basic
+        tags (request the image only when it's close to the viewport). The basic
         idea is not to load something until you need it. However, it's something
-        to tinker with and think about. Qwik aims to do it automatically, as it
-        is at it's core. Code is splitted by default and only loaded on interaction.
+        to tinker with and think about. Other frameworks have lazy loading but:
+      </p><ul>
+        <li>
+          They can only lazy load components not currently in the tender tree so
+          they have to do it eagerly.
+        </li>
+        <li>
+          Their lazy loading can happen only after the framework is loaded where
+          as Qwik can do it with just 1kb
+        </li>
+        <li>They can only lazy load functions not closures.</li>
+      </ul>
+      <p>
+        Qwik aims to do it automatically, as it is at it's core. Code is
+        splitted by default and only loaded on interaction. Qwik lazy loads
+        closures but only when they are needed for execution. Other frameworks
+        lazy load functions to register listeners even if no one will ever
+        trigger the listener.
       </p>
+
       <p>
         In the React ecosystem, to achive code splitting you'd have to do it
         intentionaly by dynamically importing, and need to use something like:
@@ -196,8 +215,16 @@ const description =
           </BlogLink>.
         </li>
       </ul>
-
-      <p>Some more features mentioned on the site are:</p>
+      <p>
+        Let me try and re-emphasise this point... Let's say you use React Lazy
+        for every component, when you build the whole app, these components
+        still have to load. Meaning, these components aren't bundled with the
+        main app code, and they need to load and hydrate. This actually
+        degragades performance.
+      </p>
+    </section>
+    <section>
+      <h2>Moar Fetures...</h2>
       <ul>
         <li>
           <p>
@@ -261,7 +288,10 @@ const description =
           href="https://www.cloudflare.com/">Cloudflare</BlogLink
         > about running SSR on the edge:
       </p>
-      <YouTube id="https://www.youtube.com/watch?v=VR9vyOtMtnI" />
+      <YouTube
+        id="https://www.youtube.com/watch?v=VR9vyOtMtnI"
+        class="mx-auto"
+      />
       <blockquote>
         Being a <BlogLink href="/blog/why-astro">new Astro user</BlogLink>, I
         got really gitty when I saw this tweet:
