@@ -1,0 +1,124 @@
+---
+import type { MarkdownLayoutProps } from 'astro';
+
+import { SEO } from 'astro-seo';
+
+import '~style/tailwind.css';
+
+/* FONTS */
+import '@fontsource/inter';
+import '@fontsource/inter/600.css';
+import '@fontsource/space-grotesk';
+
+import { seoConfig } from 'src/utils/seo-config';
+
+import { Header } from '~components/header';
+import { Footer } from '~components/footer';
+import { formatDate } from 'src/utils/date-formatter';
+import { Heading1 } from '~components/typography';
+
+type Props = MarkdownLayoutProps<{
+  /** Specific OpenGraph page title. */
+  ogTitle?: string;
+  title?: string;
+
+  /** Description of the page. */
+  description?: string;
+
+  /** Image thumbnail for the page. */
+  image?: {
+    url: string;
+    alt: string;
+  };
+  date: string;
+  draft: boolean;
+}>;
+
+// Now, `frontmatter`, `url`, and other Markdown layout properties
+// are accessible with type safety
+const { frontmatter, url } = Astro.props;
+const { draft, date, description, title, image, ogTitle } = frontmatter;
+
+const publishDate = formatDate({ date });
+---
+
+<html lang="en" class="antialiased">
+  <head>
+    <!-- Global meta tags. -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <SEO
+      title={title}
+      description={seoConfig.description || description}
+      canonical={new URL(url, Astro.site).pathname}
+      noindex={draft}
+      nofollow={draft}
+      openGraph={{
+        basic: {
+          title: ogTitle || title,
+          type: seoConfig.type,
+          image: seoConfig.image.url || image.url,
+        },
+        image: {
+          width: seoConfig.image.width,
+          height: seoConfig.image.height,
+          alt: seoConfig.image.alt || image.alt,
+        },
+        optional: {
+          siteName: seoConfig.siteName,
+          description: seoConfig.description || description,
+        },
+        article: {
+          publishedTime: publishDate,
+          authors: ['Yoav Ganbar'],
+        },
+      }}
+      twitter={{
+        card: seoConfig.twitter.card,
+        creator: 'hamatoYogi',
+      }}
+    />
+
+    <!-- Favicons. -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- scripts -->
+    <script type="text/partytown" async src="https://cdn.splitbee.io/sb.js"
+    ></script>
+    <script is:inline>
+      // It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
+      if (
+        localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </head>
+
+  <body
+    class:list={[
+      'min-h-screen flex flex-col w-full overflow-x-hidden bg-white text-mine-shaft font-inter',
+      'dark:bg-mirage dark:text-lavender-gray dark:text-lavender-gray',
+    ]}
+  >
+    <Header />
+    <main class="px-6 pb-20 md:px-0 md:mx-[20vw]">
+      <article class="mt-10 md:mt-32 prose dark:prose-invert xl:prose-xl">
+        <Heading1>{title}</Heading1>
+        <h4>Published: {publishDate}</h4>
+        <slot />
+      </article>
+    </main>
+    <Footer extraClass="mt-auto" />
+  </body>
+</html>
