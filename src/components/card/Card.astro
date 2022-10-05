@@ -17,7 +17,7 @@ const { href, title, body, isExternalLink } = Astro.props as Props;
     <a
       href={href}
       target={isExternalLink ? '_blank' : undefined}
-      rel={isExternalLink ? 'noopener noreferrer' : undefined}
+      rel={isExternalLink ? 'noopener noreferrer' : 'prefetch'}
     >
       <h2
         class="capitalize text-2xl flex justify-between items-start text-dodger-blue dark:text-melrose"
