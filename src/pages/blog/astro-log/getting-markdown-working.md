@@ -1,5 +1,5 @@
 ---
-layout: ../../components/layouts/markdown-layout/MarkdownLayout.astro
+layout: ../../../components/layouts/markdown-layout/MarkdownLayout.astro
 title: Using Markdown with Astro
 date: 4 October, 2022
 draft: true

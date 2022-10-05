@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/blog/why-astro",
+      "destination": "/blog/astro-log/why-astro",
+      "permanent": true
+    }
+  ]
+}
