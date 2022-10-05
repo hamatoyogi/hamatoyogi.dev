@@ -7,7 +7,8 @@
       "~assets/*": ["src/assets/*"],
       "~style/*": ["src/style/*"],
       "~layouts/*": ["src/components/layouts/"],
-      "~typography/*": ["src/components/typography/"]
+      "~typography/*": ["src/components/typography/"],
+      "~types/*": ["src/types/*"]
     }
   }
 }

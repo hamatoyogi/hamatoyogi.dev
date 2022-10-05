@@ -3,6 +3,7 @@ layout: ../../components/layouts/markdown-layout/MarkdownLayout.astro
 title: Using Markdown with Astro
 date: 4 October, 2022
 draft: true
+description: How I'm working with markdown within my Astro site
 ---
 
 When I started my site with Astro, I wasn't sure how I should write posts for my blog.

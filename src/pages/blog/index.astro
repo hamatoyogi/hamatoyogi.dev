@@ -5,14 +5,13 @@ import { Card } from '~components/card';
 import { BaseLayout } from '~layouts/BaseLayout';
 import { Heading1 } from '~typography/Heading1';
 
-interface PostItem {
-  link: string;
-  title: string;
-  description: string;
-  publishDate: string;
-}
+import { PostItem } from '~types/blog-types';
+import { parseMdToPostItem } from 'src/utils/parse-md-posts';
+
+const mdPosts = await Astro.glob('./**/*.md');
 
 const posts: PostItem[] = [
+  ...mdPosts.map(parseMdToPostItem),
   {
     link: '/blog/qwik-next-big-thing',
     title: 'Qwik: The Next Big Thing in the Frontend Ecosystem?',
