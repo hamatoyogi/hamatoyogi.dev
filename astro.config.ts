@@ -10,6 +10,8 @@ import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel/serverless';
 import compress from 'astro-compress';
 
+const SITE_URL = 'https://hamatoyogi.dev';
+
 /** @type {import('astro').AstroUserConfig} */
 
 // https://astro.build/config
@@ -23,19 +25,21 @@ export default defineConfig({
     partytown({}),
     image(),
     sitemap({
+      // TODO find a way to load dynamically
       customPages: [
-        'https://hamatoyogi.dev',
-        'https://hamatoyogi.dev/blog',
-        'https://hamatoyogi.dev/blog/why-astro',
-        'https://hamatoyogi.dev/blog/qwik-next-big-thing',
-        'https://hamatoyogi.dev/about',
-        'https://hamatoyogi.dev/appearances',
-        'https://hamatoyogi.dev/work',
+        SITE_URL,
+        `${SITE_URL}/about`,
+        `${SITE_URL}/appearances`,
+        `${SITE_URL}/work`,
+        `${SITE_URL}/blog`,
+        `${SITE_URL}/blog/qwik-next-big-thing`,
+        `${SITE_URL}/blog/astro-log/why-astro`,
+        `${SITE_URL}/blog/astro-log/getting-markdown-working`,
       ],
     }),
     compress(),
   ],
-  site: 'https://hamatoyogi.dev',
+  site: SITE_URL,
   output: 'server',
   adapter: vercel(),
 });
