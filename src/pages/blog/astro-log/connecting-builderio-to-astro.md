@@ -1,7 +1,7 @@
 ---
 layout: ../../../components/layouts/markdown-layout/MarkdownLayout.astro
 title: Connecting Builder.io's Visual CMS to Astro
-date: 9 November, 2022
+date: 10 November, 2022
 draft: false
 description: How to connect Builder.io's Visual CMS to your Astro website.
 ---
@@ -25,7 +25,7 @@ Builder can be used for many things:
 - Building mobile apps.
 - Creating and publishing a blog.
 
-# CMSs FTW
+## CMSs FTW
 
 First and foremost, Builder is a CMS. What is a CMS? You might ask. It stands for Content Management System.
 
@@ -40,7 +40,7 @@ Builder has taken a different approach. Allowing not only the access to data, bu
 
 Most CMSs allow editing content via a WYSIWYG (What You See Is What You Get) and sometimes a drag and drop interfaces. Builder can also integrate with many different frontend stacks, like React, Angular, Vue, and more. They way it achieves this is by allowing developers to register components to Builder via their SDK.
 
-# Querying Data and Using The Builder Visual CMS
+## Querying Data and Using The Builder Visual CMS
 
 Builder is really flexible in it’s offerings, as I’ve mentioned. You have different ways to achieve the same goal. It all depends on what works for you and/or your team.
 
@@ -222,11 +222,11 @@ As for the number 3 (making sections editable from builder that would reflect on
 
 So now that we’ve seen how the approach works within a Next.js app, let’s dig in and see how we’d do this with Astro.
 
-# Connecting Builder To Astro
+## Connecting Builder To Astro
 
 For the sake of this post, I’ll create a new Astro project and a new Builder account. You can follow along or [head straight to the repo](https://github.com/hamatoyogi/astro-builder) if you’re impatient 🙂.
 
-## Initial Setup
+### Initial Setup
 
 We’ll start by creating a new Astro project:
 
@@ -244,11 +244,11 @@ Starting off a new Builder project, you have one model that is the page model:
 
 To create our first Builder page content follow these steps:
 
-### 1. Click on Content
+#### 1. Click on Content
 
 ![https://images.tango.us/workflows/f28f33d5-ed12-45ef-a5c2-be9936eb43d1/steps/691ffdba-698d-4dd0-8412-beff5f454514/56017198-6e87-4209-bff9-b89987dc3155.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.1017&fp-y=0.1208&fp-z=2.4146&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1682%3A1155](https://images.tango.us/workflows/f28f33d5-ed12-45ef-a5c2-be9936eb43d1/steps/691ffdba-698d-4dd0-8412-beff5f454514/56017198-6e87-4209-bff9-b89987dc3155.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.1017&fp-y=0.1208&fp-z=2.4146&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1682%3A1155)
 
-### 2. Create a homepage "page"
+#### 2. Create a homepage "page"
 
 ![https://images.tango.us/workflows/f28f33d5-ed12-45ef-a5c2-be9936eb43d1/steps/a79112a9-a1fb-413c-bb8e-4ac2ff9a4c59/5ad6014d-9b8b-4614-bcf8-9444bccc962a.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.3986&fp-y=0.1571&fp-z=1.9387&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1682%3A1155](https://images.tango.us/workflows/f28f33d5-ed12-45ef-a5c2-be9936eb43d1/steps/a79112a9-a1fb-413c-bb8e-4ac2ff9a4c59/5ad6014d-9b8b-4614-bcf8-9444bccc962a.png?fm=png&crop=focalpoint&fit=crop&fp-x=0.3986&fp-y=0.1571&fp-z=1.9387&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1682%3A1155)
 
@@ -628,3 +628,119 @@ Lo and behold! We have managed to get all of our content static:
 And again, we can verify this by disabling JavaScript and reloading the page. Trust me, it works 🙂
 
 ### SDK Builder Component
+
+For this, we need to decide on what framework we want our component in, we’re going to use `@builder.io/react` .
+
+Now, in order for this to work in Astro, we need to take a few steps:
+
+1. [Add React to astro](https://docs.astro.build/en/guides/integrations-guide/react/) - run `npx astro add react` and follow the propmpts.
+2. Define the Builder / React component:
+
+```tsx
+// src/components/ReactBuilder.tsx
+
+import { BuilderComponent } from '@builder.io/react';
+
+export const BuilderReact = ({ builderJson }: { builderJson: any }) => {
+  return (
+    <>
+      <BuilderComponent model="page" content={builderJson} />
+    </>
+  );
+};
+```
+
+1. Connect to our data:
+
+```tsx
+// src/pages/homepage.astro
+
+import { BuilderReact } from '../components/ReactBuilder';
+import { builder } from '@builder.io/react';
+
+const apiKey = import.meta.env.BUILDER_API_KEY;
+
+builder.init(apiKey);
+
+const builderJson = await builder.get('page', { url: '/homepage' }).promise();
+
+<Layout title="Welcome to Astro Builder">
+  <h1>home page</h1>
+  <BuilderReact builderJson={builderJson} />
+</Layout>;
+```
+
+And voila!
+
+![Borken React Builder Component Page](/images/builder-astro/broken-builder-react.png)
+
+Our page is broken… 🤦🏽‍♂️
+
+We got our content, but we don’t have our CSS. This is due to Astro’s static nature. The component gets loaded with data from the server, but has no way to hydrate itself. Marking the React component with Astro’s `client` directive is not going to do the trick (trust me, I’ve tried 😉) as we’d need to get our data from Builder on the client.
+
+Let’s try and fix this by moving all of the data fetching into the component itself by following the [React example in Builder’s doc site](https://www.builder.io/c/docs/integrating-builder-pages):
+
+```tsx
+// src/components/ReactBuilder.tsx
+
+import { useEffect, useState } from 'react';
+import { BuilderComponent, builder, useIsPreviewing } from '@builder.io/react';
+
+// NOTE: now we need to expose the API key to the client.
+// See: https://vitejs.dev/guide/env-and-mode.html#env-files
+const apiKey = import.meta.env.VITE_BUILDER_API_KEY;
+
+// For React Builder
+builder.init(apiKey);
+
+// set whether you're using the Visual Editor,
+// whether there are changes,
+// and render the content if found
+export function BuilderReact() {
+  const isPreviewingInBuilder = useIsPreviewing();
+  const [notFound, setNotFound] = useState(false);
+  const [content, setContent] = useState(null);
+
+  // get the page content from Builder
+  useEffect(() => {
+    async function fetchContent() {
+      const content = await builder
+        .get('page', {
+          url: window.location.pathname,
+        })
+        .promise();
+
+      setContent(content);
+      setNotFound(!content);
+    }
+    fetchContent();
+  }, [window.location.pathname]);
+
+  return (
+    <>
+      <head>
+        <title>{content?.data.title}</title>
+      </head>
+      {/* Render the Builder page */}
+      <BuilderComponent model="page" content={content} />
+    </>
+  );
+}
+```
+
+And that breaks our app…🙄
+
+Again looking at the error message in our terminal we get the most annoying message in all of the full-stack frameworks:
+
+```
+window is not defined
+```
+
+Trying different directives like `cilent:visable`, `client:idle`, and `client:media` don’t do much to that error. However, when I tried `client:only='react'` the terminal message vanished, and there’s a glimpse of hope, but to no avail 😔  - we don’t see the content…
+
+At this point I have given up on this approach, as this might spiral into a whole other post 😅.
+
+## What was all this good for?
+
+Builder's Visual CMS is a game changer for developers, in my opinion. It has the power to save you time, money, and a whole lot of headaches
+I hope this post has made you understand how to approach this sort of integration.
