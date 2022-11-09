@@ -49,7 +49,6 @@ module.exports = {
             },
           },
         },
-        // todo - src/components/typography/Heading1/Heading1.astro + font
       },
     },
   },

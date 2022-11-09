@@ -740,7 +740,6 @@ Trying different directives like `cilent:visable`, `client:idle`, and `client:me
 
 At this point I have given up on this approach, as this might spiral into a whole other post 😅.
 
-## What was all this good for?
+## Conclusion
 
-Builder's Visual CMS is a game changer for developers, in my opinion. It has the power to save you time, money, and a whole lot of headaches
-I hope this post has made you understand how to approach this sort of integration.
+Builder's Visual CMS is a game changer for developers, in my opinion. It has the power to save you time, money, and a whole lot of headaches. With Astro being such a joy to use, it was intersing to see what another joyful and productive can be tied together with this stack. I know for one that this tool is definitly one that I'd reach for as soon as someone says the word "blog" or "hey, can we change the title in the home page hero section?".
