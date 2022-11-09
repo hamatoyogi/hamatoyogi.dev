@@ -35,6 +35,7 @@ export default defineConfig({
         `${SITE_URL}/blog/qwik-next-big-thing`,
         `${SITE_URL}/blog/astro-log/why-astro`,
         `${SITE_URL}/blog/astro-log/getting-markdown-working`,
+        `${SITE_URL}/blog/astro-log/connecting-builderio-to-astro`,
       ],
     }),
     compress(),
