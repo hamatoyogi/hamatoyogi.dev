@@ -1,28 +1,21 @@
 ---
+import { ExternalLink, InternalLink } from '~components/link';
 import { BaseLayout } from '~layouts/BaseLayout';
 import { Heading1 } from '~typography/Heading1';
 ---
 
-<BaseLayout
-  title="Appearences | hamatoyogi.dev"
-  description="Apperences, podcasts, interviews, and talks by Yoav Ganbar"
->
+<BaseLayout title="Work | hamatoyogi.dev" description="Where I work">
   <Heading1 extraClasses="mt-10 md:mt-32">Work</Heading1>
   <p class="mt-10">
-    I'm currently working @ <a
-      href="https://togetherr.com"
-      target="_blank"
-      rel="noopenner"
-      class="underline inline-flex"
-    >
-      togetherr
-    </a> as the lead Architect and Frontend developer.
+    I'm currently working @ <ExternalLink href="https://builder.io"
+      >Builder.io</ExternalLink
+    > on Developer Experience.
   </p>
   <p class="mt-10">I'll add more of my work history soon...</p>
   <p class="mt-10">
-    For now, you can check me out on <a
+    For now, you can check me out on <ExternalLink
       href="https://www.linkedin.com/in/yoav-ganbar/details/experience/"
-      class="underline">LinkendIn</a
+      >LinkendIn</ExternalLink
     >.
   </p>
 </BaseLayout>

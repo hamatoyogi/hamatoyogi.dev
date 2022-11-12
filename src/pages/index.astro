@@ -15,10 +15,10 @@ Astro.response.headers.set(
 
 <BaseLayout
   title="hamatoyogi's site"
-  description="Yoav Ganbar AKA HamatoYogi · Web Developer, FedBites podcasr co-host, community orginizer. I love building products, shipping code, talking about it, and writing about it."
+  description="Yoav Ganbar AKA HamatoYogi · Web Developer, FedBites podcast co-host, community orginizer. I love building products, shipping code, talking about it, and writing about it."
 >
   <figure
-    class="w-20 h-20 mt-10 overflow-hidden rounded-full border border-lavender-gray"
+    class="w-20 h-20 mt-10 overflow-hidden border rounded-full border-lavender-gray"
   >
     <Image
       src={myImage}
@@ -29,11 +29,10 @@ Astro.response.headers.set(
     />
   </figure>
   <Heading1 extraClasses="mt-10">Yoav Ganbar</Heading1>
-  <h2 class="text-2xl md:text-4xl mt-4">
-    Full Stack Web Developer & Front end Architect. <br />Product builder,
-    creator of value, top notch UX, performant & useable UI.
+  <h2 class="mt-4 text-2xl md:text-4xl">
+    Developer Experience, Web Developer & Architect. <br />
   </h2>
-  <p class="mt-10 md:mt-14 flex gap-3 items-center flex-wrap">
+  <p class="flex flex-wrap items-center gap-3 mt-10 md:mt-14">
     <span>🎙 Co-host of FedBites</span>
     <span>👥 Co-founder Next.js IL community</span>
     <span>👨‍👩‍👦 Father of 1</span>
@@ -43,7 +42,7 @@ Astro.response.headers.set(
     <span>🕹 Gamer</span>
     <span>🎷 Saxophone Player</span>
   </p>
-  <ul role="list" class="link-card-grid grid gap-4 my-10 md:my-20">
+  <ul role="list" class="grid gap-4 my-10 link-card-grid md:my-20">
     <Card href="/about" title="about" body="Get to know me a bit..." />
     <Card href="/blog" title="blog" body="Read the latest from my blog" />
     <Card

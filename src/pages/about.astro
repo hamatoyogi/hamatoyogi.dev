@@ -1,12 +1,12 @@
 ---
-import { ExternalLink } from '~components/external-link';
+import { ExternalLink, InternalLink } from '~components/link';
 import { BaseLayout } from '~layouts/BaseLayout';
 import { Heading1 } from '~typography/Heading1';
 ---
 
 <BaseLayout title="About | hamatoyogi.dev" description="About Yoav Ganbar">
   <Heading1 extraClasses="mt-10 md:mt-32">About</Heading1>
-  <p class="mt-10">Hey there, I'm Yoav.</p>
+  <p class="mt-10">Hey there 👋🏽, I'm Yoav.</p>
   <p class="mt-10">You can find me all over the web as HamatoYogi.</p>
   <p class="mt-10">
     I've been a computer geek and a techie my entire life. However, my
@@ -32,7 +32,7 @@ import { Heading1 } from '~typography/Heading1';
   </p>
   <p class="mt-10">
     Later on I went to work at some startups... More on that soon when I finish
-    up <a href="/work">Work</a> section 😅...
+    up <InternalLink href="/work">Work</InternalLink> section 😅...
   </p>
 </BaseLayout>
 
