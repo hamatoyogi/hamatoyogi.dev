@@ -8,9 +8,7 @@ const { href } = Astro.props as Props;
 
 <a
   href={href}
-  target="_blank"
-  rel="noopener noreferrer"
-  class="inline-flex underline transition-all font-medium underline-offset-4 hover:text-dodger-blue dark:hover:text-melrose decoration-dodger-blue dark:decoration-melrose"
+  class="inline-flex font-medium underline transition-all underline-offset-4 hover:text-dodger-blue dark:hover:text-melrose decoration-dodger-blue dark:decoration-melrose"
 >
   <slot />
 </a>

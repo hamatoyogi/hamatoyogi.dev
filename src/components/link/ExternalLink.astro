@@ -3,9 +3,10 @@ import { Sprite } from 'astro-icon';
 
 export interface Props {
   href: string;
+  withIcon?: boolean;
 }
 
-const { href } = Astro.props as Props;
+const { href, withIcon = false } = Astro.props as Props;
 ---
 
 <Sprite.Provider>
@@ -13,11 +14,18 @@ const { href } = Astro.props as Props;
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    class="pr-1 font-medium underline transition-all group underline-offset-4 hover:text-dodger-blue dark:hover:text-melrose decoration-dodger-blue dark:decoration-melrose"
+    class:list={[
+      'font-bold underline transition-all group underline-offset-4 hover:text-dodger-blue dark:hover:text-melrose decoration-dodger-blue dark:decoration-melrose',
+      withIcon && 'pr-1',
+    ]}
   >
     <slot />
-    <span class="inline-block transition-all group-hover:translate-x-1"
-      ><Sprite name="export" class="w-3 h-3" />
-    </span>
+    {
+      withIcon && (
+        <span class="inline-block transition-all group-hover:translate-x-1">
+          <Sprite name="export" class="w-3 h-3" />
+        </span>
+      )
+    }
   </a>
 </Sprite.Provider>
