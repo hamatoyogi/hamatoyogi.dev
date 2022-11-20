@@ -1,6 +1,5 @@
 ---
 import { Image } from '@astrojs/image/components';
-import { Tweet } from '@astro-community/astro-embed-twitter';
 import { YouTube } from '@astro-community/astro-embed-youtube';
 
 import { BaseLayout } from '~layouts/BaseLayout';
@@ -15,6 +14,10 @@ import oneKImage from '~assets/blog/qwik/qwik-1k.png';
 import resumeableImage from '~assets/blog/qwik/vm-resumability.png';
 import astroQwikImage from '~assets/blog/qwik/astro-qwik.png';
 import pastFutureImage from '~assets/blog/qwik/past-future.png';
+import aspirationImage from '~assets/blog/qwik/aspirational-mission.jpg';
+import magicResumeImage from '~assets/blog/qwik/magic-resume.jpg';
+import alexRusselTweetImage from '~assets/blog/qwik/alex-russel.jpg';
+import myTweetImage from '~assets/blog/qwik/my-tweet.jpg';
 
 const publishDate = formatDate({ date: '9/25/22' });
 const title = 'Qwik: The Next Big Thing in the Frontend Ecosystem?';
@@ -98,9 +101,20 @@ const description =
         by it, that I didn't take many notes, but I will try to share some inner
         insights he gave.
       </p>
-      <Tweet
-        id="https://twitter.com/HamatoYogi/status/1538882200627724290?s=20&t=foL2aV-vyqXBDsYMY3H20w"
-      />
+      <figure class="flex flex-col items-center justify-center">
+        <Image
+          src={myTweetImage}
+          alt="Tweet By Yoav Ganbar about Qwik"
+          format="webp"
+        />
+        <figcaption>
+          <a
+            href="https://twitter.com/HamatoYogi/status/1538882200627724290?s=20&t=foL2aV-vyqXBDsYMY3H20w"
+            target="_blank"
+            >This was before I joined Builder :-) (Original tweet)</a
+          >
+        </figcaption>
+      </figure>
       <p>
         Qwik's approach is to load almost 0 JavaScript. They do this by having
         one single function which is under 1kb, and is in charge of resuming the
@@ -272,19 +286,53 @@ const description =
         out.
       </p>
       <blockquote>
-        They have an aspirational mission: <Tweet
-          id="https://twitter.com/manucorporat/status/1571865760816939015?s=20&t=jkmPRotkN22HJOzaqneHeg"
-        />
+        They have an aspirational mission: <figure
+          class="flex flex-col items-center justify-center"
+        >
+          <Image
+            src={aspirationImage}
+            alt="Tweet By Manu Almeida about Qwik's mission"
+            format="webp"
+          />
+          <figcaption>
+            <a
+              href="https://twitter.com/manucorporat/status/1571865760816939015?s=20&t=jkmPRotkN22HJOzaqneHeg"
+              target="_blank">(Original tweet)</a
+            >
+          </figcaption>
+        </figure>
       </blockquote>
       <blockquote>
-        The magic of resumability: <Tweet
-          id="https://twitter.com/mhevery/status/1573341440876285952?t=7G00YBmR9dPiNKyiWmOf8A&s=08"
-        />
+        The magic of resumability:
+        <figure class="flex flex-col items-center justify-center">
+          <Image
+            src={magicResumeImage}
+            alt="Tweet By Misko Hevery about resumability"
+            format="webp"
+          />
+          <figcaption>
+            <a
+              href="https://twitter.com/mhevery/status/1573341440876285952?t=7G00YBmR9dPiNKyiWmOf8A&s=08"
+              target="_blank">(Original tweet)</a
+            >
+          </figcaption>
+        </figure>
       </blockquote>
       <blockquote>
-        Even Alex Russel is excited: <Tweet
-          id="https://twitter.com/slightlylate/status/1573054873947480064?s=20&t=6RJyXNETnziM-qJYxG7Ojw"
-        />
+        Even Alex Russell is excited:
+        <figure class="flex flex-col items-center justify-center">
+          <Image
+            src={alexRusselTweetImage}
+            alt="Tweet By Alex Russell about Qwik"
+            format="webp"
+          />
+          <figcaption>
+            <a
+              href="https://twitter.com/slightlylate/status/1573054873947480064?s=20&t=6RJyXNETnziM-qJYxG7Ojw"
+              target="_blank">(Original tweet)</a
+            >
+          </figcaption>
+        </figure>
       </blockquote>
       <p>
         Something I got really pumped about is that with this new paradigm shift

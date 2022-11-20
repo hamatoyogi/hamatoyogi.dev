@@ -2,12 +2,12 @@
 import { BaseLayout } from '~layouts/BaseLayout';
 import { Heading1 } from '~typography/Heading1';
 import { Image } from '@astrojs/image/components';
-import { Tweet } from '@astro-community/astro-embed-twitter';
 
 /* Images */
 import componentFolderImage from '~assets/blog/why-astro/folders.png';
 import astroQwikImage from '~assets/blog/why-astro/astro-qwik.png';
 import rootFolderImage from '~assets/blog/why-astro/root-folder.png';
+import tweetImage from '~assets/blog/why-astro/delight.jpg';
 
 /* ######## */
 
@@ -130,7 +130,19 @@ const publishDate = formatDate({ date: '9/3/2022' });
       As I’ve said, the experience building and shipping the site was pure
       delight!
     </p>
-    <Tweet id="https://twitter.com/HamatoYogi/status/1563103570266042368" />
+    <figure class="flex flex-col items-center justify-center">
+      <Image
+        src={tweetImage}
+        alt="Tweet By Misko Hevery about resumability"
+        format="webp"
+      />
+      <figcaption>
+        <a
+          href="https://twitter.com/HamatoYogi/status/1563103570266042368"
+          target="_blank">(Original tweet)</a
+        >
+      </figcaption>
+    </figure>
     <p>
       What was really cool was how easy it was to feel at home writing Astro
       components. It was like getting back to my webmaster roots. Simply type
