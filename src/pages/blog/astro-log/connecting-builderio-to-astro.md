@@ -2,6 +2,7 @@
 layout: ../../../components/layouts/markdown-layout/MarkdownLayout.astro
 title: Connecting Builder.io's Visual CMS to Astro
 date: 10 November, 2022
+pubDate: 10 November, 2022
 draft: false
 description: How to connect Builder.io's Visual CMS to your Astro website.
 ---
