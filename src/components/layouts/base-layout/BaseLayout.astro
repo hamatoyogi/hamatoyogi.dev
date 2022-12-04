@@ -57,23 +57,23 @@ const {
     <!-- SEO -->
     <SEO
       title={title}
-      description={seoConfig.description || description}
+      description={description || seoConfig.description}
       noindex={disableIndexing}
       nofollow={disableIndexing}
       openGraph={{
         basic: {
           title: ogTitle || title,
           type: seoConfig.type,
-          image: seoConfig.image.url || image.url,
+          image: image?.url || seoConfig.image.url,
         },
         image: {
           width: seoConfig.image.width,
           height: seoConfig.image.height,
-          alt: seoConfig.image.alt || image.alt,
+          alt: image?.alt || seoConfig.image.alt,
         },
         optional: {
           siteName: seoConfig.siteName,
-          description: seoConfig.description || description,
+          description: description || seoConfig.description,
         },
       }}
       twitter={{

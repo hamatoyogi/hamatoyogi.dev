@@ -5,6 +5,7 @@ date: 4 December, 2022
 pubDate: 4 December, 2022
 draft: false
 description: The beginning of my journey into DevRel and asking ChatGPT some questions
+image: /images/chatgpt-main.png
 ---
 
 ![Main image of post](/images/chatgpt-main.png)

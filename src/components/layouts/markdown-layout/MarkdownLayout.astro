@@ -47,12 +47,16 @@ const publishDate = formatDate({ date });
     <!-- Global meta tags. -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta
+      name="google-site-verification"
+      content="jQNE4CcX2D5t6MN5NbHNQ0QE94jCKAlFijMceMHXswQ"
+    />
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO -->
     <SEO
       title={title}
-      description={seoConfig.description || description}
+      description={description || seoConfig.description}
       canonical={new URL(url, Astro.site).pathname}
       noindex={draft}
       nofollow={draft}
@@ -60,16 +64,16 @@ const publishDate = formatDate({ date });
         basic: {
           title: ogTitle || title,
           type: seoConfig.type,
-          image: seoConfig.image.url || image.url,
+          image: image?.url || seoConfig.image.url,
         },
         image: {
           width: seoConfig.image.width,
           height: seoConfig.image.height,
-          alt: seoConfig.image.alt || image.alt,
+          alt: image?.alt || seoConfig.image.alt,
         },
         optional: {
           siteName: seoConfig.siteName,
-          description: seoConfig.description || description,
+          description: description || seoConfig.description,
         },
         article: {
           publishedTime: publishDate,
