@@ -91,7 +91,10 @@ const posts: PostItem[] = [
     description: 'How to get started with CSS grid - Part 1',
     publishDate: formatDate({ date: '11/01/2019', dateStyle: 'medium' }),
   },
-];
+].sort(
+  (a, z) =>
+    new Date(z.publishDate).getTime() - new Date(a.publishDate).getTime(),
+);
 ---
 
 <BaseLayout
