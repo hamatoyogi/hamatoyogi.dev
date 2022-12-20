@@ -13,6 +13,13 @@ const mdPosts = await Astro.glob('./**/*.md');
 const posts: PostItem[] = [
   ...mdPosts.map(parseMdToPostItem),
   {
+    link: 'https://www.builder.io/blog/the-qase-for-qwik-love-at-first-tti',
+    title: 'The Qase for Qwik: Love at First TTI',
+    description:
+      'The reasons why you should be looking at Qwik if you care about performant web apps.',
+    publishDate: formatDate({ date: '12/19/2022', dateStyle: 'medium' }),
+  },
+  {
     link: '/blog/qwik-next-big-thing',
     title: 'Qwik: The Next Big Thing in the Frontend Ecosystem?',
     description:
