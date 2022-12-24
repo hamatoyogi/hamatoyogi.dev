@@ -2,6 +2,52 @@
 import { BaseLayout } from '~layouts/BaseLayout';
 import { Heading1 } from '~typography/Heading1';
 import { ExternalLink } from '~components/link';
+import { formatDate } from 'src/utils/date-formatter';
+
+const list = [
+  {
+    where: 'Builder.io live stream',
+    when: 'Dec 8, 2022',
+    title: 'Resumable React - Leveraging the React ecosystem with Qwik',
+    link: 'https://www.youtube.com/watch?v=IGIPBAWRw_M&t=173s',
+  },
+  {
+    where: 'React & React Native IL Meetup',
+    when: 'Jan 23, 2019',
+    title: 'Next.js Stories from the Trenches',
+    link: 'https://www.youtube.com/watch?v=srueFUnJ8Jo',
+  },
+  {
+    where: 'JS Jabber',
+    when: 'November 23, 2021',
+    title: 'Do You Have Dev FOMO?',
+    link: 'https://topenddevs.com/podcasts/javascript-jabber/episodes/do-you-have-dev-fomo-ft-yoav-ganbar-jsj-510',
+  },
+  {
+    where: 'Frontend Land',
+    when: 'Jul 30 2021',
+    title: 'Next.js (Hebrew)',
+    link: 'https://rss.com/podcasts/frontend-land/246565/',
+  },
+  {
+    where: 'Frontend Land',
+    when: 'Aug 05 2021',
+    title: 'Webpack Module Federaion with Zack Jackson & Yoav Ganbar (English)',
+    link: 'https://rss.com/podcasts/frontend-land/250321/',
+  },
+  {
+    where: 'Next.js IL Community Meetup #1',
+    when: 'May 16 2022',
+    title: 'The History of Next.js (Hebrew)',
+    link: 'https://www.youtube.com/watch?v=AloxBdUQW-o',
+  },
+  {
+    where: 'FedBites episode #6',
+    when: 'Jul 5, 2022',
+    title: 'Kent C. Dodds comes to Israel',
+    link: 'https://www.youtube.com/watch?v=mkuXLFHHyuE',
+  },
+].sort((a, z) => new Date(z.when).getTime() - new Date(a.when).getTime());
 ---
 
 <BaseLayout
@@ -10,45 +56,15 @@ import { ExternalLink } from '~components/link';
 >
   <Heading1 extraClasses="mt-10 md:mt-32">Appearences</Heading1>
   <ul role="list" class="ml-4 space-y-4 mt-10 md:mt-20 list-disc">
-    <li>
-      <ExternalLink href="https://www.youtube.com/watch?v=srueFUnJ8Jo">
-        React & React Native IL Meetup | 23/1/19 - <b class="font-bold"
-          >"Next.js Stories from the Trenches"</b
-        >
-      </ExternalLink>
-    </li>
-    <li>
-      <ExternalLink
-        href="https://topenddevs.com/podcasts/javascript-jabber/episodes/do-you-have-dev-fomo-ft-yoav-ganbar-jsj-510"
-      >
-        JS Jabber:
-        <b class="font-bold">"Do You Have Dev FOMO?"</b>
-      </ExternalLink>
-    </li>
-    <li>
-      <ExternalLink href="https://rss.com/podcasts/frontend-land/246565/">
-        Frontend Land, Season 1 Episode 8:
-        <b class="font-bold"> "Next.js"</b> (Hebrew)
-      </ExternalLink>
-    </li>
-    <li>
-      <ExternalLink href="https://rss.com/podcasts/frontend-land/250321/">
-        Frontend Land, Season 1 Episode 9:
-        <b class="font-bold"> "Webpack Module Federaion with Zack Jackson"</b>
-      </ExternalLink>
-    </li>
-    <li>
-      <ExternalLink href="https://www.youtube.com/watch?v=AloxBdUQW-o">
-        Next.js IL Meetup #1 | 16.5.2022 -
-        <b class="font-bold">"The History of Next.js"</b> (Hebrew)
-      </ExternalLink>
-    </li>
-    <li>
-      <ExternalLink href="https://www.youtube.com/watch?v=mkuXLFHHyuE">
-        FedBites Episode #6 -
-        <b class="font-bold">"Kent C. Dodds comes to Israel"</b>
-      </ExternalLink>
-    </li>
+    {
+      list.map(({ where, when, title, link }) => (
+        <li>
+          <ExternalLink href={link} withIcon>
+            {title} | {where} - {formatDate({ date: when })}
+          </ExternalLink>
+        </li>
+      ))
+    }
   </ul>
 </BaseLayout>
 
