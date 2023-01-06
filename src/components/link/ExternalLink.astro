@@ -1,5 +1,5 @@
 ---
-import { Sprite } from 'astro-icon';
+import { Icon } from 'astro-icon';
 
 export interface Props {
   href: string;
@@ -22,7 +22,7 @@ const { href, withIcon = false } = Astro.props as Props;
   {
     withIcon && (
       <span class="inline-block transition-all group-hover:translate-x-1">
-        <Sprite name="export" class="h-3 w-3" />
+        <Icon name="export" class="h-3 w-3" />
       </span>
     )
   }

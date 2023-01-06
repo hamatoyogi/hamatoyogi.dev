@@ -1,5 +1,5 @@
 ---
-import { Sprite } from 'astro-icon';
+import { Icon } from 'astro-icon';
 export interface Props {
   title: string;
   body: string;
@@ -25,9 +25,9 @@ const { href, title, body, isExternalLink } = Astro.props as Props;
       <span
         >{
           isExternalLink ? (
-            <Sprite name="export" class="h-3 w-3" />
+            <Icon name="export" class="h-3 w-3" />
           ) : (
-            <Sprite name="arrow-right" class="h-3 w-3" />
+            <Icon name="arrow-right" class="h-3 w-3" />
           )
         }
       </span>

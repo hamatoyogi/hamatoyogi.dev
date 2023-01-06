@@ -1,5 +1,5 @@
 ---
-import { Sprite } from 'astro-icon';
+import { Icon } from 'astro-icon';
 
 export interface Props {
   extraClass: string;
@@ -21,7 +21,7 @@ const { extraClass } = Astro.props as Props;
     rel="noopener"
     aria-label="twitter logo"
   >
-    <Sprite name="logo-twitter" class="w-6 h-6 text-[#1DA1F2]" />
+    <Icon name="logo-twitter" class="w-6 h-6 text-[#1DA1F2]" />
   </a>
   <a
     href="https://github.com/hamatoyogi"
@@ -29,6 +29,6 @@ const { extraClass } = Astro.props as Props;
     rel="noopener"
     aria-label="github logo"
   >
-    <Sprite name="logo-github" class="w-6 h-6" />
+    <Icon name="logo-github" class="w-6 h-6" />
   </a>
 </footer>
