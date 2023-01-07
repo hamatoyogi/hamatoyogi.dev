@@ -1,6 +1,5 @@
 ---
 import { SEO } from 'astro-seo';
-import { Sprite } from 'astro-icon';
 
 import '~style/tailwind.css';
 
@@ -112,12 +111,10 @@ const {
       'dark:bg-mirage dark:text-lavender-gray dark:text-lavender-gray',
     ]}
   >
-    <Sprite.Provider>
-      <Header />
-      <main class="px-6 pb-20 md:mx-[20vw] md:px-0">
-        <slot />
-      </main>
-      <Footer extraClass="mt-auto" />
-    </Sprite.Provider>
+    <Header />
+    <main class="px-6 pb-20 md:mx-[20vw] md:px-0">
+      <slot />
+    </main>
+    <Footer extraClass="mt-auto" />
   </body>
 </html>
