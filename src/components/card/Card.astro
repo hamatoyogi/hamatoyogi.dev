@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { ArrowRight, External } from '~components/icons';
 export interface Props {
   title: string;
   body: string;
@@ -22,15 +22,7 @@ const { href, title, body, isExternalLink } = Astro.props as Props;
       class="flex items-start justify-between text-2xl capitalize text-dodger-blue dark:text-melrose"
     >
       <sapn>{title}</sapn>
-      <span
-        >{
-          isExternalLink ? (
-            <Icon name="export" class="h-3 w-3" />
-          ) : (
-            <Icon name="arrow-right" class="h-3 w-3" />
-          )
-        }
-      </span>
+      <span>{isExternalLink ? <External /> : <ArrowRight />}</span>
     </h2>
     <p class="text-shuttle-gray dark:text-lavender-gray">
       {body}

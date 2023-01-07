@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { External } from '~components/icons';
 
 export interface Props {
   href: string;
@@ -22,7 +22,7 @@ const { href, withIcon = false } = Astro.props as Props;
   {
     withIcon && (
       <span class="inline-block transition-all group-hover:translate-x-1">
-        <Icon name="export" class="h-3 w-3" />
+        <External />
       </span>
     )
   }
