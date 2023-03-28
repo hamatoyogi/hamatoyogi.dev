@@ -95,7 +95,7 @@ Here are some of the results:
 > - Online communities and forums: Participating in online communities and forums, such as forums on Reddit and Stack Overflow, can be a good way to learn from others and to share your own knowledge and experiences.
 > - Blogs and podcasts: There are many blogs and podcasts focused on Devrel and related topics, such as the Open Source Community Management blog and the Community Pulse podcast. These can be a great way to stay up to date on the latest trends and developments in the field.
 
-# Looking Forward
+## Looking Forward
 
 This little conversation with ChatAPI has a lot of good insights and was an interesting experiment to conduct. Obviously, this is not as an interesting one as [this one](https://www.engraved.blog/building-a-virtual-machine-inside/?s=08), nor is this a long deep dive impression like [this one](https://www.youtube.com/watch?v=vupqRAJL4Ec&t=755s). However, I think there are implications and opportunities that are specific for my role.
 
