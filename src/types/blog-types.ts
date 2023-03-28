@@ -12,3 +12,12 @@ export interface MdPost {
   draft: boolean;
   description: string;
 }
+
+export interface BuilderPost {
+  data: {
+    blurb: string;
+    date: number;
+    handle: string;
+    title: string;
+  };
+}

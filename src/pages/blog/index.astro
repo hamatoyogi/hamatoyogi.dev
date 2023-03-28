@@ -6,33 +6,34 @@ import { BaseLayout } from '~layouts/BaseLayout';
 import { Heading1 } from '~typography/Heading1';
 
 import { PostItem } from '~types/blog-types';
-import { parseMdToPostItem } from 'src/utils/parse-md-posts';
+import {
+  parseMdToPostItem,
+  parseBuilderPostToPostItem,
+} from 'src/utils/parse-posts';
 
 const mdPosts = await Astro.glob('./**/*.md');
 
+const builderUrl = new URL(
+  'https://cdn.builder.io/api/v2/content/blog-article',
+);
+builderUrl.searchParams.set('apiKey', 'YJIGb4i01jvw0SRdL5Bt');
+builderUrl.searchParams.set(
+  'query.data.author.id',
+  '2cb58a2ae8e94391b15d237af9a2dce4',
+);
+builderUrl.searchParams.set('limit', '0');
+builderUrl.searchParams.set(
+  'fields',
+  'data.handle,data.date,data.title,data.blurb',
+);
+
+const builderBlogPosts = await fetch(builderUrl).then((x) => x.json());
+
+// TODO => separate Builder blog posts from regular blog posts
+
 const posts: PostItem[] = [
   ...mdPosts.map(parseMdToPostItem),
-  {
-    link: 'https://www.builder.io/blog/how-to-improve-website-performance-in-2023',
-    title: 'How To Improve Website Performance In 2023',
-    description:
-      'What you should focus on when trying to improve web performance in 2023',
-    publishDate: formatDate({ date: '12/29/2022', dateStyle: 'medium' }),
-  },
-  {
-    link: 'https://www.builder.io/blog/the-qase-for-qwik-love-at-first-tti',
-    title: 'The Qase for Qwik: Love at First TTI',
-    description:
-      'The reasons why you should be looking at Qwik if you care about performant web apps.',
-    publishDate: formatDate({ date: '12/19/2022', dateStyle: 'medium' }),
-  },
-  {
-    link: 'https://www.builder.io/blog/movies-app-in-7-frameworks-which-is-fastest-and-why',
-    title: 'Movies app in 7 frameworks - which is fastest and why?',
-    description:
-      'A post I wrote with Miško Hevery where we looked at the same "movies" app built with Next.js, Angular, Nuxt, Lit, Astro, SvelteKit, and Qwik and compared their performance.',
-    publishDate: formatDate({ date: '11/21/2022', dateStyle: 'medium' }),
-  },
+  ...builderBlogPosts.results.map(parseBuilderPostToPostItem),
   {
     link: '/blog/qwik-next-big-thing',
     title: 'Qwik: The Next Big Thing in the Frontend Ecosystem?',
@@ -123,7 +124,7 @@ const posts: PostItem[] = [
   description="Blog posts by Yoav Ganbar"
 >
   <Heading1 extraClasses="mt-10 md:mt-32">Blog</Heading1>
-  <ul role="list" class="flex flex-col gap-4 my-10 md:my-20">
+  <ul role="list" class="my-10 flex flex-col gap-4 md:my-20">
     {
       posts.map(({ title, link, description, publishDate }) => (
         <Card
