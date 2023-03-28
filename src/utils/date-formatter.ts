@@ -5,7 +5,7 @@ export function formatDate({
 }: {
   local?;
   dateStyle?;
-  date: string;
+  date: string | number;
 }) {
   try {
     return new Intl.DateTimeFormat(local, {
