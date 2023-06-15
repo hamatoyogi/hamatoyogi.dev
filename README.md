@@ -1,6 +1,11 @@
-# hamatoyogi dot dev
+# hamatoyogi.dev (My website)
 
-The codebase behind hamatoyogi.dev.
+The codebase behind [hamatoyogi.dev](https://hamatoyogi.dev).
+
+Built with:
+- Astro
+- tailwind
+- Vercel
 
 ---
 
