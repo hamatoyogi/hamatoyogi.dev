@@ -10,7 +10,4 @@ export const seoConfig = {
     height: 630,
   },
   siteName: 'HamatoYogi.dev', 
-  twitter: {
-    card: 'summary_large_image',
-  },
 };
