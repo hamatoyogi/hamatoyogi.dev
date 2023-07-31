@@ -6,6 +6,7 @@ export interface Props {
 }
 
 const { extraClass } = Astro.props as Props;
+const year = new Date().getFullYear();
 ---
 
 <footer
@@ -14,7 +15,7 @@ const { extraClass } = Astro.props as Props;
     extraClass,
   ]}
 >
-  <p>© 2022 Yoav Ganbar</p>
+  <p>© {year} Yoav Ganbar</p>
   <a
     href="https://twitter.com/hamatoyogi"
     target="_blank"
