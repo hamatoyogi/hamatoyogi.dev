@@ -6,10 +6,23 @@ import { formatDate } from 'src/utils/date-formatter';
 
 const list = [
   {
+    where: 'Code Ryan Podcast',
+    when: 'Jul 30, 2023',
+    title:
+      'Decoding Qwik: An In-depth Comparison with React and Next JS | Yoav Ganbar',
+    link: 'https://youtu.be/WYrSccfpxFs?si=H5ezGq4nlQj9OeQv',
+  },
+  {
+    where: 'Builder.io live stream',
+    when: 'Jul 27, 2023',
+    title: 'How to build a modern site with Next.js and Builder.io',
+    link: 'https://www.youtube.com/watch?v=2py23Jf0Yyk',
+  },
+  {
     where: 'Builder.io live stream',
     when: 'Dec 8, 2022',
     title: 'Resumable React - Leveraging the React ecosystem with Qwik',
-    link: 'https://www.youtube.com/watch?v=IGIPBAWRw_M&t=173s',
+    link: 'https://www.youtube.com/watch?v=IGIPBAWRw_M',
   },
   {
     where: 'React & React Native IL Meetup',
@@ -55,7 +68,7 @@ const list = [
   description="Apperences, podcasts, interviews, and talks by Yoav Ganbar"
 >
   <Heading1 extraClasses="mt-10 md:mt-32">Appearences</Heading1>
-  <ul role="list" class="ml-4 space-y-4 mt-10 md:mt-20 list-disc">
+  <ul role="list" class="ml-4 mt-10 list-disc space-y-4 md:mt-20">
     {
       list.map(({ where, when, title, link }) => (
         <li>
