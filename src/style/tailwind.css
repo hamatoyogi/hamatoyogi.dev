@@ -13,4 +13,9 @@ h4,
 h5,
 h6 {
   font-family: 'Space Grotesk', sans-serif;
+  font-display: optional;
+}
+
+body {
+  font-display: optional;
 }
