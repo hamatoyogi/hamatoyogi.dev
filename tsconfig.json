@@ -9,6 +9,8 @@
       "~layouts/*": ["src/components/layouts/"],
       "~typography/*": ["src/components/typography/"],
       "~types/*": ["src/types/*"]
-    }
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "@builder.io/qwik"
   }
 }

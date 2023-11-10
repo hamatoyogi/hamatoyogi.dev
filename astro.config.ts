@@ -6,8 +6,10 @@ import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel/serverless';
 import compress from 'astro-compress';
 import prefetch from '@astrojs/prefetch';
+import qwikdev from '@qwikdev/astro';
 const SITE_URL = 'https://hamatoyogi.dev';
 /** @type {import('astro').AstroUserConfig} */
+
 // https://astro.build/config
 
 // https://astro.build/config
@@ -32,6 +34,7 @@ export default defineConfig({
     }),
     compress(),
     prefetch(),
+    qwikdev(),
   ],
   site: SITE_URL,
   output: 'server',

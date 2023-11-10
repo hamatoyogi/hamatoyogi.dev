@@ -611,6 +611,14 @@
   resolved "https://registry.yarnpkg.com/@builder.io/partytown/-/partytown-0.8.0.tgz#98543c1a5ba204d6b950edb53ab8a50b7df125d3"
   integrity sha512-M6H7nSMwW2dHd1/MQ+9J1Jqdw22uhl1nKv90kIiL9G7gjFVqqouQp4qSS1oZclmtW1XjAa4Q5UnbHB4iytmxZA==
 
+"@builder.io/qwik@^1.2.17":
+  version "1.2.17"
+  resolved "https://registry.yarnpkg.com/@builder.io/qwik/-/qwik-1.2.17.tgz#36512db4e86c6fe8b30771b58a6c4fbf856e7af5"
+  integrity sha512-66fGmPHIy/brJqtrUapxckw9EVAh6U3pcjRr1WiqGGjq1cvgJdP88jayMw85XvckEjrF4ymNLOYCmjdlQNzU+Q==
+  dependencies:
+    csstype "^3.1.2"
+    vite "^4.4.11"
+
 "@csstools/css-parser-algorithms@^2.3.1":
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/@csstools/css-parser-algorithms/-/css-parser-algorithms-2.3.1.tgz#ec4fc764ba45d2bb7ee2774667e056aa95003f3a"
@@ -1090,6 +1098,11 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
+
+"@qwikdev/astro@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@qwikdev/astro/-/astro-0.1.6.tgz#a1c7b22d114b12b0b8e0a31239b668306d80a932"
+  integrity sha512-6qd0e4XWwi+iy/ZaiVd6b8w83O/u3tV0I3ucLzJ8q/57DGtYm7QHBujn04YreuldALCJlbcTCT0DQmkwOP8yMA==
 
 "@rollup/pluginutils@^4.0.0":
   version "4.2.1"
@@ -2079,6 +2092,11 @@ csso@5.0.5, csso@^5.0.5:
   integrity sha512-0LrrStPOdJj+SPCCrGhzryycLjwcgUSHBtxNA8aIDxf0GLsRh1cKYhB00Gd1lDOS4yGH69+SNn13+TWbVHETFQ==
   dependencies:
     css-tree "~2.2.0"
+
+csstype@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.2.tgz#1d4bf9d572f11c14031f0436e1c10bc1f571f50b"
+  integrity sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==
 
 debug@2:
   version "2.6.9"
@@ -6404,6 +6422,17 @@ vite-plugin-solid@^2.7.0:
     merge-anything "^5.1.4"
     solid-refresh "^0.5.0"
     vitefu "^0.2.3"
+
+vite@^4.4.11:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-4.5.0.tgz#ec406295b4167ac3bc23e26f9c8ff559287cff26"
+  integrity sha512-ulr8rNLA6rkyFAlVWw2q5YJ91v098AFQ2R0PRFwPzREXOUJQPtFUG0t+/ZikhaOCDqFoDhN6/v8Sq0o4araFAw==
+  dependencies:
+    esbuild "^0.18.10"
+    postcss "^8.4.27"
+    rollup "^3.27.1"
+  optionalDependencies:
+    fsevents "~2.3.2"
 
 vite@^4.4.9:
   version "4.4.9"
