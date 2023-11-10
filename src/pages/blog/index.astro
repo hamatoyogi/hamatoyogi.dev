@@ -14,14 +14,14 @@ import {
 const mdPosts = await Astro.glob('./**/*.md');
 
 const builderUrl = new URL(
-  'https://cdn.builder.io/api/v2/content/blog-article',
+  'https://cdn.builder.io/api/v3/content/blog-article',
 );
 builderUrl.searchParams.set('apiKey', 'YJIGb4i01jvw0SRdL5Bt');
 builderUrl.searchParams.set(
   'query.data.author.id',
   '2cb58a2ae8e94391b15d237af9a2dce4',
 );
-builderUrl.searchParams.set('limit', '0');
+builderUrl.searchParams.set('limit', '100');
 builderUrl.searchParams.set(
   'fields',
   'data.handle,data.date,data.title,data.blurb',
@@ -34,6 +34,20 @@ const builderBlogPosts = await fetch(builderUrl).then((x) => x.json());
 const posts: PostItem[] = [
   ...mdPosts.map(parseMdToPostItem),
   ...builderBlogPosts.results.map(parseBuilderPostToPostItem),
+  {
+    link: 'https://www.builder.io/blog/builder-dev-tools',
+    title: 'Introducing Builder Devtools',
+    description:
+      `Introducing Builder's Devtools. Now you can get started with a Qwik app or Next.js app in Builder's visual editor with just a few steps.`,
+    publishDate: formatDate({ date: '6/29/2023', dateStyle: 'medium' }),
+  },
+  {
+    link: 'https://www.builder.io/blog/movies-app-in-7-frameworks-which-is-fastest-and-why',
+    title: 'Movies app in 7 frameworks - which is fastest and why?',
+    description:
+      'In this post we are going to look at the same "movies" app built with Next.js, Angular, Nuxt, Lit, Astro, SvelteKit, and Qwik and compare their performance.',
+    publishDate: formatDate({ date: '11/21/2022', dateStyle: 'medium' }),
+  },
   {
     link: '/blog/qwik-next-big-thing',
     title: 'Qwik: The Next Big Thing in the Frontend Ecosystem?',
