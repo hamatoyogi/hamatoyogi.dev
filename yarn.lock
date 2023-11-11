@@ -1099,10 +1099,9 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@qwikdev/astro@^0.1.10":
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/@qwikdev/astro/-/astro-0.1.10.tgz#44e960b3f315ede2ab13f1f2f01d2921e52cf439"
-  integrity sha512-1LBVzrBDry6TvfrBwyeEVVi4rIqlzkWpM48VxjTwRvkuKgpMc7BrJ8Jvg6my/QdwD3F6ymVzardt8nLPa3OfZw==
+"@qwikdev/astro@github:hamatoyogi/astro#fix/exisiting-files":
+  version "0.0.0"
+  resolved "https://codeload.github.com/hamatoyogi/astro/tar.gz/0faa6b8d0b73203cf84320b27b05d1c1a4b17284"
 
 "@rollup/pluginutils@^4.0.0":
   version "4.2.1"
