@@ -1099,10 +1099,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@qwikdev/astro@^0.1.6":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@qwikdev/astro/-/astro-0.1.6.tgz#a1c7b22d114b12b0b8e0a31239b668306d80a932"
-  integrity sha512-6qd0e4XWwi+iy/ZaiVd6b8w83O/u3tV0I3ucLzJ8q/57DGtYm7QHBujn04YreuldALCJlbcTCT0DQmkwOP8yMA==
+"@qwikdev/astro@^0.1.10":
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/@qwikdev/astro/-/astro-0.1.10.tgz#44e960b3f315ede2ab13f1f2f01d2921e52cf439"
+  integrity sha512-1LBVzrBDry6TvfrBwyeEVVi4rIqlzkWpM48VxjTwRvkuKgpMc7BrJ8Jvg6my/QdwD3F6ymVzardt8nLPa3OfZw==
 
 "@rollup/pluginutils@^4.0.0":
   version "4.2.1"
