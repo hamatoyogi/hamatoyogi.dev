@@ -860,9 +860,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@qwikdev/astro@https://gitpkg.now.sh/hamatoyogi/astro/libs/qwikdev-astro?fix/exisiting-files":
-  version "0.1.10"
-  resolved "https://gitpkg.now.sh/hamatoyogi/astro/libs/qwikdev-astro?fix/exisiting-files#28800c0430de4ec83895208aafa8b32d316a2e1f"
+"@qwikdev/astro@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@qwikdev/astro/-/astro-0.1.11.tgz#54f94d4d717bc63696f9762473b6a9f517d513e9"
+  integrity sha512-jBGt16hBjeR4FTAUYZBiW2lz3/O/pQ7ATbRlZxRNejpPN3fDkah8unSu47zGKi4NtaC2lkrCOZi9CMMtnAf7Nw==
 
 "@rollup/pluginutils@^4.0.0":
   version "4.2.1"

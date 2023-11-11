@@ -39,5 +39,4 @@ export default defineConfig({
   site: SITE_URL,
   output: 'server',
   adapter: vercel(),
-  outDir: '.vercel/output/static',
 });
