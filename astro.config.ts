@@ -14,6 +14,7 @@ const SITE_URL = 'https://hamatoyogi.dev';
 // https://astro.build/config
 export default defineConfig({
   integrations: [
+    qwikdev(),
     tailwind(),
     mdx(),
     partytown({}),
@@ -32,7 +33,6 @@ export default defineConfig({
       ],
     }),
     compress(),
-    qwikdev(),
   ],
   site: SITE_URL,
   output: 'server',
