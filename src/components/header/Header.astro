@@ -7,29 +7,35 @@ const links = [
   {
     href: '/about',
     text: 'about',
-    rel: 'prefetch',
+    'data-astro-prefetch': 'viewport',
   },
   {
     href: '/blog',
     text: 'blog',
-    rel: 'prefetch',
+    'data-astro-viewport': 'viewport',
   },
   {
     href: '/work',
     text: 'work',
-    rel: 'prefetch',
+    'data-astro-prefetch': 'viewport',
   },
   {
     href: '/appearances',
     text: 'appearances',
-    rel: 'prefetch',
+    'data-astro-prefetch': 'viewport',
   },
   {
     href: 'https://anchor.fm/fedbites',
     text: 'FedBites Podcast',
     target: '_blank',
-    rel: 'noopener',
+    'data-astro-prefetch': 'viewport',
   },
+  // Todo - figure out why Qwik astro not loading when deployed on Vercel
+  // {
+  //   href: '/playground',
+  //   text: 'playground',
+  //   'data-astro-prefetch': 'viewport',
+  // },
 ];
 ---
 
@@ -39,7 +45,7 @@ const links = [
     'dark:bg-mirage dark:text-lavender-gray dark:text-lavender-gray',
   ]}
 >
-  <a href="/">
+  <a href="/" data-astro-prefetch>
     <h2 class="flex flex-shrink-0 items-center text-white lg:mr-8">
       <span
         class="bg-gradient-to-r from-dodger-blue to-ebony-clay bg-clip-text text-xl font-semibold tracking-tight text-transparent dark:from-lavender-gray dark:to-melrose"

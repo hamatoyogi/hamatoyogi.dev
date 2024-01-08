@@ -13,6 +13,7 @@ const { href, withIcon = false } = Astro.props as Props;
   href={href}
   target="_blank"
   rel="noopener noreferrer"
+  data-astro-prefetch
   class:list={[
     'font-bold underline transition-all group underline-offset-4 hover:text-dodger-blue dark:hover:text-melrose decoration-dodger-blue dark:decoration-melrose',
     withIcon && 'pr-1',
