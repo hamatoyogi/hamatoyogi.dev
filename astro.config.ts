@@ -8,10 +8,8 @@ import compress from 'astro-compress';
 import qwikdev from '@qwikdev/astro';
 const SITE_URL = 'https://hamatoyogi.dev';
 /** @type {import('astro').AstroUserConfig} */
-
 // https://astro.build/config
 
-// https://astro.build/config
 export default defineConfig({
   integrations: [
     qwikdev(),
