@@ -4,7 +4,26 @@ import { Heading1 } from '~typography/Heading1';
 import { ExternalLink } from '~components/link';
 import { formatDate } from 'src/utils/date-formatter';
 
-const list = [
+interface Appearance {
+  where: string;
+  when: string;
+  title: string;
+  link: string;
+}
+
+const list: Array<Appearance> = [
+  {
+    where: 'Front Cast',
+    when: 'Mar 25, 2024',
+    title: 'When Frontend & AI meet with Yoav Ganbar (Hebrew)',
+    link: 'https://open.spotify.com/episode/4Zxu68BQLUaDJJ7OkQGEjT?si=3ed4cd14f70647e2',
+  },
+  {
+    where: 'Lo Techni Velo Bemikre (לא טכני ולא במקרה)',
+    when: 'Feb 2, 2024',
+    title: 'Developer Experience with Yoav Ganbar (Hebrew)',
+    link: 'https://open.spotify.com/episode/3LE4rFE1XxwakoOezekboe?si=KqgKXNK9TZy7_WXGlw1Gsg',
+  },
   {
     where: 'Armada.js conference, Serbia',
     when: 'Oct 5, 2023',

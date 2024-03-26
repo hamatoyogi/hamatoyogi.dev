@@ -1,6 +1,6 @@
 ---
 import myImage from '~assets/yoav.png';
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets';
 
 import { BaseLayout } from '~layouts/BaseLayout';
 import { Card } from '~components/card';
@@ -24,61 +24,60 @@ Astro.response.headers.set(
       format="webp"
       width={160}
       height={160}
-      alt="a picture of Yoav  Ganbar"
+      alt="an illustration of Yoav Ganbar"
+      loading="eager"
     />
   </figure>
-  <Heading1 extraClasses="mt-10"
-    >Yoav Ganbar <span class="text-xl"> </span>
-    <h2 class="mt-4 text-2xl md:text-4xl">
-      Developer Relations & Experience @ Builder.io
-    </h2>
-    <h3 class="mt-2 text-xl md:text-2xl">
-      Trying to make the web a better place and help developers along the way.
-    </h3>
-    <p class="flex flex-wrap items-center gap-3 mt-10 md:mt-14">
-      <span>🎙 Co-host of FedBites</span>
-      <span>👥 Co-founder Next.js IL community</span>
-      <span>👨‍👩‍👧‍👦 Father of 2</span>
-      <span>📒 Blogger</span>
-      <span>🏄🏽‍♂️ Surfer</span>
-      <span>🛹 Skater</span>
-      <span>🕹 Gamer</span>
-      <span>🎷 Saxophone Player</span>
-    </p>
-    <ul role="list" class="grid gap-4 my-10 link-card-grid md:my-20">
-      <Card href="/about" title="about" body="Get to know me a bit..." />
-      <Card href="/blog" title="blog" body="Read the latest from my blog" />
-      <Card
-        href="/appearances"
-        title="appearances"
-        body="Podcasts, interviews, and talks I've given."
-      />
-      <Card
-        href="https://medium.com/@HamatoYogi"
-        title="Medium"
-        body="See what I've written on Medium"
-        isExternalLink
-      />
-      <Card
-        href="https://dev.to/hamatoyogi"
-        title="Dev.to"
-        body="Me on Dev.to"
-        isExternalLink
-      />
-      <Card
-        href="https://twitter.com/hamatoyogi/"
-        title="HamatoYogi"
-        body="My Twitter shenanigans"
-        isExternalLink
-      />
-      <Card
-        href="https://anchor.fm/fedbites"
-        title="FedBites Podcast"
-        body="I co-host FedBites"
-        isExternalLink
-      />
-    </ul>
-  </Heading1>
+  <Heading1 extraClasses="mt-10"> Yoav Ganbar </Heading1>
+  <h2 class="mt-4 text-2xl md:text-4xl">
+    Developer Relations & Experience @ Builder.io
+  </h2>
+  <h3 class="mt-2 text-xl md:text-2xl">
+    Trying to make the web a better place and help developers along the way.
+  </h3>
+  <p class="flex flex-wrap items-center gap-3 mt-10 md:mt-14">
+    <span>🎙 Co-host of FedBites</span>
+    <span>👥 Co-founder Next.js IL community</span>
+    <span>👨‍👩‍👧‍👦 Father of 2</span>
+    <span>📒 Blogger</span>
+    <span>🏄🏽‍♂️ Surfer</span>
+    <span>🛹 Skater</span>
+    <span>🕹 Gamer</span>
+    <span>🎷 Saxophone Player</span>
+  </p>
+  <ul role="list" class="grid gap-4 my-10 link-card-grid md:my-20">
+    <Card href="/about" title="about" body="Get to know me a bit..." />
+    <Card href="/blog" title="blog" body="Read the latest from my blog" />
+    <Card
+      href="/appearances"
+      title="appearances"
+      body="Podcasts, interviews, and talks I've given."
+    />
+    <Card
+      href="https://medium.com/@HamatoYogi"
+      title="Medium"
+      body="See what I've written on Medium"
+      isExternalLink
+    />
+    <Card
+      href="https://dev.to/hamatoyogi"
+      title="Dev.to"
+      body="Me on Dev.to"
+      isExternalLink
+    />
+    <Card
+      href="https://twitter.com/hamatoyogi/"
+      title="HamatoYogi"
+      body="My Twitter shenanigans"
+      isExternalLink
+    />
+    <Card
+      href="https://anchor.fm/fedbites"
+      title="FedBites Podcast"
+      body="I co-host FedBites"
+      isExternalLink
+    />
+  </ul>
 
   <style>
     .link-card-grid {
