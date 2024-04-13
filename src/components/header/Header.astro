@@ -42,7 +42,7 @@ const links = [
 <header
   class:list={[
     'p-6 sticky top-0 flex items-center justify-between flex-wrap bg-white',
-    'dark:bg-mirage dark:text-lavender-gray dark:text-lavender-gray',
+    'dark:bg-mirage dark:text-lavender-gray',
   ]}
 >
   <a href="/" data-astro-prefetch>
@@ -53,9 +53,9 @@ const links = [
       >
     </h2>
   </a>
-  <div class="block lg:hidden">
+  <div class="block">
     <button
-      class="hamburger hamburger--elastic relative z-20 flex items-center"
+      class="hamburger hamburger--elastic relative z-20 flex items-center lg:hidden"
       type="button"
       role="navigation"
       aria-label="navigation menu"

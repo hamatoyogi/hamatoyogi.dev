@@ -13,6 +13,8 @@ import { seoConfig } from 'src/utils/seo-config';
 import { Header } from '~components/header';
 import { Footer } from '~components/footer';
 
+import { ViewTransitions } from 'astro:transitions';
+
 export interface Props {
   /** Title of the page. */
   title: string;
@@ -103,6 +105,7 @@ const {
         document.documentElement.classList.remove('dark');
       }
     </script>
+    <ViewTransitions />
   </head>
 
   <body

@@ -17,6 +17,8 @@ import { Footer } from '~components/footer';
 import { formatDate } from 'src/utils/date-formatter';
 import { Heading1 } from '~components/typography';
 
+import { ViewTransitions } from 'astro:transitions';
+
 type Props = MarkdownLayoutProps<{
   /** Specific OpenGraph page title. */
   ogTitle?: string;
@@ -107,12 +109,13 @@ const publishDate = formatDate({ date });
         document.documentElement.classList.remove('dark');
       }
     </script>
+    <ViewTransitions />
   </head>
 
   <body
     class:list={[
       'min-h-screen flex flex-col w-full overflow-x-hidden bg-white text-mine-shaft font-inter',
-      'dark:bg-mirage dark:text-lavender-gray dark:text-lavender-gray',
+      'dark:bg-mirage dark:text-lavender-gra',
     ]}
   >
     <Header />
