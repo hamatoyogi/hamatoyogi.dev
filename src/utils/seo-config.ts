@@ -5,9 +5,9 @@ export const seoConfig = {
   type: 'website',
   image: {
     url: '/images/hy-graffiti.jpeg',
-    alt: 'Site image', 
+    alt: 'Site image',
     width: 1200,
     height: 630,
   },
-  siteName: 'HamatoYogi.dev', 
+  siteName: 'HamatoYogi.dev',
 };

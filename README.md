@@ -3,6 +3,7 @@
 The codebase behind [hamatoyogi.dev](https://hamatoyogi.dev).
 
 Built with:
+
 - Astro
 - tailwind
 - Vercel
