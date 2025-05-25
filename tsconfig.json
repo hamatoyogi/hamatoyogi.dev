@@ -1,7 +1,12 @@
 {
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist", "node_modules", ".vercel", ".astro"],
   "compilerOptions": {
-    "types": ["@astrojs/image/client"],
     "baseUrl": ".",
+    "module": "es2022",
+    "strictNullChecks": true,
+    "allowJs": true,
     "paths": {
       "~components/*": ["src/components/*"],
       "~assets/*": ["src/assets/*"],

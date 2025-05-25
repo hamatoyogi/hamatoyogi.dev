@@ -17,7 +17,7 @@ import { Footer } from '~components/footer';
 import { formatDate } from 'src/utils/date-formatter';
 import { Heading1 } from '~components/typography';
 
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 
 type Props = MarkdownLayoutProps<{
   /** Specific OpenGraph page title. */
@@ -97,7 +97,7 @@ const publishDate = formatDate({ date });
     <!-- scripts -->
     <script type="text/partytown" async src="https://cdn.splitbee.io/sb.js"
     ></script>
-    <ViewTransitions />
+    <ClientRouter />
   </head>
 
   <body

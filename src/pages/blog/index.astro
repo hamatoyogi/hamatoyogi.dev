@@ -11,7 +11,9 @@ import {
   parseBuilderPostToPostItem,
 } from 'src/utils/parse-posts';
 
-const mdPosts = await Astro.glob('./**/*.md');
+const mdPosts = Object.values(
+  await import.meta.glob('./**/*.md', { eager: true }),
+);
 
 const builderUrl = new URL(
   'https://cdn.builder.io/api/v3/content/blog-article',
@@ -95,7 +97,7 @@ const posts: PostItem[] = [
   },
   {
     link: 'https://medium.com/the-hamato-yogi-chronichels/lets-build-micro-frontends-with-nextjs-and-module-federation-b48c2c916680',
-    title: 'Let’s Build Micro Frontends with NextJS and Module Federation!',
+    title: `Let's Build Micro Frontends with NextJS and Module Federation!`,
     description:
       'When Zack Jackson initially released Module Federation support for Next.js, I geek dived.',
     publishDate: formatDate({ date: 'Nov 24, 2020', dateStyle: 'medium' }),
