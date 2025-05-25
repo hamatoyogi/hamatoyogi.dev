@@ -1,8 +1,12 @@
 {
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist", "node_modules", ".vercel", ".astro"],
   "compilerOptions": {
     "baseUrl": ".",
     "module": "es2022",
-    "moduleResolution": "bundler",
+    "strictNullChecks": true,
+    "allowJs": true,
     "paths": {
       "~components/*": ["src/components/*"],
       "~assets/*": ["src/assets/*"],
