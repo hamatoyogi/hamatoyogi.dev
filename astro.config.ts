@@ -1,11 +1,12 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
 import compress from 'astro-compress';
 import qwikdev from '@qwikdev/astro';
+import tailwindcss from '@tailwindcss/vite';
+
 const SITE_URL = 'https://hamatoyogi.dev';
 /** @type {import('astro').AstroUserConfig} */
 // https://astro.build/config
@@ -13,7 +14,6 @@ const SITE_URL = 'https://hamatoyogi.dev';
 export default defineConfig({
   integrations: [
     qwikdev(),
-    tailwind(),
     mdx(),
     partytown({}),
     sitemap({
@@ -32,8 +32,13 @@ export default defineConfig({
     }),
     compress(),
   ],
+
   site: SITE_URL,
   output: 'server',
   adapter: vercel(),
   prefetch: true,
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
