@@ -35,7 +35,11 @@ export default defineConfig({
 
   site: SITE_URL,
   output: 'server',
-  adapter: vercel(),
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true, // set to false when using @vercel/analytics@1.4.0
+    },
+  }),
   prefetch: true,
 
   vite: {

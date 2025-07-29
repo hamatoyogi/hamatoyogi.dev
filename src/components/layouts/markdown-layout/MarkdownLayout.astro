@@ -2,6 +2,7 @@
 import type { MarkdownLayoutProps } from 'astro';
 
 import { SEO } from 'astro-seo';
+import Analytics from '@vercel/analytics/astro';
 
 import '~style/tailwind.css';
 
@@ -94,9 +95,7 @@ const publishDate = formatDate({ date });
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- scripts -->
-    <script type="text/partytown" async src="https://cdn.splitbee.io/sb.js"
-    ></script>
+    <Analytics />
     <ClientRouter />
   </head>
 
