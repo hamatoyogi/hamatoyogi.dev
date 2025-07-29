@@ -22,7 +22,7 @@ const { href, title, body, isExternalLink } = Astro.props as Props;
     <h2
       class="flex items-start justify-between text-2xl capitalize text-dodger-blue dark:text-melrose"
     >
-      <sapn>{title}</sapn>
+      <span>{title}</span>
       <span class="mt-2 ml-1 block w-4 flex-shrink-0 md:m-0"
         >{isExternalLink ? <External /> : <ArrowRight />}</span
       >
