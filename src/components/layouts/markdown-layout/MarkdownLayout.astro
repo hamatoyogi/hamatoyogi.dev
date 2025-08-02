@@ -18,8 +18,6 @@ import { Footer } from '~components/footer';
 import { formatDate } from 'src/utils/date-formatter';
 import { Heading1 } from '~components/typography';
 
-import { ClientRouter } from 'astro:transitions';
-
 type Props = MarkdownLayoutProps<{
   /** Specific OpenGraph page title. */
   ogTitle?: string;
@@ -96,7 +94,6 @@ const publishDate = formatDate({ date });
     <link rel="manifest" href="/site.webmanifest" />
 
     <Analytics />
-    <ClientRouter />
   </head>
 
   <body
