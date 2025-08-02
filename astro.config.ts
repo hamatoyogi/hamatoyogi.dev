@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
-import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 import compress from 'astro-compress';
@@ -15,7 +14,6 @@ export default defineConfig({
   integrations: [
     qwikdev(),
     mdx(),
-    partytown({}),
     sitemap({
       // TODO find a way to load dynamically
       customPages: [
