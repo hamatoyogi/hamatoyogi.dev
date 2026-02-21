@@ -1,6 +1,9 @@
 @import 'tailwindcss';
 @config '../../tailwind.config.js';
 
+@custom-variant data-open (&[data-state='open']);
+@custom-variant data-closed (&[data-state='closed']);
+
 img {
   content-visibility: unset !important;
 }

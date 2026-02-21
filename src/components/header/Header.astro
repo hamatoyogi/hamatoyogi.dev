@@ -107,18 +107,16 @@ const links = [
 </header>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('is-active');
-      const navOpenState = nav.getAttribute('data-state');
+  const hamburger = document.querySelector('.hamburger');
+  const nav = document.querySelector('nav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('is-active');
+    const navOpenState = nav.getAttribute('data-state');
 
-      if (navOpenState === 'closed') {
-        return nav.setAttribute('data-state', 'open');
-      }
-      return nav.setAttribute('data-state', 'closed');
-    });
+    if (navOpenState === 'closed') {
+      return nav.setAttribute('data-state', 'open');
+    }
+    return nav.setAttribute('data-state', 'closed');
   });
 </script>
 
