@@ -1,4 +1,3 @@
-const plugin = require('tailwindcss/plugin');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
@@ -52,11 +51,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-    plugin(({ addVariant }) => {
-      addVariant('data-open', "&[data-state='open']");
-      addVariant('data-closed', "&[data-state='closed']");
-    }),
-  ],
+  plugins: [require('@tailwindcss/typography')],
 };
