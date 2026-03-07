@@ -34,6 +34,7 @@ export default defineConfig({
   site: SITE_URL,
   output: 'server',
   adapter: vercel({
+    imageService: true,
     webAnalytics: {
       enabled: true, // set to false when using @vercel/analytics@1.4.0
     },
