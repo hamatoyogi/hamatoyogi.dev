@@ -9,7 +9,7 @@
     "prettier": "prettier --write ."
   },
   "devDependencies": {
-    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/mdx": "^4.3.14",
     "@astrojs/sitemap": "^3.7.0",
     "@tailwindcss/typography": "0.5.19",
     "astro": "^5.18.0",
