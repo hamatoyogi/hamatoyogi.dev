@@ -17,7 +17,7 @@ const { title, description, date, link, isExternal, category } = Astro.props;
   rel={isExternal ? 'noopener' : undefined}
   data-filterable
   data-category={category || 'all'}
-  class="group flex items-start justify-between gap-4 rounded-[var(--radius-md)] border border-border bg-surface px-4 py-4 transition-all hover:-translate-y-0.5 hover:shadow-md dark:border-[#2A2D3E] dark:bg-[#1A1D2E]"
+  class="group flex items-start justify-between gap-4 rounded-[var(--radius-md)] border border-border bg-surface px-4 py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md dark:border-[#2A2D3E] dark:bg-[#1A1D2E]"
 >
   <div class="flex flex-col gap-1 min-w-0">
     <p class="font-jakarta text-base font-semibold text-ink leading-snug dark:text-[#F0ECE4]">

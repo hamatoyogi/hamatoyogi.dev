@@ -31,11 +31,15 @@
 </button>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
+  function initThemeToggle() {
     var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     var themeToggleLightIcon = document.getElementById(
       'theme-toggle-light-icon',
     );
+    const themeToggleBtn = document.getElementById('theme-toggle');
+
+    if (!themeToggleDarkIcon || !themeToggleLightIcon || !themeToggleBtn)
+      return;
 
     // Change the icons inside the button based on previous settings
     if (
@@ -47,8 +51,6 @@
     } else {
       themeToggleDarkIcon.classList.remove('hidden');
     }
-
-    const themeToggleBtn = document.getElementById('theme-toggle');
 
     themeToggleBtn.addEventListener('click', function () {
       // toggle icons inside button
@@ -76,7 +78,10 @@
         }
       }
     });
-  });
+  }
+
+  initThemeToggle();
+  document.addEventListener('astro:page-load', initThemeToggle);
 </script>
 <script is:inline>
   function setDarkMode(document) {
