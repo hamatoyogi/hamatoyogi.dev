@@ -67,6 +67,9 @@ const currentPath = Astro.url.pathname;
   <!-- Mobile nav overlay -->
   <nav
     data-state="closed"
+    aria-hidden="true"
+    inert
+    aria-label="Mobile navigation"
     class="absolute left-0 top-[-100vh] z-10 h-full w-full p-10 transition-all duration-300 data-open:top-0 data-open:h-screen data-open:bg-paper dark:data-open:bg-[#0F1117] lg:hidden"
   >
     <ul class="flex h-full w-full flex-col items-center justify-center gap-10">
@@ -103,8 +106,12 @@ const currentPath = Astro.url.pathname;
     const navOpenState = nav?.getAttribute('data-state');
     if (navOpenState === 'closed') {
       nav?.setAttribute('data-state', 'open');
+      nav?.removeAttribute('aria-hidden');
+      nav?.removeAttribute('inert');
     } else {
       nav?.setAttribute('data-state', 'closed');
+      nav?.setAttribute('aria-hidden', 'true');
+      nav?.setAttribute('inert', '');
     }
   });
 </script>
