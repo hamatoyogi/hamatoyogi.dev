@@ -1,164 +1,196 @@
 ---
 import { BaseLayout } from '~layouts/BaseLayout';
-import { Heading1 } from '~typography/Heading1';
-import { ExternalLink } from '~components/link';
-import { formatDate } from 'src/utils/date-formatter';
+import AppearanceRow from '~components/AppearanceRow.astro';
+import { FilterPills } from '~components/qwik/FilterPills';
+
+type AppearanceType = 'talk' | 'podcast' | 'interview';
 
 interface Appearance {
   where: string;
   when: string;
   title: string;
   link: string;
+  type: AppearanceType;
 }
 
-const list: Array<Appearance> = [
+const list: Appearance[] = [
   {
-    where: 'Next.js IL x React TLV: Are you down with MCP?',
+    where: 'Next.js IL x React TLV',
     when: 'May 19, 2025',
-    title: `WTF is MCP? (Hebrew)`,
+    title: 'WTF is MCP? (Hebrew)',
     link: 'https://www.youtube.com/watch?v=kQL59-DJI3M',
+    type: 'talk',
   },
   {
     where: 'groundcover hosts Next.js IL community',
     when: 'May 4, 2025',
-    title: `Meeting with Guillermo Rauch, CEO @ Vercel`,
+    title: 'Meeting with Guillermo Rauch, CEO @ Vercel',
     link: 'https://www.youtube.com/watch?v=CaxnnAKf5eQ',
+    type: 'talk',
   },
   {
     where: 'Next.js IL Community Meetup Jan 7th 2025',
     when: 'Jan 7, 2025',
-    title: `React WAT?! - Yoav Ganbar & Ariel Shulman`,
+    title: 'React WAT?! - Yoav Ganbar & Ariel Shulman',
     link: 'https://www.youtube.com/watch?v=q-zdK4iwPxk&t=4s',
+    type: 'talk',
   },
   {
     where: 'Future Frontend 2024',
     when: 'Jun 27, 2024',
-    title: `How Qwik's Optimizer allows JavaScript streaming and automatic optimization`,
+    title: "How Qwik's Optimizer allows JavaScript streaming and automatic optimization",
     link: 'https://www.youtube.com/watch?v=7UTMgCku11E',
+    type: 'talk',
   },
   {
     where: 'Future Frontend 2024',
     when: 'Jul 4, 2024',
     title: 'Interview with Yoav Ganbar',
     link: 'https://www.youtube.com/watch?v=DhheRnjEu4I',
+    type: 'interview',
   },
   {
     where: 'ConTejas Podcast',
     when: 'Apr 8, 2024',
     title: 'Yoav Ganbar: How to Create the Fastest Web Experiences with Qwik',
     link: 'https://www.youtube.com/watch?v=OyTc2dusc5o',
+    type: 'podcast',
   },
   {
     where: 'Front Cast',
     when: 'Mar 25, 2024',
     title: 'When Frontend & AI meet with Yoav Ganbar (Hebrew)',
     link: 'https://open.spotify.com/episode/4Zxu68BQLUaDJJ7OkQGEjT?si=3ed4cd14f70647e2',
+    type: 'podcast',
   },
   {
     where: 'Lo Techni Velo Bemikre (לא טכני ולא במקרה)',
     when: 'Feb 2, 2024',
     title: 'Developer Experience with Yoav Ganbar (Hebrew)',
     link: 'https://open.spotify.com/episode/3LE4rFE1XxwakoOezekboe?si=KqgKXNK9TZy7_WXGlw1Gsg',
+    type: 'podcast',
   },
   {
     where: 'Armada.js conference, Serbia',
     when: 'Oct 5, 2023',
-    title:
-      'Frontend is dead, long live full stack by Yoav Ganbar | Armada JS 2023',
+    title: 'Frontend is dead, long live full stack by Yoav Ganbar | Armada JS 2023',
     link: 'https://youtu.be/rigtrVjgyV0?si=pz-4n19BDCxdubta',
+    type: 'talk',
   },
   {
     where: 'Qwik Israel Meetup #1',
     when: 'Jun 12, 2023',
-    title:
-      'Effortless Server Communication & Multithreading in Qwik - Yoav Ganbar',
+    title: 'Effortless Server Communication & Multithreading in Qwik - Yoav Ganbar',
     link: 'https://youtu.be/lEc2BM5HmJ8?si=n8UcosUmzEqVOAtU',
+    type: 'talk',
   },
   {
     where: 'Code Ryan Podcast',
     when: 'Jul 30, 2023',
-    title:
-      'Decoding Qwik: An In-depth Comparison with React and Next JS | Yoav Ganbar',
+    title: 'Decoding Qwik: An In-depth Comparison with React and Next JS | Yoav Ganbar',
     link: 'https://youtu.be/WYrSccfpxFs?si=H5ezGq4nlQj9OeQv',
+    type: 'podcast',
   },
   {
     where: 'Builder.io live stream',
     when: 'Jul 27, 2023',
     title: 'How to build a modern site with Next.js and Builder.io',
     link: 'https://www.youtube.com/watch?v=2py23Jf0Yyk',
+    type: 'interview',
   },
   {
     where: 'Builder.io live stream',
     when: 'May 2, 2023',
     title: 'Announcing Qwik v1',
     link: 'https://www.youtube.com/watch?v=5VQatViWw2k',
+    type: 'interview',
   },
   {
     where: 'Builder.io live stream',
     when: 'Dec 8, 2022',
     title: 'Resumable React - Leveraging the React ecosystem with Qwik',
     link: 'https://www.youtube.com/watch?v=IGIPBAWRw_M',
-  },
-  {
-    where: 'React & React Native IL Meetup',
-    when: 'Jan 23, 2019',
-    title: 'Next.js Stories from the Trenches',
-    link: 'https://www.youtube.com/watch?v=srueFUnJ8Jo',
-  },
-  {
-    where: 'JS Jabber',
-    when: 'November 23, 2021',
-    title: 'Do You Have Dev FOMO?',
-    link: 'https://topenddevs.com/podcasts/javascript-jabber/episodes/do-you-have-dev-fomo-ft-yoav-ganbar-jsj-510',
-  },
-  {
-    where: 'Frontend Land',
-    when: 'Jul 30 2021',
-    title: 'Next.js (Hebrew)',
-    link: 'https://rss.com/podcasts/frontend-land/246565/',
-  },
-  {
-    where: 'Frontend Land',
-    when: 'Aug 05 2021',
-    title:
-      'Webpack Module Federation with Zack Jackson & Yoav Ganbar (English)',
-    link: 'https://rss.com/podcasts/frontend-land/250321/',
+    type: 'interview',
   },
   {
     where: 'Next.js IL Community Meetup #1',
-    when: 'May 16 2022',
+    when: 'May 16, 2022',
     title: 'The History of Next.js (Hebrew)',
     link: 'https://www.youtube.com/watch?v=AloxBdUQW-o',
+    type: 'talk',
   },
   {
     where: 'FedBites episode #6',
     when: 'Jul 5, 2022',
     title: 'Kent C. Dodds comes to Israel',
     link: 'https://www.youtube.com/watch?v=mkuXLFHHyuE',
+    type: 'podcast',
+  },
+  {
+    where: 'JS Jabber',
+    when: 'November 23, 2021',
+    title: 'Do You Have Dev FOMO?',
+    link: 'https://topenddevs.com/podcasts/javascript-jabber/episodes/do-you-have-dev-fomo-ft-yoav-ganbar-jsj-510',
+    type: 'podcast',
+  },
+  {
+    where: 'Frontend Land',
+    when: 'Jul 30, 2021',
+    title: 'Next.js (Hebrew)',
+    link: 'https://rss.com/podcasts/frontend-land/246565/',
+    type: 'podcast',
+  },
+  {
+    where: 'Frontend Land',
+    when: 'Aug 05, 2021',
+    title: 'Webpack Module Federation with Zack Jackson & Yoav Ganbar (English)',
+    link: 'https://rss.com/podcasts/frontend-land/250321/',
+    type: 'podcast',
+  },
+  {
+    where: 'React & React Native IL Meetup',
+    when: 'Jan 23, 2019',
+    title: 'Next.js Stories from the Trenches',
+    link: 'https://www.youtube.com/watch?v=srueFUnJ8Jo',
+    type: 'talk',
   },
 ].sort((a, z) => new Date(z.when).getTime() - new Date(a.when).getTime());
+
+const filterOptions = [
+  { label: 'Talks', value: 'talk' },
+  { label: 'Podcasts', value: 'podcast' },
+  { label: 'Interviews', value: 'interview' },
+];
 ---
 
 <BaseLayout
   title="Appearances | hamatoyogi.dev"
   description="Appearances, podcasts, interviews, and talks by Yoav Ganbar"
 >
-  <Heading1 extraClasses="mt-10 md:mt-32">Appearances</Heading1>
-  <ul role="list" class="ml-4 mt-10 list-disc space-y-4 md:mt-20">
-    {
-      list.map(({ where, when, title, link }) => (
-        <li>
-          <ExternalLink href={link} withIcon>
-            {title} | {where} - {formatDate({ date: when })}
-          </ExternalLink>
-        </li>
-      ))
-    }
-  </ul>
-</BaseLayout>
+  <div class="mx-auto px-[var(--space-page-x)] py-16" style="max-width: var(--max-w-content)">
+    <h1 class="font-syne text-5xl font-bold text-ink dark:text-[#F0ECE4]">Appearances</h1>
+    <p class="mt-2 font-mono text-sm text-muted dark:text-[#9A95A8]">
+      {list.length} talks, podcasts, and interviews
+    </p>
 
-<style>
-  .link-card-grid {
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-  }
-</style>
+    <div class="mt-8">
+      <FilterPills
+        client:load
+        options={filterOptions}
+        targetAttr="data-category"
+      />
+    </div>
+
+    <div class="mt-6 flex flex-col gap-3">
+      {list.map((item) => (
+        <AppearanceRow
+          title={item.title}
+          venue={item.where}
+          date={item.when}
+          type={item.type}
+          link={item.link}
+        />
+      ))}
+    </div>
+  </div>
+</BaseLayout>
