@@ -7,28 +7,25 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Light Theme
-        'dodger-blue': '#4253FF',
-        'shuttle-gray': '#596373',
-        'white-lilac': '#F4F5FB',
-        'mine-shaft': '#333333',
-
-        // Dark Theme
-        mirage: '#151724',
-        melrose: '#99A2FF',
-        'lavender-gray': '#B8B4D3',
-        'ebony-clay': '#262940',
+        coral:    { DEFAULT: '#FF5C35', dark: '#FF7A5C' },
+        sunshine: { DEFAULT: '#FFD23F' },
+        teal:     { DEFAULT: '#0BC9A0' },
+        ink:      { DEFAULT: '#1C1C2E', dark: '#F0ECE4' },
+        paper:    { DEFAULT: '#FDFAF5', dark: '#0F1117' },
+        surface:  { DEFAULT: '#F4F0E8', dark: '#1A1D2E' },
+        border:   { DEFAULT: '#E8E2D6', dark: '#2A2D3E' },
+        muted:    { DEFAULT: '#7A7065', dark: '#9A95A8' },
       },
       fontFamily: {
-        inter: ['Inter', ...defaultTheme.fontFamily.mono],
-        space: ['Space Grotesk', ...defaultTheme.fontFamily.serif],
+        syne:    ['Syne', ...defaultTheme.fontFamily.sans],
+        jakarta: ['Plus Jakarta Sans', ...defaultTheme.fontFamily.sans],
+        mono:    ['Space Mono', ...defaultTheme.fontFamily.mono],
       },
       typography: {
         DEFAULT: {
           css: {
-            '--dodger-blue': '#4253ff',
-            '--melrose': '#99a2ff',
-            '--primary-color': 'var(--dodger-blue)',
+            '--coral': '#FF5C35',
+            '--primary-color': 'var(--coral)',
             a: {
               display: 'inline-flex',
               'transition-property': 'all',

@@ -1,0 +1,44 @@
+---
+export interface Props {
+  title: string;
+  venue: string;
+  date: string;
+  type: 'talk' | 'podcast' | 'interview';
+  link: string;
+}
+
+const { title, venue, date, type, link } = Astro.props;
+
+const typeConfig = {
+  talk:      { label: 'TALK',      class: 'bg-[#FF5C3526] text-[#C0300A] dark:bg-[#FF5C3533] dark:text-[#FF7A5C]' },
+  podcast:   { label: 'PODCAST',   class: 'bg-[#FFD23F33] text-[#9A6E00] dark:bg-[#FFD23F33] dark:text-[#FFD23F]' },
+  interview: { label: 'INTERVIEW', class: 'bg-[#0BC9A026] text-[#077A62] dark:bg-[#0BC9A033] dark:text-[#0BC9A0]' },
+};
+
+const cfg = typeConfig[type];
+const d = new Date(date);
+const monthYear = d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+---
+
+<a
+  href={link}
+  target="_blank"
+  rel="noopener"
+  data-filterable
+  data-category={type}
+  class="group flex items-start justify-between gap-4 rounded-[var(--radius-md)] border border-border bg-surface px-4 py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md dark:border-[#2A2D3E] dark:bg-[#1A1D2E]"
+>
+  <div class="flex flex-col gap-1.5 min-w-0">
+    <span class:list={['inline-block w-fit rounded-sm px-2 py-0.5 font-mono text-[11px] uppercase tracking-wide', cfg.class]}>
+      {cfg.label}
+    </span>
+    <p class="font-jakarta text-base font-semibold text-ink leading-snug dark:text-[#F0ECE4]">
+      {title}
+    </p>
+    <p class="font-jakarta text-sm text-muted dark:text-[#9A95A8]">{venue}</p>
+  </div>
+  <div class="flex flex-shrink-0 flex-col items-end gap-2 pt-0.5">
+    <span class="font-mono text-xs text-muted dark:text-[#9A95A8]">{monthYear}</span>
+    <span class="text-coral text-base leading-none">↗</span>
+  </div>
+</a>

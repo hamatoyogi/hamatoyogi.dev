@@ -1,36 +1,61 @@
 ---
 import { GithubLogo, TwitterLogo } from '~components/icons';
 
-export interface Props {
-  extraClass: string;
-}
-
-const { extraClass } = Astro.props as Props;
 const year = new Date().getFullYear();
 ---
 
-<footer
-  class:list={[
-    `mt-14 p-4 shadow-inner flex items-center w-full gap-4 justify-center`,
-    `dark:text-lavender-gray`,
-    extraClass,
-  ]}
->
-  <p>© {year} Yoav Ganbar</p>
-  <a
-    href="https://twitter.com/hamatoyogi"
-    target="_blank"
-    rel="noopener"
-    aria-label="twitter logo"
+<footer class="border-t border-border dark:border-[#2A2D3E] bg-paper dark:bg-[#0F1117]">
+  <div
+    class="mx-auto flex flex-col gap-4 px-[var(--space-page-x)] py-8 sm:flex-row sm:items-center sm:justify-between"
+    style="max-width: var(--max-w-wide)"
   >
-    <TwitterLogo />
-  </a>
-  <a
-    href="https://github.com/hamatoyogi"
-    target="_blank"
-    rel="noopener"
-    aria-label="github logo"
-  >
-    <GithubLogo />
-  </a>
+    <div class="flex flex-col gap-1">
+      <a href="/" class="font-syne text-lg font-bold text-ink dark:text-[#F0ECE4]">
+        hamatoyogi<span class="text-coral">●</span><span class="font-normal text-muted dark:text-[#9A95A8]">dev</span>
+      </a>
+      <p class="font-mono text-xs text-muted dark:text-[#9A95A8]">
+        © {year} Yoav Ganbar · Built with Astro ♥
+      </p>
+    </div>
+
+    <div class="flex flex-col items-start gap-3 sm:items-end">
+      <div class="flex items-center gap-4">
+        <a
+          href="https://github.com/hamatoyogi"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub"
+          class="text-muted transition-colors hover:text-coral dark:text-[#9A95A8]"
+        >
+          <GithubLogo />
+        </a>
+        <a
+          href="https://twitter.com/hamatoyogi"
+          target="_blank"
+          rel="noopener"
+          aria-label="Twitter / X"
+          class="text-muted transition-colors hover:text-coral dark:text-[#9A95A8]"
+        >
+          <TwitterLogo />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/yoav-ganbar/"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+          class="font-mono text-xs text-muted transition-colors hover:text-coral dark:text-[#9A95A8]"
+        >
+          LinkedIn
+        </a>
+      </div>
+      <a
+        href="https://anchor.fm/fedbites"
+        target="_blank"
+        rel="noopener"
+        class="font-mono text-xs text-muted transition-colors hover:text-coral dark:text-[#9A95A8]"
+      >
+        FedBites Podcast ↗
+      </a>
+    </div>
+  </div>
 </footer>

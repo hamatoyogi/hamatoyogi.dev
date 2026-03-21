@@ -1,54 +1,127 @@
 ---
-import { ExternalLink } from '~components/link';
 import { BaseLayout } from '~layouts/BaseLayout';
-import { Heading1 } from '~typography/Heading1';
 ---
 
 <BaseLayout title="Work | hamatoyogi.dev" description="Where I work">
-  <Heading1 extraClasses="mt-10 md:mt-32">Work</Heading1>
-  <p class="mt-10">
-    I am a Senior Software Engineer at <ExternalLink href="https://claroty.com"
-      >Claroty</ExternalLink
-    >, a cyber-physical systems security company.
-  </p>
-  <p class="mt-10">
-    Previously, I helped build <ExternalLink href="https://jux.io"
-      >Jux</ExternalLink
-    >, and was a partner at <ExternalLink href="https://reactive-dev.com"
-      >ReactiveDev</ExternalLink
-    >, a software development consultancy focusing on modern web technologies.
-  </p>
-  <p class="mt-10">
-    Beforehand, I was @ <ExternalLink href="https://builder.io"
-      >Builder.io</ExternalLink
-    > as a Developer Relations & Experience engineer.
-  </p>
-  <p class="mt-10">
-    Before that I worked on <ExternalLink href="https://www.togetherr.com"
-      >togetherr</ExternalLink
-    >, a marketplace that connects creative teams with brands, which I helped
-    build while working @ <ExternalLink href="https://fiverr.com"
-      >Fiverr</ExternalLink
-    >.
-  </p>
-  <p class="mt-10">
-    Prior to that, I've also worked at: <ExternalLink
-      href="https://capitolis.com/">Capitolis</ExternalLink
-    >, <ExternalLink href="https://theculturetrip.com/"
-      >Culture Trip</ExternalLink
-    >, and <ExternalLink href="https://hedgewiz.co.uk/">HedgeWiz.</ExternalLink>
-  </p>
-  <p class="mt-10">
-    You can find out more on my <ExternalLink
-      withIcon
-      href="https://www.linkedin.com/in/yoav-ganbar/details/experience/"
-      >LinkendIn.</ExternalLink
-    >
-  </p>
-</BaseLayout>
+  <div class="mx-auto px-[var(--space-page-x)] py-16" style="max-width: var(--max-w-content)">
+    <h1 class="font-syne text-5xl font-bold text-ink dark:text-[#F0ECE4]">Work</h1>
 
-<style>
-  .link-card-grid {
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-  }
-</style>
+    <div class="mt-10 flex flex-col gap-4">
+
+      <div class="rounded-[var(--radius-md)] border border-border bg-surface dark:border-[#2A2D3E] dark:bg-[#1A1D2E]" style="border-left: 3px solid #FF5C35">
+        <div class="px-5 py-4">
+          <div class="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between">
+            <h2 class="font-jakarta text-lg font-bold text-ink dark:text-[#F0ECE4]">Claroty</h2>
+            <span class="font-mono text-xs text-muted dark:text-[#9A95A8]">2025 – present</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <p class="font-jakarta text-base text-muted dark:text-[#9A95A8]">Senior Software Engineer</p>
+            <a href="https://claroty.com" target="_blank" rel="noopener" class="font-mono text-xs text-muted hover:text-coral dark:text-[#9A95A8]">claroty.com ↗</a>
+          </div>
+          <div class="mt-3 border-t border-border pt-3 dark:border-[#2A2D3E]">
+            <p class="font-jakarta text-base text-ink dark:text-[#F0ECE4]">
+              Cyber-physical systems security. Building and maintaining frontend for core product.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-[var(--radius-md)] border border-border bg-surface dark:border-[#2A2D3E] dark:bg-[#1A1D2E]" style="border-left: 3px solid #FF5C35">
+        <div class="px-5 py-4">
+          <div class="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between">
+            <h2 class="font-jakarta text-lg font-bold text-ink dark:text-[#F0ECE4]">Jux</h2>
+            <span class="font-mono text-xs text-muted dark:text-[#9A95A8]">2024 – 2025</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <p class="font-jakarta text-base text-muted dark:text-[#9A95A8]">Founding Engineer</p>
+            <a href="https://jux.io" target="_blank" rel="noopener" class="font-mono text-xs text-muted hover:text-coral dark:text-[#9A95A8]">jux.io ↗</a>
+          </div>
+          <div class="mt-3 border-t border-border pt-3 dark:border-[#2A2D3E]">
+            <p class="font-jakarta text-base text-ink dark:text-[#F0ECE4]">
+              Built AI-powered frontend tooling for a modern design systems platform.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-[var(--radius-md)] border border-border bg-surface dark:border-[#2A2D3E] dark:bg-[#1A1D2E]" style="border-left: 3px solid #FF5C35">
+        <div class="px-5 py-4">
+          <div class="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between">
+            <h2 class="font-jakarta text-lg font-bold text-ink dark:text-[#F0ECE4]">Builder.io</h2>
+            <span class="font-mono text-xs text-muted dark:text-[#9A95A8]">2022 – 2024</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <p class="font-jakarta text-base text-muted dark:text-[#9A95A8]">DevRel & DX Engineer</p>
+            <a href="https://builder.io" target="_blank" rel="noopener" class="font-mono text-xs text-muted hover:text-coral dark:text-[#9A95A8]">builder.io ↗</a>
+          </div>
+          <div class="mt-3 border-t border-border pt-3 dark:border-[#2A2D3E]">
+            <p class="font-jakarta text-base text-ink dark:text-[#F0ECE4]">
+              Qwik evangelist. Live streams, docs, content, and developer tooling.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-[var(--radius-md)] border border-border bg-surface dark:border-[#2A2D3E] dark:bg-[#1A1D2E]" style="border-left: 3px solid #FF5C35">
+        <div class="px-5 py-4">
+          <div class="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between">
+            <h2 class="font-jakarta text-lg font-bold text-ink dark:text-[#F0ECE4]">ReactiveDev</h2>
+            <span class="font-mono text-xs text-muted dark:text-[#9A95A8]">2025</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <p class="font-jakarta text-base text-muted dark:text-[#9A95A8]">Partner</p>
+            <a href="https://reactive-dev.com" target="_blank" rel="noopener" class="font-mono text-xs text-muted hover:text-coral dark:text-[#9A95A8]">reactive-dev.com ↗</a>
+          </div>
+          <div class="mt-3 border-t border-border pt-3 dark:border-[#2A2D3E]">
+            <p class="font-jakarta text-base text-ink dark:text-[#F0ECE4]">
+              Software development consultancy focusing on modern web technologies.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-[var(--radius-md)] border border-border bg-surface dark:border-[#2A2D3E] dark:bg-[#1A1D2E]" style="border-left: 3px solid #FF5C35">
+        <div class="px-5 py-4">
+          <div class="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between">
+            <h2 class="font-jakarta text-lg font-bold text-ink dark:text-[#F0ECE4]">Fiverr / Togetherr</h2>
+            <span class="font-mono text-xs text-muted dark:text-[#9A95A8]">2021 – 2022</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <p class="font-jakarta text-base text-muted dark:text-[#9A95A8]">Frontend Architect</p>
+            <a href="https://fiverr.com" target="_blank" rel="noopener" class="font-mono text-xs text-muted hover:text-coral dark:text-[#9A95A8]">fiverr.com ↗</a>
+          </div>
+          <div class="mt-3 border-t border-border pt-3 dark:border-[#2A2D3E]">
+            <p class="font-jakarta text-base text-ink dark:text-[#F0ECE4]">
+              Built
+              <a href="https://www.togetherr.com" target="_blank" rel="noopener" class="underline decoration-coral underline-offset-2 hover:text-coral">Togetherr</a>
+              — a marketplace connecting creative teams with brands.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-[var(--radius-md)] border border-border bg-surface dark:border-[#2A2D3E] dark:bg-[#1A1D2E]" style="border-left: 3px solid #FF5C35">
+        <div class="px-5 py-4">
+          <p class="font-jakarta text-base text-muted dark:text-[#9A95A8]">
+            Also worked at:
+            <a href="https://capitolis.com/" target="_blank" rel="noopener" class="underline decoration-coral underline-offset-2 hover:text-coral">Capitolis</a>,
+            <a href="https://theculturetrip.com/" target="_blank" rel="noopener" class="underline decoration-coral underline-offset-2 hover:text-coral">Culture Trip</a>, and
+            <a href="https://hedgewiz.co.uk/" target="_blank" rel="noopener" class="underline decoration-coral underline-offset-2 hover:text-coral">HedgeWiz</a>.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-8">
+      <a
+        href="https://www.linkedin.com/in/yoav-ganbar/details/experience/"
+        target="_blank"
+        rel="noopener"
+        class="font-mono text-sm text-muted underline underline-offset-2 hover:text-coral dark:text-[#9A95A8]"
+      >
+        Full history on LinkedIn ↗
+      </a>
+    </div>
+  </div>
+</BaseLayout>

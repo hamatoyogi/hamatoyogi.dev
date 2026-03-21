@@ -1,94 +1,205 @@
 ---
 import myImage from '~assets/yoav.png';
 import { Image } from 'astro:assets';
-
 import { BaseLayout } from '~layouts/BaseLayout';
-import { Card } from '~components/card';
-import { Heading1 } from '~typography/Heading1';
+import { pickRandom } from 'src/utils/random';
 
 Astro.response.headers.set(
   'Cache-Control',
   's-maxage=1, stale-while-revalidate=59',
 );
+
+type HighlightType = 'talk' | 'podcast' | 'post';
+
+interface Highlight {
+  type: HighlightType;
+  title: string;
+  venue: string;
+  year: string;
+  link: string;
+}
+
+const highlightPool: Highlight[] = [
+  { type: 'talk',    title: 'WTF is MCP?',                                        venue: 'Next.js IL x React TLV', year: '2025', link: 'https://www.youtube.com/watch?v=kQL59-DJI3M' },
+  { type: 'talk',    title: "How Qwik's Optimizer allows JS streaming",            venue: 'Future Frontend 2024',   year: '2024', link: 'https://www.youtube.com/watch?v=7UTMgCku11E' },
+  { type: 'talk',    title: 'Frontend is dead, long live full stack',              venue: 'Armada.js 2023',         year: '2023', link: 'https://youtu.be/rigtrVjgyV0' },
+  { type: 'podcast', title: 'When Frontend & AI Meet',                             venue: 'Front Cast',             year: '2024', link: 'https://open.spotify.com/episode/4Zxu68BQLUaDJJ7OkQGEjT' },
+  { type: 'podcast', title: 'How to Create the Fastest Web Experiences with Qwik', venue: 'ConTejas',               year: '2024', link: 'https://www.youtube.com/watch?v=OyTc2dusc5o' },
+  { type: 'post',    title: 'Qwik: The Next Big Thing in the Frontend Ecosystem?', venue: 'hamatoyogi.dev',         year: '2022', link: '/blog/qwik-next-big-thing' },
+  { type: 'post',    title: "Let's Build Micro Frontends with NextJS",              venue: 'Medium',                 year: '2020', link: 'https://medium.com/the-hamato-yogi-chronichels/lets-build-micro-frontends-with-nextjs-and-module-federation-b48c2c916680' },
+  { type: 'post',    title: 'How We Moved From WordPress to React',                venue: 'Medium',                 year: '2019', link: 'https://medium.com/the-hamato-yogi-chronichels/how-we-moved-from-wordpress-to-react-and-raised-80-million-6e80b88be28f' },
+];
+
+const featured = pickRandom(highlightPool, 3);
+
+const typeConfig: Record<HighlightType, { label: string; accent: string; tagClass: string }> = {
+  talk:    { label: 'TALK',    accent: '#FF5C35', tagClass: 'bg-[#FF5C3526] text-[#C0300A] dark:bg-[#FF5C3533] dark:text-[#FF7A5C]' },
+  podcast: { label: 'PODCAST', accent: '#0BC9A0', tagClass: 'bg-[#0BC9A026] text-[#077A62] dark:bg-[#0BC9A033] dark:text-[#0BC9A0]' },
+  post:    { label: 'POST',    accent: '#FFD23F', tagClass: 'bg-[#FFD23F33] text-[#9A6E00] dark:bg-[#FFD23F33] dark:text-[#FFD23F]' },
+};
 ---
 
 <BaseLayout
-  title="hamatoyogi's site"
-  description="Yoav Ganbar AKA HamatoYogi · Web Developer, FedBites podcast co-host, community organizer. I love building products, shipping code, talking, and writing about it."
+  title="Yoav Ganbar — hamatoyogi.dev"
+  description="Senior engineer, conference speaker, and community organizer. I build for the web, talk about it on stage, and bring developers together."
 >
-  <figure
-    class="w-20 h-20 mt-10 overflow-hidden border rounded-full border-lavender-gray"
-  >
-    <Image
-      src={myImage}
-      format="webp"
-      width={160}
-      height={160}
-      alt="an illustration of Yoav Ganbar"
-      loading="eager"
-    />
-  </figure>
-  <Heading1 extraClasses="mt-10"> Yoav Ganbar </Heading1>
-  <h2 class="mt-4 text-2xl md:text-4xl">Web Developer</h2>
-  <h3 class="mt-2 text-xl md:text-2xl">
-    Trying to make the web a better place and help developers along the way.
-    FedBites podcast co-host, community organizer. I love building products,
-    shipping code, talking about it, and writing about it.
-  </h3>
-  <p class="flex flex-wrap items-center gap-3 mt-10 md:mt-14">
-    <span>🎙 Co-host of FedBites</span>
-    <span>👥 Co-founder Next.js IL community</span>
-    <span>👨‍👩‍👧‍👦 Father of 2</span>
-    <span>📒 Blogger</span>
-    <span>🏄🏽‍♂️ Surfer</span>
-    <span>🛹 Skater</span>
-    <span>🕹 Gamer</span>
-    <span>🎷 Saxophone Player</span>
-  </p>
-  <ul role="list" class="grid gap-4 my-10 link-card-grid md:my-20">
-    <Card href="/about" title="about" body="Get to know me a bit..." />
-    <Card href="/blog" title="blog" body="Read the latest from my blog" />
-    <Card
-      href="/appearances"
-      title="appearances"
-      body="Podcasts, interviews, and talks I've given."
-    />
-    <Card href="/work" title="Work" body="A bit about the work I've done" />
-    <Card
-      href="https://medium.com/@HamatoYogi"
-      title="Medium"
-      body="See what I've written on Medium"
-      isExternalLink
-    />
-    <Card
-      href="https://dev.to/hamatoyogi"
-      title="Dev.to"
-      body="Me on Dev.to"
-      isExternalLink
-    />
-    <Card
-      href="https://x.com/hamatoyogi/"
-      title="HamatoYogi"
-      body="My X shenanigans"
-      isExternalLink
-    />
-    <Card
-      href="https://bsky.app/profile/hamatoyogi.dev"
-      title="Bluesky"
-      body="My Bluesky posts"
-      isExternalLink
-    />
-    <Card
-      href="https://anchor.fm/fedbites"
-      title="FedBites Podcast"
-      body="I co-host FedBites"
-      isExternalLink
-    />
-  </ul>
 
-  <style>
-    .link-card-grid {
-      grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    }
-  </style>
+  <!-- ── Hero ───────────────────────────────────────────── -->
+  <section class="mx-auto px-[var(--space-page-x)] py-20" style="max-width: var(--max-w-wide)">
+    <div class="flex flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-16">
+
+      <!-- Copy -->
+      <div class="flex flex-1 flex-col gap-6">
+        <p class="font-mono text-xs uppercase tracking-widest text-muted dark:text-[#9A95A8]">
+          Builder · Speaker · Community
+        </p>
+        <h1 class="font-syne text-3xl font-extrabold leading-tight text-ink dark:text-[#F0ECE4] lg:text-4xl xl:text-5xl">
+          I build for the web.<br />
+          I talk about it<br class="hidden sm:block" /> on stage.<br />
+          I bring people<br class="hidden sm:block" /> together.
+        </h1>
+        <p class="font-jakarta text-lg leading-relaxed text-muted dark:text-[#9A95A8]">
+          Senior engineer, conference speaker, and community organizer. I've spent years at
+          the intersection of modern web tech and developer communities — and AI just made
+          it more interesting.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="mailto:yoav.ganbar+contact@gmail.com"
+            class="inline-flex h-12 items-center rounded-[var(--radius-sm)] bg-coral px-6 font-jakarta font-semibold text-white transition-opacity hover:opacity-90"
+          >
+            Book me / say hi
+          </a>
+          <a
+            href="/appearances"
+            class="inline-flex h-12 items-center gap-1 font-jakarta font-medium text-ink underline decoration-coral underline-offset-4 hover:text-coral dark:text-[#F0ECE4]"
+          >
+            See talks →
+          </a>
+        </div>
+      </div>
+
+      <!-- Portrait -->
+      <div class="relative flex-shrink-0">
+        <div
+          class="relative rounded-[var(--radius-lg)] p-3"
+          style="background-color: #FFD23F;"
+        >
+          <Image
+            src={myImage}
+            format="webp"
+            width={280}
+            height={280}
+            alt="An illustration of Yoav Ganbar"
+            loading="eager"
+            class="rounded-[var(--radius-md)]"
+          />
+        </div>
+        <!-- Badge pills -->
+        <span class="absolute -left-6 top-8 -rotate-3 rounded-full bg-coral px-3 py-1 font-mono text-xs text-white shadow-md">builder</span>
+        <span class="absolute -right-6 top-20 rotate-2 rounded-full bg-teal px-3 py-1 font-mono text-xs text-white shadow-md">speaker</span>
+        <span class="absolute -left-4 bottom-12 rotate-2 rounded-full bg-ink px-3 py-1 font-mono text-xs text-white shadow-md dark:bg-[#F0ECE4] dark:text-ink">community</span>
+        <span class="absolute -right-4 bottom-4 -rotate-2 rounded-full bg-sunshine px-3 py-1 font-mono text-xs text-ink shadow-md">ai-curious</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Credibility strip ──────────────────────────────── -->
+  <section class="w-full border-y border-border bg-surface dark:border-[#2A2D3E] dark:bg-[#1A1D2E]">
+    <div class="mx-auto flex flex-wrap items-center justify-center gap-8 px-[var(--space-page-x)] py-5" style="max-width: var(--max-w-wide)">
+      {['Builder.io', 'Claroty', 'Fiverr', 'Jux', 'ReactiveDev'].map((name) => (
+        <span class="font-mono text-xs uppercase tracking-widest text-muted dark:text-[#9A95A8]">{name}</span>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── Featured highlights ───────────────────────────── -->
+  <section class="mx-auto px-[var(--space-page-x)] py-20" style="max-width: var(--max-w-wide)">
+    <div class="mb-8 flex items-center gap-4">
+      <p class="font-mono text-xs uppercase tracking-widest text-muted dark:text-[#9A95A8]">Featured</p>
+      <div class="h-px flex-1 bg-border dark:bg-[#2A2D3E]"></div>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {featured.map((item) => {
+        const cfg = typeConfig[item.type];
+        const isExternal = item.link.startsWith('http');
+        return (
+          <a
+            href={item.link}
+            target={isExternal ? '_blank' : undefined}
+            rel={isExternal ? 'noopener' : undefined}
+            class="group flex flex-col gap-3 rounded-[var(--radius-md)] border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg dark:border-[#2A2D3E] dark:bg-[#1A1D2E]"
+            style={`border-top: 4px solid ${cfg.accent};`}
+          >
+            <span class:list={['inline-block w-fit rounded-sm px-2 py-0.5 font-mono text-[11px] uppercase tracking-wide', cfg.tagClass]}>
+              {cfg.label}
+            </span>
+            <p class="flex-1 font-jakarta text-lg font-semibold leading-snug text-ink dark:text-[#F0ECE4]">
+              {item.title}
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-muted dark:text-[#9A95A8]">{item.year} · {item.venue}</span>
+              <span class="text-coral text-sm">→</span>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- ── Contact band ───────────────────────────────────── -->
+  <section class="w-full bg-coral">
+    <div class="mx-auto px-[var(--space-page-x)] py-20" style="max-width: var(--max-w-wide)">
+      <div class="flex items-center gap-4 mb-6">
+        <p class="font-mono text-xs uppercase tracking-widest text-white/70">Let's talk</p>
+        <div class="h-px flex-1 bg-white/20"></div>
+      </div>
+      <p class="font-jakarta text-lg text-white/80 mb-6">
+        Got a project, a question, or just want to say hi?
+      </p>
+      <a
+        href="mailto:yoav.ganbar+contact@gmail.com"
+        class="font-jakarta text-2xl font-semibold text-white underline underline-offset-4 hover:opacity-80 md:text-3xl"
+      >
+        reach out
+      </a>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="https://github.com/hamatoyogi"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 rounded-full border border-white/40 px-4 py-2 font-mono text-xs text-white transition-colors hover:bg-white/10"
+        >
+          GitHub ↗
+        </a>
+        <a
+          href="https://twitter.com/hamatoyogi"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 rounded-full border border-white/40 px-4 py-2 font-mono text-xs text-white transition-colors hover:bg-white/10"
+        >
+          Twitter/X ↗
+        </a>
+        <a
+          href="https://www.linkedin.com/in/yoav-ganbar/"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 rounded-full border border-white/40 px-4 py-2 font-mono text-xs text-white transition-colors hover:bg-white/10"
+        >
+          LinkedIn ↗
+        </a>
+        <a
+          href="https://bsky.app/profile/hamatoyogi.dev"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 rounded-full border border-white/40 px-4 py-2 font-mono text-xs text-white transition-colors hover:bg-white/10"
+        >
+          Bluesky ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>

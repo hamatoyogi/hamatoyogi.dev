@@ -1,15 +1,13 @@
 ---
 import { formatDate } from 'src/utils/date-formatter';
-import { Card } from '~components/card';
-
 import { BaseLayout } from '~layouts/BaseLayout';
-import { Heading1 } from '~typography/Heading1';
-
 import { PostItem } from '~types/blog-types';
 import {
   parseMdToPostItem,
   parseBuilderPostToPostItem,
 } from 'src/utils/parse-posts';
+import PostRow from '~components/PostRow.astro';
+import { FilterPills } from '~components/qwik/FilterPills';
 
 const mdPosts = Object.values(
   await import.meta.glob('./**/*.md', { eager: true }),
@@ -31,16 +29,22 @@ builderUrl.searchParams.set(
 
 const builderBlogPosts = await fetch(builderUrl).then((x) => x.json());
 
-// TODO => separate Builder blog posts from regular blog posts
+interface PostWithCategory extends PostItem {
+  category: string;
+}
 
-const posts: PostItem[] = [
-  ...mdPosts.map(parseMdToPostItem),
-  ...builderBlogPosts.results.map(parseBuilderPostToPostItem),
+const posts: PostWithCategory[] = [
+  ...mdPosts.map((p) => ({ ...parseMdToPostItem(p), category: 'web-dev' })),
+  ...builderBlogPosts.results.map((p: any) => ({
+    ...parseBuilderPostToPostItem(p),
+    category: 'web-dev',
+  })),
   {
     link: 'https://www.builder.io/blog/builder-dev-tools',
     title: 'Introducing Builder Devtools',
     description: `Introducing Builder's Devtools. Now you can get started with a Qwik app or Next.js app in Builder's visual editor with just a few steps.`,
     publishDate: formatDate({ date: '6/29/2023', dateStyle: 'medium' }),
+    category: 'web-dev',
   },
   {
     link: 'https://www.builder.io/blog/movies-app-in-7-frameworks-which-is-fastest-and-why',
@@ -48,6 +52,7 @@ const posts: PostItem[] = [
     description:
       'In this post we are going to look at the same "movies" app built with Next.js, Angular, Nuxt, Lit, Astro, SvelteKit, and Qwik and compare their performance.',
     publishDate: formatDate({ date: '11/21/2022', dateStyle: 'medium' }),
+    category: 'web-dev',
   },
   {
     link: '/blog/qwik-next-big-thing',
@@ -55,12 +60,14 @@ const posts: PostItem[] = [
     description:
       'A first look at Qwik, what is it, why you should care, and why I am excited about it.',
     publishDate: formatDate({ date: '09/25/2022', dateStyle: 'medium' }),
+    category: 'web-dev',
   },
   {
     link: '/blog/astro-log/why-astro',
     title: 'Why Astro',
     description: 'The first post on this site about why I chose Astro.',
     publishDate: formatDate({ date: '09/03/2022', dateStyle: 'medium' }),
+    category: 'web-dev',
   },
   {
     link: 'https://medium.com/@HamatoYogi/react-next-il-conference-2022-summary-66b50d05d05e',
@@ -68,6 +75,7 @@ const posts: PostItem[] = [
     description:
       'A short summary about the biggest React conference in Israel - React Next 2022',
     publishDate: formatDate({ date: 'Jun 28, 2022', dateStyle: 'medium' }),
+    category: 'web-dev',
   },
   {
     link: 'https://medium.com/fedbites/getting-started-with-tsdx-and-storybook-8b2b27e8d549',
@@ -75,18 +83,21 @@ const posts: PostItem[] = [
     description:
       'I was asked by one of the maintainers of StoryBook to break down my massive post 😅',
     publishDate: formatDate({ date: '04/27/2021', dateStyle: 'medium' }),
+    category: 'web-dev',
   },
   {
     link: 'https://medium.com/fedbites/building-ts-packages-anatomy-of-a-react-storybook-tsdx-project-c7fa024b4f75',
     title: 'Building TS Packages: Anatomy Of A React StoryBook TSDX Project',
     description: 'How a React / TS / StoryBook / TSDX project is structured',
     publishDate: formatDate({ date: 'Apr 27, 2021', dateStyle: 'medium' }),
+    category: 'web-dev',
   },
   {
     link: 'https://dev.to/hamatoyogi/the-quickest-way-to-kickoff-a-react-typescript-storybook-project-4842',
     title: 'The Quickest Way To Kickoff A React Typescript Storybook Project',
     description: 'A Tldr; version on how to jump start a UI library.',
     publishDate: formatDate({ date: 'Apr 2, 2021', dateStyle: 'medium' }),
+    category: 'web-dev',
   },
   {
     link: 'https://dev.to/hamatoyogi/how-to-build-a-react-ts-tailwind-design-system-1ppi',
@@ -94,6 +105,7 @@ const posts: PostItem[] = [
     description:
       'After starting a Design System project at work, I shared how to do the same (in a very very lengthy post).',
     publishDate: formatDate({ date: 'Feb 17, 2021', dateStyle: 'medium' }),
+    category: 'web-dev',
   },
   {
     link: 'https://medium.com/the-hamato-yogi-chronichels/lets-build-micro-frontends-with-nextjs-and-module-federation-b48c2c916680',
@@ -101,13 +113,14 @@ const posts: PostItem[] = [
     description:
       'When Zack Jackson initially released Module Federation support for Next.js, I geek dived.',
     publishDate: formatDate({ date: 'Nov 24, 2020', dateStyle: 'medium' }),
+    category: 'web-dev',
   },
   {
     link: 'https://medium.com/the-hamato-yogi-chronichels/a-tale-of-an-elder-millennial-how-i-started-my-tech-journey-part-1-b07a339957d1',
-    title:
-      'A Tale of An Elder Millennial: How I Started My Tech Journey — Part 1',
+    title: 'A Tale of An Elder Millennial: How I Started My Tech Journey — Part 1',
     description: 'A lookback at where I started with computers and tech.',
     publishDate: formatDate({ date: 'Nov 20, 2020', dateStyle: 'medium' }),
+    category: 'career',
   },
   {
     link: 'https://medium.com/fedbites/getting-started-with-css-grid-part-2-what-can-you-do-with-css-grid-41d02d1b2979',
@@ -115,46 +128,60 @@ const posts: PostItem[] = [
     description:
       'Part 2 of how to get started with CSS grid: What can you do with CSS Grid? Learn by example — Grid Garden',
     publishDate: formatDate({ date: '04/02/2019', dateStyle: 'medium' }),
+    category: 'web-dev',
   },
   {
     link: 'https://medium.com/the-hamato-yogi-chronichels/how-we-moved-from-wordpress-to-react-and-raised-80-million-6e80b88be28f',
     title: 'How We Moved From Wordpress to React and Raised $80 Million',
     description: 'The story behind how I chose the tech stack for Culture Trip',
     publishDate: formatDate({ date: 'Jan 25, 2019', dateStyle: 'medium' }),
+    category: 'career',
   },
   {
     link: 'https://medium.com/fedbites/getting-started-with-css-grid-82fe7530dacf',
     title: 'Getting Started With CSS Grid — Part 1',
     description: 'How to get started with CSS grid - Part 1',
     publishDate: formatDate({ date: 'Jan 11, 2019', dateStyle: 'medium' }),
+    category: 'web-dev',
   },
 ].sort(
   (a, z) =>
     new Date(z.publishDate).getTime() - new Date(a.publishDate).getTime(),
 );
+
+const filterOptions = [
+  { label: 'Web Dev', value: 'web-dev' },
+  { label: 'Career', value: 'career' },
+  { label: 'AI', value: 'ai' },
+];
 ---
 
 <BaseLayout
-  title="Blog | hamatoyogi.dev"
+  title="Writing | hamatoyogi.dev"
   description="Blog posts by Yoav Ganbar"
 >
-  <Heading1 extraClasses="mt-10 md:mt-32">Blog</Heading1>
-  <ul role="list" class="my-10 flex flex-col gap-4 md:my-20">
-    {
-      posts.map(({ title, link, description, publishDate }) => (
-        <Card
-          body={description}
-          href={link}
-          title={`${title} | ${publishDate}`}
-          isExternalLink={link.includes('http')}
-        />
-      ))
-    }
-  </ul>
-</BaseLayout>
+  <div class="mx-auto px-[var(--space-page-x)] py-16" style="max-width: var(--max-w-content)">
+    <h1 class="font-syne text-5xl font-bold leading-snug text-ink dark:text-[#F0ECE4]">Writing</h1>
 
-<style>
-  .link-card-grid {
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-  }
-</style>
+    <div class="mt-8">
+      <FilterPills
+        client:load
+        options={filterOptions}
+        targetAttr="data-category"
+      />
+    </div>
+
+    <div class="mt-6 flex flex-col gap-3">
+      {posts.map(({ title, link, description, publishDate, category }) => (
+        <PostRow
+          title={title}
+          description={description}
+          date={publishDate}
+          link={link}
+          isExternal={link.startsWith('http')}
+          category={category}
+        />
+      ))}
+    </div>
+  </div>
+</BaseLayout>
