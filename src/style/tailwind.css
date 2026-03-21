@@ -4,20 +4,44 @@
 @custom-variant data-open (&[data-state='open']);
 @custom-variant data-closed (&[data-state='closed']);
 
+:root {
+  --color-coral: #FF5C35;
+  --color-sunshine: #FFD23F;
+  --color-teal: #0BC9A0;
+  --color-ink: #1C1C2E;
+  --color-paper: #FDFAF5;
+  --color-surface: #F4F0E8;
+  --color-border: #E8E2D6;
+  --color-muted: #7A7065;
+
+  --space-page-x: clamp(1.5rem, 5vw, 5rem);
+  --space-page-y: 5rem;
+  --max-w-content: 720px;
+  --max-w-wide: 1100px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+}
+
+.dark {
+  --color-coral: #FF7A5C;
+  --color-ink: #F0ECE4;
+  --color-paper: #0F1117;
+  --color-surface: #1A1D2E;
+  --color-border: #2A2D3E;
+  --color-muted: #9A95A8;
+}
+
 img {
   content-visibility: unset !important;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Space Grotesk', sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Syne', sans-serif;
   font-display: optional;
 }
 
 body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-display: optional;
 }

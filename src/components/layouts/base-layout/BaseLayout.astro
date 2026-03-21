@@ -5,9 +5,13 @@ import Analytics from '@vercel/analytics/astro';
 import '~style/tailwind.css';
 
 /* FONTS */
-import '@fontsource/inter';
-import '@fontsource/inter/600.css';
-import '@fontsource/space-grotesk';
+import '@fontsource/syne/700.css';
+import '@fontsource/syne/800.css';
+import '@fontsource/plus-jakarta-sans/400.css';
+import '@fontsource/plus-jakarta-sans/500.css';
+import '@fontsource/plus-jakarta-sans/600.css';
+import '@fontsource/plus-jakarta-sans/700.css';
+import '@fontsource/space-mono/400.css';
 
 import { seoConfig } from 'src/utils/seo-config';
 
@@ -94,14 +98,14 @@ const {
 
   <body
     class:list={[
-      'min-h-screen flex flex-col w-full overflow-x-hidden bg-white text-mine-shaft font-inter',
-      'dark:bg-mirage dark:text-lavender-gray',
+      'min-h-screen flex flex-col w-full overflow-x-hidden bg-paper text-ink font-jakarta antialiased',
+      'dark:bg-[#0F1117] dark:text-[#F0ECE4]',
     ]}
   >
     <Header />
-    <main class="px-6 pb-20 md:mx-[20vw] md:px-0">
+    <main class="flex-1 w-full">
       <slot />
     </main>
-    <Footer extraClass="mt-auto" />
+    <Footer />
   </body>
 </html>

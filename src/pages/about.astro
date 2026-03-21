@@ -1,61 +1,123 @@
 ---
-import { ExternalLink, InternalLink } from '~components/link';
+import myImage from '~assets/yoav.png';
+import { Image } from 'astro:assets';
 import { BaseLayout } from '~layouts/BaseLayout';
-import { Heading1 } from '~typography/Heading1';
 ---
 
 <BaseLayout title="About | hamatoyogi.dev" description="About Yoav Ganbar">
-  <Heading1 extraClasses="mt-10 md:mt-32">About</Heading1>
-  <article class="flex flex-col gap-10 mt-10">
-    <p>Hey there 👋🏽, I'm Yoav.</p>
-    <p>You can find me all over the web as HamatoYogi.</p>
-    <p>
-      I've been a computer geek and a techie my entire life. However, my
-      professional Internet and startup journey started somewhere in late 2009
-      when during my University studies I was the webmaster for the Israeli
-      Museum for Comics. Not long after that, I found myself doing SEO,
-      Marketing, Ecommerce, consultancy, and oddjob dev work, sometimes as a
-      freelancer others as an employee.
-    </p>
-    <p>
-      Later on I went to work at several startups and one big company. (you can
-      read more about that in the <InternalLink href="/work">work</InternalLink>
-      section).
-    </p>
-    <p>
-      For more about my tech origin story, check out my post:
-      <ExternalLink
-        withIcon
-        href="https://medium.com/the-hamato-yogi-chronichels/a-tale-of-an-elder-millennial-how-i-started-my-tech-journey-part-1-b07a339957d1"
-        >"A Tale of An Elder Millennial: How I Started My Tech Journey — Part 1"</ExternalLink
+  <div class="mx-auto px-[var(--space-page-x)] py-16" style="max-width: var(--max-w-content)">
+    <h1 class="font-syne text-5xl font-bold text-ink dark:text-[#F0ECE4]">About</h1>
+
+    <!-- Intro row -->
+    <div class="mt-10 flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
+      <figure class="flex-shrink-0">
+        <Image
+          src={myImage}
+          format="webp"
+          width={160}
+          height={160}
+          alt="An illustration of Yoav Ganbar"
+          loading="eager"
+          class="rounded-full border-3 border-sunshine"
+          style="border-width: 3px; border-color: #FFD23F;"
+        />
+      </figure>
+      <div class="flex flex-col gap-3">
+        <p class="font-jakarta text-lg leading-relaxed text-ink dark:text-[#F0ECE4]">
+          Senior engineer, conference speaker, and community organizer based in Israel.
+          I've spent 15+ years building for the web — from startup chaos to big-company scale
+          — and I'm genuinely excited about where AI is taking all of this.
+        </p>
+        <p class="font-jakarta text-base leading-relaxed text-muted dark:text-[#9A95A8]">
+          You can find me all over the web as <span class="font-semibold text-ink dark:text-[#F0ECE4]">HamatoYogi</span>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Community -->
+    <div class="mt-12">
+      <p class="font-mono text-xs uppercase tracking-widest text-muted dark:text-[#9A95A8]">Community</p>
+      <div class="mt-3 h-px bg-border dark:bg-[#2A2D3E]"></div>
+      <ul class="mt-4 flex flex-col gap-2">
+        <li class="font-jakarta text-base text-ink dark:text-[#F0ECE4]">
+          <span class="text-coral">·</span>
+          Co-organizer ·
+          <a href="https://www.facebook.com/groups/next.js.israel" target="_blank" rel="noopener" class="underline decoration-coral underline-offset-2 hover:text-coral">Next.js Israel</a>
+        </li>
+        <li class="font-jakarta text-base text-ink dark:text-[#F0ECE4]">
+          <span class="text-coral">·</span>
+          Co-organizer ·
+          <a href="https://www.meetup.com/react-tlv/" target="_blank" rel="noopener" class="underline decoration-coral underline-offset-2 hover:text-coral">React TLV</a>
+        </li>
+        <li class="font-jakarta text-base text-ink dark:text-[#F0ECE4]">
+          <span class="text-coral">·</span>
+          Co-host ·
+          <a href="https://anchor.fm/fedbites" target="_blank" rel="noopener" class="underline decoration-coral underline-offset-2 hover:text-coral">FedBites Podcast</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Currently -->
+    <div class="mt-10">
+      <p class="font-mono text-xs uppercase tracking-widest text-muted dark:text-[#9A95A8]">Currently</p>
+      <div class="mt-3 h-px bg-border dark:bg-[#2A2D3E]"></div>
+      <p class="mt-4 font-jakarta text-base text-ink dark:text-[#F0ECE4]">
+        <span class="text-coral">·</span>
+        Senior Software Engineer @ <a href="https://claroty.com" target="_blank" rel="noopener" class="underline decoration-coral underline-offset-2 hover:text-coral">Claroty</a>
+      </p>
+    </div>
+
+    <!-- Story -->
+    <div class="mt-10">
+      <p class="font-mono text-xs uppercase tracking-widest text-muted dark:text-[#9A95A8]">The longer story</p>
+      <div class="mt-3 h-px bg-border dark:bg-[#2A2D3E]"></div>
+      <article class="mt-6 flex flex-col gap-5 font-jakarta text-base leading-relaxed text-ink dark:text-[#F0ECE4]">
+        <p>
+          I've been a computer geek and a techie my entire life. My professional internet and startup
+          journey started somewhere in late 2009, when during my university studies I was the webmaster
+          for the Israeli Museum for Comics. Not long after that, I found myself doing SEO, marketing,
+          ecommerce, consultancy, and odd-job dev work — sometimes as a freelancer, other times as an employee.
+        </p>
+        <p>
+          Later I went to work at several startups and one big company. You can read more about that in the
+          <a href="/work" class="underline decoration-coral underline-offset-2 hover:text-coral">work</a> section.
+        </p>
+        <p>
+          I'm passionate about the web, coding, educating, teaching, mentoring, and talking about web
+          development in general. For my full origin story, check out:
+          <a
+            href="https://medium.com/the-hamato-yogi-chronichels/a-tale-of-an-elder-millennial-how-i-started-my-tech-journey-part-1-b07a339957d1"
+            target="_blank"
+            rel="noopener"
+            class="underline decoration-coral underline-offset-2 hover:text-coral"
+          >A Tale of An Elder Millennial ↗</a>
+        </p>
+        <p>
+          If you'd like to connect, reach out by
+          <a href="mailto:yoav.ganbar+contact@gmail.com" class="underline decoration-coral underline-offset-2 hover:text-coral">email</a>
+          or on any social channel. I promise to get back to you 🙂
+        </p>
+      </article>
+    </div>
+
+    <!-- Links -->
+    <div class="mt-10 flex flex-wrap gap-4">
+      <a
+        href="https://medium.com/@HamatoYogi"
+        target="_blank"
+        rel="noopener"
+        class="font-mono text-sm text-muted underline underline-offset-2 hover:text-coral dark:text-[#9A95A8]"
       >
-    </p>
-    <p>
-      I also co-organize the <ExternalLink
-        href="https://www.facebook.com/groups/next.js.israel"
-        withIcon>"Next.js Israel Community"</ExternalLink
-      > and <ExternalLink href="https://www.meetup.com/react-tlv/" withIcon
-        >"React TLV"</ExternalLink
-      >.
-    </p>
-
-    <p>
-      I'm passionate about the web, coding, educating, teaching, mentoring, and
-      talking about web development in general. I'm also the co-host of the <ExternalLink
-        href="https://anchor.fm/fedbites"
-        withIcon>FedBites Podcast</ExternalLink
-      > (which at some point I will continue 😅).
-    </p>
-    <p>
-      If you'd like to connect, feel free to reach out by <ExternalLink
-        href="mailto:yoav.ganbar+contact@gmail.com">email</ExternalLink
-      > or on any social channel. I promise to do my best to get back to you 🙂.
-    </p>
-  </article>
+        Medium ↗
+      </a>
+      <a
+        href="https://www.linkedin.com/in/yoav-ganbar/"
+        target="_blank"
+        rel="noopener"
+        class="font-mono text-sm text-muted underline underline-offset-2 hover:text-coral dark:text-[#9A95A8]"
+      >
+        LinkedIn ↗
+      </a>
+    </div>
+  </div>
 </BaseLayout>
-
-<style>
-  .link-card-grid {
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-  }
-</style>
