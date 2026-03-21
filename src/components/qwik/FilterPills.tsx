@@ -18,10 +18,23 @@ export const FilterPills = component$<Props>(({ options, targetAttr = 'data-cate
     const items = document.querySelectorAll('[data-filterable]');
     items.forEach((el) => {
       const cat = el.getAttribute(targetAttr) || '';
-      if (value === 'all' || cat === value) {
-        (el as HTMLElement).style.display = '';
+      const htmlEl = el as HTMLElement;
+      const isVisible = value === 'all' || cat === value;
+
+      if (isVisible) {
+        htmlEl.style.display = '';
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            htmlEl.style.opacity = '1';
+            htmlEl.style.transform = 'translateY(0) scale(1)';
+          });
+        });
       } else {
-        (el as HTMLElement).style.display = 'none';
+        htmlEl.style.opacity = '0';
+        htmlEl.style.transform = 'translateY(4px) scale(0.98)';
+        setTimeout(() => {
+          htmlEl.style.display = 'none';
+        }, 350);
       }
     });
   });
@@ -31,7 +44,7 @@ export const FilterPills = component$<Props>(({ options, targetAttr = 'data-cate
       <button
         onClick$={() => handleFilter('all')}
         class={[
-          'rounded-[var(--radius-sm)] border px-3 py-1.5 font-mono text-xs uppercase tracking-wide transition-colors',
+          'cursor-pointer rounded-[var(--radius-sm)] border px-3 py-1.5 font-mono text-xs uppercase tracking-wide transition-colors',
           active.value === 'all'
             ? 'border-ink bg-ink text-paper dark:border-[#F0ECE4] dark:bg-[#F0ECE4] dark:text-[#0F1117]'
             : 'border-border bg-surface text-muted hover:border-ink hover:text-ink dark:border-[#2A2D3E] dark:bg-[#1A1D2E] dark:text-[#9A95A8]',
@@ -44,7 +57,7 @@ export const FilterPills = component$<Props>(({ options, targetAttr = 'data-cate
           key={opt.value}
           onClick$={() => handleFilter(opt.value)}
           class={[
-            'rounded-[var(--radius-sm)] border px-3 py-1.5 font-mono text-xs uppercase tracking-wide transition-colors',
+            'cursor-pointer rounded-[var(--radius-sm)] border px-3 py-1.5 font-mono text-xs uppercase tracking-wide transition-colors',
             active.value === opt.value
               ? 'border-ink bg-ink text-paper dark:border-[#F0ECE4] dark:bg-[#F0ECE4] dark:text-[#0F1117]'
               : 'border-border bg-surface text-muted hover:border-ink hover:text-ink dark:border-[#2A2D3E] dark:bg-[#1A1D2E] dark:text-[#9A95A8]',
