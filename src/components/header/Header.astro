@@ -24,43 +24,42 @@ const currentPath = Astro.url.pathname;
       </span>
     </a>
 
-    <!-- Desktop nav -->
-    <nav class="hidden items-center gap-8 lg:flex">
-      {
-        links.map(({ href, text, ...rest }) => {
-          const isActive = currentPath === href || currentPath.startsWith(href + '/');
-          return (
-            <a
-              href={href}
-              {...rest}
-              class:list={[
-                'font-mono text-xs uppercase tracking-widest transition-colors',
-                isActive
-                  ? 'text-ink underline decoration-coral decoration-2 underline-offset-4 dark:text-[#F0ECE4]'
-                  : 'text-muted hover:text-ink dark:text-[#9A95A8] dark:hover:text-[#F0ECE4]',
-              ]}
-            >
-              {text}
-            </a>
-          );
-        })
-      }
-      <ThemeToggle />
-    </nav>
+    <div class="flex items-center gap-8">
+      <nav class="hidden items-center gap-8 lg:flex">
+        {
+          links.map(({ href, text, ...rest }) => {
+            const isActive = currentPath === href || currentPath.startsWith(href + '/');
+            return (
+              <a
+                href={href}
+                {...rest}
+                class:list={[
+                  'font-mono text-xs uppercase tracking-widest transition-colors',
+                  isActive
+                    ? 'text-ink underline decoration-coral decoration-2 underline-offset-4 dark:text-[#F0ECE4]'
+                    : 'text-muted hover:text-ink dark:text-[#9A95A8] dark:hover:text-[#F0ECE4]',
+                ]}
+              >
+                {text}
+              </a>
+            );
+          })
+        }
+      </nav>
 
-    <!-- Mobile controls -->
-    <div class="flex items-center gap-3 lg:hidden">
-      <ThemeToggle />
-      <button
-        class="hamburger hamburger--elastic relative z-20 flex items-center"
-        type="button"
-        role="navigation"
-        aria-label="navigation menu"
-      >
-        <span class="hamburger-box">
-          <span class="hamburger-inner"></span>
-        </span>
-      </button>
+      <div class="flex items-center gap-3">
+        <ThemeToggle />
+        <button
+          class="hamburger hamburger--elastic relative z-20 flex items-center lg:hidden"
+          type="button"
+          role="navigation"
+          aria-label="navigation menu"
+        >
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 

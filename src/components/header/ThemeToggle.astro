@@ -42,15 +42,18 @@
       return;
 
     // Change the icons inside the button based on previous settings
-    if (
+    const isDark =
       localStorage.getItem('color-theme') === 'dark' ||
       (!('color-theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      themeToggleLightIcon.classList.remove('hidden');
-    } else {
-      themeToggleDarkIcon.classList.remove('hidden');
-    }
+        window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    themeToggleLightIcon.classList.toggle('hidden', !isDark);
+    themeToggleDarkIcon.classList.toggle('hidden', isDark);
+
+    // astro:page-load also fires on the first load when view transitions are on,
+    // so a second pass must refresh icons without stacking another click handler.
+    if (themeToggleBtn.dataset.themeBound === 'true') return;
+    themeToggleBtn.dataset.themeBound = 'true';
 
     themeToggleBtn.addEventListener('click', function () {
       // toggle icons inside button

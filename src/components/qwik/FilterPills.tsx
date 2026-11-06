@@ -10,21 +10,33 @@ interface Props {
   targetAttr?: string; // data attribute to filter on, default 'data-category'
 }
 
+type Filterable = HTMLElement & {
+  _filterHideTimer?: number;
+  _filterToken?: number;
+};
+
 export const FilterPills = component$<Props>(({ options, targetAttr = 'data-category' }) => {
   const active = useSignal('all');
 
   const handleFilter = $((value: string) => {
     active.value = value;
-    const items = document.querySelectorAll('[data-filterable]');
-    items.forEach((el) => {
-      const cat = el.getAttribute(targetAttr) || '';
-      const htmlEl = el as HTMLElement;
+    const items = document.querySelectorAll<Filterable>('[data-filterable]');
+    items.forEach((htmlEl) => {
+      const cat = htmlEl.getAttribute(targetAttr) || '';
       const isVisible = value === 'all' || cat === value;
+      const token = (htmlEl._filterToken ?? 0) + 1;
+      htmlEl._filterToken = token;
+
+      if (htmlEl._filterHideTimer !== undefined) {
+        clearTimeout(htmlEl._filterHideTimer);
+        htmlEl._filterHideTimer = undefined;
+      }
 
       if (isVisible) {
         htmlEl.style.display = '';
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
+            if (htmlEl._filterToken !== token) return;
             htmlEl.style.opacity = '1';
             htmlEl.style.transform = 'translateY(0) scale(1)';
           });
@@ -32,7 +44,9 @@ export const FilterPills = component$<Props>(({ options, targetAttr = 'data-cate
       } else {
         htmlEl.style.opacity = '0';
         htmlEl.style.transform = 'translateY(4px) scale(0.98)';
-        setTimeout(() => {
+        htmlEl._filterHideTimer = window.setTimeout(() => {
+          htmlEl._filterHideTimer = undefined;
+          if (htmlEl._filterToken !== token) return;
           htmlEl.style.display = 'none';
         }, 350);
       }
