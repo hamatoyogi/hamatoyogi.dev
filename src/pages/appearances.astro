@@ -10,6 +10,7 @@ interface Appearance {
   when: string;
   title: string;
   link: string;
+  video?: string;
   type: AppearanceType;
 }
 
@@ -19,6 +20,7 @@ const list: Appearance[] = [
     when: 'Oct 19, 2026',
     title: 'Everyone Wants Jarvis. Nobody Knows How to Verify His Work.',
     link: 'https://luma.com/ax8q461b',
+    video: 'https://youtu.be/GjwQysa3z94?si=n0bgEbzR27kYAC1f',
     type: 'talk',
   },
   {
@@ -196,6 +198,7 @@ const filterOptions = [
           date={item.when}
           type={item.type}
           link={item.link}
+          video={item.video}
         />
       ))}
     </div>

@@ -5,9 +5,10 @@ export interface Props {
   date: string;
   type: 'talk' | 'podcast' | 'interview';
   link: string;
+  video?: string;
 }
 
-const { title, venue, date, type, link } = Astro.props;
+const { title, venue, date, type, link, video } = Astro.props;
 
 const typeConfig = {
   talk:      { label: 'TALK',      class: 'bg-[#FF5C3526] text-[#C0300A] dark:bg-[#FF5C3533] dark:text-[#FF7A5C]' },
@@ -20,25 +21,41 @@ const d = new Date(date);
 const monthYear = d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 ---
 
-<a
-  href={link}
-  target="_blank"
-  rel="noopener"
+<div
   data-filterable
   data-category={type}
-  class="group flex items-start justify-between gap-4 rounded-[var(--radius-md)] border border-border bg-surface px-4 py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md dark:border-[#2A2D3E] dark:bg-[#1A1D2E]"
+  class="group relative flex items-start justify-between gap-4 rounded-[var(--radius-md)] border border-border bg-surface px-4 py-4 transition-all duration-300 ease-in-out hover:-translate-y-0.5 hover:shadow-md dark:border-[#2A2D3E] dark:bg-[#1A1D2E]"
 >
   <div class="flex flex-col gap-1.5 min-w-0">
     <span class:list={['inline-block w-fit rounded-sm px-2 py-0.5 font-mono text-[11px] uppercase tracking-wide', cfg.class]}>
       {cfg.label}
     </span>
     <p class="font-jakarta text-base font-semibold text-ink leading-snug dark:text-[#F0ECE4]">
-      {title}
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener"
+        class="after:absolute after:inset-0 after:content-['']"
+      >
+        {title}
+      </a>
     </p>
     <p class="font-jakarta text-sm text-muted dark:text-[#9A95A8]">{venue}</p>
+    {
+      video && (
+        <a
+          href={video}
+          target="_blank"
+          rel="noopener"
+          class="relative z-10 w-fit font-mono text-xs uppercase tracking-wide text-coral hover:underline"
+        >
+          ▶ Watch the talk
+        </a>
+      )
+    }
   </div>
   <div class="flex flex-shrink-0 flex-col items-end gap-2 pt-0.5">
     <span class="font-mono text-xs text-muted dark:text-[#9A95A8]">{monthYear}</span>
     <span class="text-coral text-base leading-none">↗</span>
   </div>
-</a>
+</div>
