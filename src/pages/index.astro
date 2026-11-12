@@ -45,25 +45,43 @@ const typeConfig: Record<HighlightType, { label: string; accent: string; tagClas
 >
 
   <!-- ── Hero ───────────────────────────────────────────── -->
-  <section class="mx-auto px-[var(--space-page-x)] py-20" style="max-width: var(--max-w-wide)">
-    <div class="flex flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-16">
+  <section class="mx-auto px-[var(--space-page-x)] py-6 lg:py-20" style="max-width: var(--max-w-wide)">
+    <div class="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-16">
+
+      <!-- Portrait: compact card on top for mobile, to the right on desktop -->
+      <div class="relative order-first w-full flex-shrink-0 lg:order-none lg:w-auto">
+        <div
+          class="relative flex h-[210px] items-end justify-center overflow-hidden rounded-[var(--radius-lg)] lg:block lg:h-auto lg:overflow-visible lg:p-3"
+          style="background-color: #FFD23F;"
+        >
+          <Image
+            src={myImage}
+            format="webp"
+            width={280}
+            height={280}
+            alt="An illustration of Yoav Ganbar"
+            loading="eager"
+            class="-mb-6 h-auto w-[230px] lg:mb-0 lg:w-[280px] lg:rounded-[var(--radius-md)]"
+          />
+          <!-- Badge pills -->
+          <span class="absolute left-3 top-4 -rotate-3 rounded-full bg-coral px-3 py-1 font-mono text-xs text-white shadow-md lg:-left-6 lg:top-8">tech lead</span>
+          <span class="absolute right-3 top-12 rotate-2 rounded-full bg-teal px-3 py-1 font-mono text-xs text-white shadow-md lg:-right-6 lg:top-20">speaker</span>
+          <span class="absolute bottom-10 left-3 rotate-2 rounded-full bg-ink px-3 py-1 font-mono text-xs text-white shadow-md dark:bg-[#F0ECE4] dark:text-ink lg:-left-4 lg:bottom-12">community</span>
+          <span class="absolute bottom-4 right-3 -rotate-2 rounded-full bg-sunshine px-3 py-1 font-mono text-xs text-ink shadow-md lg:-right-4 lg:bottom-4">web / ai</span>
+        </div>
+      </div>
 
       <!-- Copy -->
-      <div class="flex flex-1 flex-col gap-6">
-        <p class="font-mono text-xs uppercase tracking-widest text-muted dark:text-[#9A95A8]">
-          Builder · Speaker · Community
-        </p>
-        <h1 class="font-syne text-3xl font-extrabold leading-tight text-ink dark:text-[#F0ECE4] lg:text-4xl xl:text-5xl">
-          I build for the web.<br />
-          I talk about it<br class="hidden sm:block" /> on stage.<br />
-          I bring people<br class="hidden sm:block" /> together.
+      <div class="flex flex-1 flex-col gap-5">
+        <h1 class="font-syne text-[2.6rem] font-extrabold leading-[1.05] text-ink dark:text-[#F0ECE4] sm:text-6xl lg:text-7xl">
+          Build.<br />
+          Speak.<br />
+          <span class="text-coral">Connect.</span>
         </h1>
         <p class="font-jakarta text-lg leading-relaxed text-muted dark:text-[#9A95A8]">
-          Senior engineer, conference speaker, and community organizer. I've spent years at
-          the intersection of modern web tech and developer communities — and AI just made
-          it more interesting.
+          I'm Yoav, a senior engineer, conference speaker &amp; community organizer.
         </p>
-        <div class="flex flex-wrap gap-4">
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
           <a
             href="mailto:yoav.ganbar+contact@gmail.com"
             class="inline-flex h-12 items-center rounded-[var(--radius-sm)] bg-coral px-6 font-jakarta font-semibold text-white transition-opacity hover:opacity-90"
@@ -77,29 +95,6 @@ const typeConfig: Record<HighlightType, { label: string; accent: string; tagClas
             See talks →
           </a>
         </div>
-      </div>
-
-      <!-- Portrait -->
-      <div class="relative flex-shrink-0">
-        <div
-          class="relative rounded-[var(--radius-lg)] p-3"
-          style="background-color: #FFD23F;"
-        >
-          <Image
-            src={myImage}
-            format="webp"
-            width={280}
-            height={280}
-            alt="An illustration of Yoav Ganbar"
-            loading="eager"
-            class="rounded-[var(--radius-md)]"
-          />
-        </div>
-        <!-- Badge pills -->
-        <span class="absolute -left-6 top-8 -rotate-3 rounded-full bg-coral px-3 py-1 font-mono text-xs text-white shadow-md">tech lead</span>
-        <span class="absolute -right-6 top-20 rotate-2 rounded-full bg-teal px-3 py-1 font-mono text-xs text-white shadow-md">speaker</span>
-        <span class="absolute -left-4 bottom-12 rotate-2 rounded-full bg-ink px-3 py-1 font-mono text-xs text-white shadow-md dark:bg-[#F0ECE4] dark:text-ink">community</span>
-        <span class="absolute -right-4 bottom-4 -rotate-2 rounded-full bg-sunshine px-3 py-1 font-mono text-xs text-ink shadow-md">web / ai</span>
       </div>
 
     </div>
