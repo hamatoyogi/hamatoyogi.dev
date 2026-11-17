@@ -33,7 +33,7 @@
     "@fontsource/syne": "^5.2.7",
     "@qwikdev/astro": "^0.8.3",
     "@tailwindcss/vite": "^4.2.1",
-    "@vercel/analytics": "^1.6.1",
+    "@vercel/analytics": "^2.0.1",
     "astro-compress": "^2.3.9",
     "astro-seo": "^1.1.0",
     "tailwindcss": "^4.2.1",
